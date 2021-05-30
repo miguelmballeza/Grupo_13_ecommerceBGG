@@ -23,3 +23,9 @@ Los siguiente sitios fueron elegidos por los productos que ofrecen, el público 
 https://recordsale.de/en
 
 https://www.discogs.com/sell/list
+
+https://www.lacasadeldisco.es/
+
+https://vinilos.mx/
+
+https://thesoundofvinyl.us/
