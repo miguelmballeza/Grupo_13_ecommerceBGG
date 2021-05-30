@@ -13,6 +13,10 @@ Miguel Angel Molina Balleza .- Soy un estudiante de la Carrera de Ingeniería en
 término en este año 😃 , me gusta muchísimo el Mundo del Desarrollo en General, me encuentro en la grandiosa tarea de encontrar mi nicho en el mismo; 
 tiendo a ser muy entusiasta y me esmero mucho para alcanzar mis metas a Corto y Largo plazo. 😎
 
+Jose Alejandro Gomez Trapero .- Soy estudiando de Ingenieria Mecatronica de la UABC y si todo sale bien, este año termino mi carrera.
+Soy relativamente nuevo en esto de desarrollo ya que descubrí el desarrollo web hace apenas 6 meses por lo que no tengo mucha experiencia per si muchas ganas de aprender.
+Lo poco que he visto me ha gustado pero creo que si tuviera que escoger entre el fronted y backend me quedaria con el backend.
+
 5 Sitios de Referencia para el Desarrollo del Proyecto : 
 Los siguiente sitios fueron elegidos por los productos que ofrecen, el público al que va dirigido y por su estética .-
 
