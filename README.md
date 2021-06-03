@@ -23,6 +23,7 @@ Alejandro Guzmán Rivera .- Soy egresado de la carrera de Publicidad y Relacione
  maestro en Economía Ambiental y Ecológica por la Universidad Veracruzana. Aunque soy un novato, disfruto mucho aprender cosas nuevas y más recientemente, programar. 
 Espero poder desarrollar esta habilidad al máximo durante este periodo.
 
+
 5 Sitios de Referencia para el Desarrollo del Proyecto : 
 Los siguiente sitios fueron elegidos por los productos que ofrecen, el público al que va dirigido y por su estética .-
 
