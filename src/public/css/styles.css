@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-header {
+    display: flex;
+    padding: 10px;
+    border: 2px black solid;
+    min-width: 360px;
+    max-width: 576px;
+    color: black;
+}
+
+.hamburguer-button {
+    font-size:28px;
+    color: black;
+    padding: 5px;
+}
+
+.logo {
+    display: inline-block;
+    font-size:28px;
+    padding: 5px;
+    color: black;
+    margin : 0 18% 0 35%;
+    flex-grow: 1;
+}
+
+.search {
+    font-size:28px;
+    padding: 5px;
+    color: #4b88e4;
+}
+
+.cart {
+    font-size:28px;
+    padding: 5px;
+    margin: 0 0 0 10px;
+    color: rgb(163, 158, 158);
+}
+
+.first-section {
+    background-image: url('/images/fondoPrincipal.jpg');
+    background-size: cover;
+    height: 600px;
+}
+
+#principal-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #afb13b;
+    text-align: center;
+    margin: 0 0 10px 0;
+    padding: 10px 0;
+}
+
+.paragraph {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: #24cc8c;
+    text-align: center;
+}
