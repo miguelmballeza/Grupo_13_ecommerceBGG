@@ -42,3 +42,8 @@ https://es.wix.com/website-template/view/html/1612?siteId=17ec5e01-64cd-4077-aa3
 https://es.wix.com/website-template/view/html/2357?siteId=60ee6b15-e0e7-474a-80a3-[…]x.com%2Fwebsite%2Ftemplates%2Fhtml%2Fonline-store%2Felectronics
 
 https://es.wix.com/website-template/view/html/1633?siteId=f52fc1cd-22a1-499f-981c-[…]%3A%2F%2Fes.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fonline-store
+
+
+Enlace de nuestro tablero de trabajo en Trello :
+https://trello.com/b/VtTaxAo9/e-commercebgg
+
