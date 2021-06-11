@@ -1,0 +1,136 @@
+* {
+  margin: 0px 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background-color: green;
+  box-sizing: border-box;
+  border: 1px solid;
+  height: 30px;
+  width: 100%;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 12px;
+  text-align: center;
+  margin-bottom: 6px;
+  color: white;
+}
+.banner-fondo {
+  position: absolute;
+  background-color: #62c5e8;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: grayscale(0.4) brightness(0.85);
+  transition: 0.5s linear;
+  transition: filter 0.5s linear;
+  transition: filter 0.5s linear;
+}
+.banner-fondo-img {
+  background-image: url("../images/louisarmstrong.jpg");
+  transform: scale(1.2);
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(20px);
+}
+.container {
+  position: relative;
+  z-index: 1;
+  margin: 0 24px;
+  width: auto;
+}
+.banner-header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.banner-header a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+}
+.banner-albumName {
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0 0 24px;
+  max-width: 650px;
+}
+.banner-artistName {
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0 0 8px;
+  text-transform: none;
+}
+.banner-preview {
+  max-width: 50%;
+  height: 152px;
+  display: inline-block;
+}
+.banner-preview img {
+  border-radius: 6px;
+  width: 152px;
+  height: 152px;
+}
+.banner-year {
+  font-size: 24px;
+  line-height: 15px;
+  margin: 6px 0 24px;
+  color: white;
+}
+.agregar {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+  font-size: 20px;
+}
+.precio {
+  width: 30%;
+  height: 30%;
+  text-align: center;
+}
+.carrito {
+  align-items: center;
+  text-align: center;
+}
+button {
+  width: 80%;
+  height: 100%;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+.lista {
+  margin-top: 10%;
+  text-align: center;
+  font-size: 140%;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.cancion {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 2% 0;
+  width: 80%;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* text-align: center; */
+}
