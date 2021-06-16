@@ -39,21 +39,22 @@ body {
 }
 
 .album {
-  width: 85px;
-  height: 85px;
-  border: 1px solid black;
+  /* width: 30%; */
+  height: 75%;
   display: inline-block;
-  padding: 3px 3px;
+  padding-top: 3px;
   border-radius: 15px;
+  align-items: center;
 }
 .img {
-  height: 85px;
-  width: 85px;
+  width: 97px;
+  height: 90%;
+  border: 1px solid black;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 .info {
   margin: 15px;
-  /* border: 1px solid green; */
   text-align: center;
 }
 .datos {
@@ -61,12 +62,11 @@ body {
 }
 .cantidad {
   margin: 15px;
-  /* border: 1px solid green; */
   text-align: center;
 }
-.cantidad input {
+.cantidad select {
   margin-top: 10px;
-  width: 25px;
+  width: 70%;
   border-radius: 5px;
 }
 .eliminar {
@@ -79,7 +79,6 @@ body {
 }
 
 .cupon {
-  /* border: 1px solid black; */
   text-align: center;
   width: 80%;
   margin: 10% auto;
@@ -96,9 +95,11 @@ body {
   display: flex;
   justify-content: space-around;
 }
+.codigo input {
+  text-align: center;
+}
 
 .subtotal {
-  /* border: 1px solid black; */
   text-align: center;
   width: 80%;
   margin: 10% auto;
@@ -111,7 +112,68 @@ body {
   border-radius: 15px;
   display: flex;
   justify-content: space-around;
-  /* width: 90%; */
   margin: 0 auto;
   padding: 4% 0;
+}
+
+@media (min-width:577px) {
+  .encabezado p{
+    font-size: 30px;
+  }
+  .encabezado img{
+    width: 28px;
+    height: 28px;
+  }
+  .album {
+    width: 15%;
+  }
+  .contenido {
+    font-size: 20px;
+  }
+  .img {
+    width: 106px;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  .cupon {
+    font-size: 20px;
+  }
+  .codigo input {
+    width: 30%;
+    font-size: 16px;
+    text-align: center;
+  }
+  .codigo button {
+    font-size: 16px;
+  }
+  .subtotal{
+    font-size: 20px;
+  }
+  .subtotal button{
+    font-size: 16px;
+  }
+
+}
+@media (min-width:992px) {
+  .cuerpo {
+    display: flex;
+    flex-direction: column;
+  }
+  .prueba {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .cupon {
+    width: 40%;
+  }
+  .subtotal {
+    width: 40%;
+  }
+  .codigo input{
+    width: 40%;
+    height: 25px;
+  }
 }

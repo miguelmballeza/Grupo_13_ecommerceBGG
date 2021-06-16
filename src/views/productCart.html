@@ -15,10 +15,18 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/c1014e3fce.js" crossorigin="anonymous"></script>
     <title>Carrito</title>
   </head>
   <body>
-    <div class="navbar">Aqui debe ir el navbar</div>
+    <header class="main-header">
+      <a class="hamburguer-button" href="#"><i class="fas fa-bars"></i></a>
+      <a class="logo" href="#"><i class="fas fa-compact-disc"></i></a>
+      <a class="search" href="#"><i class="fas fa-search"></i></a>
+      <a class="cart" href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+  </header>
+    <!-- <div class="navbar">Aqui debe ir el navbar</div> -->
     <div class="cuerpo">
       <div class="encabezado">
         <img src="/icons/carrito-de-compras.svg" width="22px" height="22px" />
@@ -35,25 +43,38 @@
         </div>
         <div class="cantidad">
           <p>cantidad</p>
-          <input type="number" placeholder="1" />
+          <select name="" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
           <br />
           <img class="eliminar" src="/icons/eliminar.svg" alt="" />
         </div>
       </div>
-      <div class="cupon">
-        <h2>Cupón</h2>
-        <br />
-        <div class="codigo">
-          <input type="text" placeholder="ingresa el cupón" />
-          <button>Aplicar</button>
+      <div class="prueba">
+        <div class="cupon">
+          <h2>Cupón</h2>
+          <br />
+          <div class="codigo">
+            <input type="text" placeholder="ingresa el cupón" />
+            <button>Aplicar</button>
+          </div>
         </div>
-      </div>
-      <div class="subtotal">
-        <h2>Subtotal</h2>
-        <br />
-        <div class="precio">
-          <p><strong>$12.34</strong></p>
-          <button>Aplicar</button>
+        <div class="subtotal">
+          <h2>Subtotal</h2>
+          <br />
+          <div class="precio">
+            <p><strong>$12.34</strong></p>
+            <button>Aplicar</button>
+          </div>
         </div>
       </div>
     </div>
