@@ -72,10 +72,10 @@ body {
 .eliminar {
   margin-top: 15px;
   width: 25px;
-  width: 25px;
+  font-size: 24px;
 }
 .eliminar:hover {
-  fill: blueviolet;
+  color: red;
 }
 
 .cupon {
@@ -115,6 +115,33 @@ body {
   margin: 0 auto;
   padding: 4% 0;
 }
+input {
+  border-radius: 20px;
+}
+
+button {
+  border-radius: 20px;
+  background-color: white;
+}
+
+.precio button:hover{
+  /* background-color: #6B8F71; */
+  /* background-color: #00CC99; */
+  background-color: limegreen;
+  color: white;
+}
+.codigo button:hover{
+  /* background-color: #6B8F71; */
+  /* background-color: #00CC99; */
+  background-color: #586994;
+  color: white;
+}
+
+@media (max-width:380px) {
+.contenido{
+  width: 90%;
+}
+}
 
 @media (min-width:577px) {
   .encabezado p{
@@ -129,6 +156,7 @@ body {
   }
   .contenido {
     font-size: 20px;
+    width: 80%;
   }
   .img {
     width: 106px;
@@ -163,8 +191,7 @@ body {
   }
   .prueba {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
   }
   .cupon {
     width: 40%;
@@ -176,4 +203,22 @@ body {
     width: 40%;
     height: 25px;
   }
+  .contenido {
+    width: 800px;
+  }
+  
+  .prueba .cupon, .prueba .subtotal {
+    width: 400px;
+    margin: 50px 75px
+  }
 }
+
+/* @media (min-width:1100px) {
+  .contenido {
+    width: 1000px;
+  }
+  
+  .prueba .cupon, .prueba .subtotal {
+    width: 480px;
+  }
+} */
