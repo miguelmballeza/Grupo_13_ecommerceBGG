@@ -1,6 +1,6 @@
 * {
   margin: 0px 0px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
 }
 
 .navbar {
@@ -18,7 +18,14 @@
   text-align: center;
   margin-bottom: 6px;
   color: white;
+  position: relative;
+  z-index: 1;
 }
+
+.banner h1{
+  text-transform: uppercase;
+}
+
 .banner-fondo {
   position: absolute;
   background-color: #62c5e8;
@@ -29,8 +36,8 @@
   filter: grayscale(0.4) brightness(0.85);
   transition: 0.5s linear;
   transition: filter 0.5s linear;
-  transition: filter 0.5s linear;
 }
+
 .banner-fondo-img {
   background-image: url("../images/louisarmstrong.jpg");
   transform: scale(1.2);
@@ -43,29 +50,34 @@
   bottom: 0;
   filter: blur(20px);
 }
+
 .container {
   position: relative;
   z-index: 1;
   margin: 0 24px;
   width: auto;
+  color: white;
 }
+
 .banner-header {
   display: flex;
   flex-direction: column-reverse;
 }
+
 .banner-header a {
   font-size: 24px;
   color: white;
   text-decoration: none;
 }
+
 .banner-albumName {
-  font-size: 32px;
+  font-size: 24px;
   letter-spacing: 0;
   line-height: 1.25;
   font-weight: 400;
   margin: 0 0 24px;
-  max-width: 650px;
 }
+
 .banner-artistName {
   font-size: 14px;
   letter-spacing: 0;
@@ -74,37 +86,43 @@
   margin: 0 0 8px;
   text-transform: none;
 }
+
 .banner-preview {
   max-width: 50%;
   height: 152px;
   display: inline-block;
 }
+
 .banner-preview img {
   border-radius: 6px;
   width: 152px;
   height: 152px;
 }
+
 .banner-year {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 15px;
   margin: 6px 0 24px;
-  color: white;
 }
+
 .agregar {
   display: flex;
   justify-content: space-around;
   margin-top: 5%;
   font-size: 20px;
 }
+
 .precio {
   width: 30%;
   height: 30%;
   text-align: center;
 }
+
 .carrito {
   align-items: center;
   text-align: center;
 }
+
 button {
   width: 80%;
   height: 100%;
@@ -132,5 +150,52 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* text-align: center; */
+}
+
+
+@media (min-width:740px) {
+
+  .banner-header, .banner-aditional  {
+    float: right;
+    width: 75%;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  .banner-header a{
+    font-size: 20px;
+  }
+  
+  .banner-albumName {
+    font-size: 32px;
+  }
+  
+  .banner-preview {
+    float: left;
+    width: 25%;
+    height: 168px;
+  }
+
+  .container {
+    width: 720px;
+    margin: 0 auto;
+  }
+
+  .banner-preview img{
+    width: 172px;
+    height: 172px;
+  }
+
+}
+
+
+@media (min-width:1000px) {
+  
+  .container{
+    width: 960px;
+  }  
+
+  .banner-header a{
+    font-size: 20px;
+  }
 }
