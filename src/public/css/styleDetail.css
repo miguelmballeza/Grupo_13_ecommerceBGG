@@ -39,7 +39,7 @@
 }
 
 .banner-fondo-img {
-  background-image: url("../images/louisarmstrong.jpg");
+  background-image: url("../images/greenvelvet.jpg");
   transform: scale(1.2);
   background-position: center;
   position: absolute;
@@ -86,7 +86,9 @@
   margin: 0 0 8px;
   text-transform: none;
 }
-
+h2 .banner-artistName a{
+  text-align: left;
+}
 .banner-preview {
   max-width: 50%;
   height: 152px;
