@@ -3,6 +3,7 @@ const { homedir } = require('os');
 const app = express();
 const path = require('path');
 const publicPATH = path.resolve(__dirname, './public');
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(publicPATH));
 
@@ -26,6 +27,6 @@ app.get('/inicio-de-sesion', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/login.html'));
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('El servidor se esta ejecutando en el Puerto 3000.');
 });
