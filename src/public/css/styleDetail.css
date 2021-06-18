@@ -107,9 +107,11 @@
 
 .agregar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 5%;
   font-size: 20px;
+  /* margin-right: 5%; */
+  
 }
 
 .precio {
@@ -121,6 +123,18 @@
 .carrito {
   align-items: center;
   text-align: center;
+  width: 30%;
+}
+
+.carrito button{
+  border-radius: 20px;
+  background-color: #E9B44C;
+  width: 110px;
+}
+
+.carrito button:hover{
+  background-color: #CA5310;
+  color: white;
 }
 
 button {
@@ -132,7 +146,7 @@ button {
 }
 
 .lista {
-  margin-top: 10%;
+  margin-top: 30px;
   text-align: center;
   font-size: 140%;
   align-items: center;
@@ -186,11 +200,17 @@ button {
     height: 172px;
   }
 
+  .cancion{
+    margin: 10px 0;
+  }
 }
 
 
 @media (min-width:1000px) {
   
+  .cancion{
+    width: 800px;
+  }
   .container{
     width: 960px;
   }  
@@ -198,4 +218,28 @@ button {
   .banner-header a{
     font-size: 20px;
   }
+}
+
+@media (min-width:1300px) {
+  
+  .container{
+    width: 1260px;
+  }  
+
+}
+
+
+@media (min-width:1500px) {
+  
+  .container{
+    width: 1460px;
+  }  
+
+}
+
+@media (min-width:1800px) {
+  
+  .container{
+    width: 1760px;
+  }  
 }
