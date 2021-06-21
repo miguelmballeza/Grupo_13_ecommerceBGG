@@ -1,0 +1,224 @@
+* {
+  margin: 0px 0px;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  width: 100vw;
+}
+.navbar {
+  background-color: green;
+  box-sizing: border-box;
+  border: 1px solid red;
+  height: 30px;
+  width: 100%;
+}
+
+.encabezado {
+  text-align: center;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.encabezado p {
+  display: inline-block;
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+.contenido {
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 150px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.album {
+  /* width: 30%; */
+  height: 75%;
+  display: inline-block;
+  padding-top: 3px;
+  border-radius: 15px;
+  align-items: center;
+}
+.img {
+  width: 97px;
+  height: 90%;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.info {
+  margin: 15px;
+  text-align: center;
+}
+.datos {
+  margin-bottom: 10px;
+}
+.cantidad {
+  margin: 15px;
+  text-align: center;
+}
+.cantidad select {
+  margin-top: 10px;
+  width: 70%;
+  border-radius: 5px;
+}
+.eliminar {
+  margin-top: 15px;
+  width: 25px;
+  font-size: 24px;
+}
+.eliminar:hover {
+  color: red;
+}
+
+.cupon {
+  text-align: center;
+  width: 80%;
+  margin: 10% auto;
+  padding-bottom: 3%;
+  box-sizing: border-box;
+}
+
+.codigo {
+  border: 1px solid black;
+  border-radius: 15px;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 4% 0;
+  display: flex;
+  justify-content: space-around;
+}
+.codigo input {
+  text-align: center;
+}
+
+.subtotal {
+  text-align: center;
+  width: 80%;
+  margin: 10% auto;
+  padding-bottom: 3%;
+  box-sizing: border-box;
+}
+
+.precio {
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 4% 0;
+}
+input {
+  border-radius: 20px;
+}
+
+button {
+  border-radius: 20px;
+  background-color: white;
+}
+
+.precio button:hover{
+  /* background-color: #6B8F71; */
+  /* background-color: #00CC99; */
+  background-color: limegreen;
+  color: white;
+}
+.codigo button:hover{
+  /* background-color: #6B8F71; */
+  /* background-color: #00CC99; */
+  background-color: #586994;
+  color: white;
+}
+
+@media (max-width:380px) {
+.contenido{
+  width: 90%;
+}
+}
+
+@media (min-width:577px) {
+  .encabezado p{
+    font-size: 30px;
+  }
+  .encabezado img{
+    width: 28px;
+    height: 28px;
+  }
+  .album {
+    width: 15%;
+  }
+  .contenido {
+    font-size: 20px;
+    width: 80%;
+  }
+  .img {
+    width: 106px;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  .cupon {
+    font-size: 20px;
+  }
+  .codigo input {
+    width: 30%;
+    font-size: 16px;
+    text-align: center;
+  }
+  .codigo button {
+    font-size: 16px;
+  }
+  .subtotal{
+    font-size: 20px;
+  }
+  .subtotal button{
+    font-size: 16px;
+  }
+
+}
+@media (min-width:992px) {
+  .cuerpo {
+    display: flex;
+    flex-direction: column;
+  }
+  .prueba {
+    display: flex;
+    justify-content: center;
+  }
+  .cupon {
+    width: 40%;
+  }
+  .subtotal {
+    width: 40%;
+  }
+  .codigo input{
+    width: 40%;
+    height: 25px;
+  }
+  .contenido {
+    width: 800px;
+  }
+  
+  .prueba .cupon, .prueba .subtotal {
+    width: 400px;
+    margin: 50px 75px
+  }
+}
+
+/* @media (min-width:1100px) {
+  .contenido {
+    width: 1000px;
+  }
+  
+  .prueba .cupon, .prueba .subtotal {
+    width: 480px;
+  }
+} */
