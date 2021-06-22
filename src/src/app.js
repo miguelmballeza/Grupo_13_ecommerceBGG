@@ -1,30 +1,29 @@
 const express = require('express');
-const { homedir } = require('os');
 const app = express();
 const path = require('path');
-const publicPATH = path.resolve(__dirname, './public');
+const publicPATH = path.resolve(__dirname, '../public');
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(publicPATH));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
+    res.sendFile(path.resolve(__dirname, './views/main/index.html'));
 });
 
 app.get('/detalle-del-producto', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productDetail.html'));
+    res.sendFile(path.resolve(__dirname, './views/products/productDetail.html'));
 });
 
 app.get('/carrito-de-compras', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productCart.html'));
+    res.sendFile(path.resolve(__dirname, './views/products/productCart.html'));
 });
 
 app.get('/registro', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/register.html'));
+    res.sendFile(path.resolve(__dirname, './views/users/register.html'));
 });
 
 app.get('/inicio-de-sesion', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/login.html'));
+    res.sendFile(path.resolve(__dirname, './views/users/login.html'));
 });
 
 app.listen(PORT, () => {
