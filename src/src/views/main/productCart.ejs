@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styleDetail.css" />
+    <link rel="stylesheet" href="css/styleCart.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
@@ -15,9 +15,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-      <link rel="stylesheet" href="/css/styles.css">
-      <script src="https://kit.fontawesome.com/c1014e3fce.js" crossorigin="anonymous"></script>
-    <title>Producto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/c1014e3fce.js" crossorigin="anonymous"></script>
+    <title>Carrito</title>
   </head>
   <body>
     <header class="main-header">
@@ -25,79 +25,72 @@
       <a class="logo" href="/"><img class="BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->
       <div><input type="text" class="seeker"></div>
       <a class="search" href="#"><i class="fas fa-search"></i></a>
-      <a href="/registro" class="user"><i class="far fa-user"></i></a>
+      <a href="/usuario/registro" class="user"><i class="far fa-user"></i></a>
       <a class="cart" href="/carrito-de-compras"><i class="fas fa-shopping-cart"></i></a>
     </header>
     <section class="menu">
       <ul id="menu-list">
           <li id="menu-item">Iniciar Sesión</li>
           <li id="menu-item">Registrarse</li>
+          <!-- <li id="menu-item">Item Tres</li>
+          <li id="menu-item">Item Cuatro</li>-->
       </ul>
     </section>
     <section class="searcher">
       <input type="text" id="searcher-field">
       <button id="search-field-item"><i class="fas fa-search"></i></button>
     </section>
-  
-    <div class="banner">
-      <div class="banner-fondo">
-        <div class="banner-fondo-img"></div>
+    
+    <div class="cuerpo">
+      <div class="encabezado">
+        <img src="/icons/carrito-de-compras.svg" width="22px" height="22px" />
+        <p>Carrito</p>
       </div>
-      <div class="container">
-        <div class="banner-header">
-          <h1 class="banner-albumName">Album</h1>
-          <label class="banner-artistName">
-            <a href="#">artista</a>
-          </label>
+      <div class="contenido">
+        <div class="album info">
+          <a href="/detalle-del-producto"><img class="img" src="images/greenvelvet.jpg" alt="" /></a>
         </div>
-        <div class="banner-preview">
-          <img src="/images/greenvelvet.jpg" alt="" />
+        <div class="info">
+          <h2 class="datos">Titulo</h2>
+          <p class="datos">artista</p>
+          <p class="datos"><strong>$12.34</strong></p>
         </div>
-        <div class="banner-aditional">
-          <div class="banner-year"><p><date>1999</date></p></div>
+        <div class="cantidad">
+          <label for="cantidad-discos">cantidad</label>
+          <select name="cantidad-discos" id="cantidad-discos">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <br />
+          <!-- <img class="eliminar" src="/icons/eliminar.svg" alt="" /> -->
+          <i class="far fa-trash-alt eliminar"></i>
         </div>
       </div>
-    </div>
-    <div class="agregar">
-      <div class="precio">
-        <p>Precio</p>
-        <p><strong>$12.34</strong></p>
-      </div>
-      <div class="carrito">
-        <button>Agregar al carrito</button>
-      </div>
-    </div>
-    <div class="lista">
-      <h2>Canciones</h2>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
+      <div class="prueba">
+        <div class="cupon">
+          <h2>Cupón</h2>
+          <br />
+          <div class="codigo">
+            <input type="text" placeholder="ingresa el cupón" />
+            <button>Aplicar</button>
+          </div>
+        </div>
+        <div class="subtotal">
+          <h2>Subtotal</h2>
+          <br />
+          <div class="precio">
+            <p><strong>$12.34</strong></p>
+            <button>Pagar</button>
+          </div>
+        </div>
       </div>
     </div>
     <footer class="foot">
