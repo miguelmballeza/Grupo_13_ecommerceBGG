@@ -7,34 +7,14 @@
     <title>Página de Inicio</title>
     <!-- Tipografía -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-    <!-- Normative.css Para que nuestros estilos y seteos en los docs HTML, y asi hacer que los elementos HTML se muestren constantes y homogeneos en los diferentes navegadores web. No es obligatorio usarla siempre, pero es recomendada.-->
-    <link rel="stylesheet" href="/css/normalize.css">
     <!-- Vínculo con su Hoja de Estilo o hojas, vinculamos nuestra hoja de estilo CSS para hacer relación con los respectivos HTML eLements de acuerdo a los 5 diferentes selectores que podemos llgar a usar por clasificación -->
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/header-footer.css">
     <!-- Vinculo de Images con FontAwesone -->
     <script src="https://kit.fontawesome.com/c1014e3fce.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="main-header">
-        <a class="hamburguer-button" href="#"><i class="fas fa-bars"></i></a>
-        <a class="logo" href="/"><img class="BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->
-        <input type="text" class="seeker">
-        <a class="search" href="#"><i class="fas fa-search"></i></a>
-        <a href="/usuario/registro" class="user"><i class="far fa-user"></i></a>
-        <a class="cart" href="/carrito-de-compras"><i class="fas fa-shopping-cart"></i></a>
-    </header>
-    <section class="menu">
-        <ul id="menu-list">
-            <li id="menu-item">Iniciar Sesión</li>
-            <li id="menu-item">Registrarse</li>
-            <!-- <li id="menu-item">Item Tres</li>
-            <li id="menu-item">Item Cuatro</li>-->
-        </ul>
-    </section>
-    <section class="searcher">
-        <input type="text" id="searcher-field">
-        <button id="search-field-item"><i class="fas fa-search"></i></button>
-    </section>
+    <%- include('../partials/header') %>
     <section class="first-section">
         <div class="title-paragraph-and-elements-until-992">
             <div class="title-paragraph-until-992">
@@ -82,42 +62,6 @@
             <a href="/productos/1">ir a la colección ---></a>
         </article>
     </section>
-    <footer class="foot">
-        <div id="footer-desktop-view">
-            <div id="logo-social-networks">
-                <img id="BMGfoot" src="/images/logoBMG-blanco.png" alt="Logo del Sitio E-commerceBGG">
-                <article class="social-networks">
-                    <a href="#" class="social-logo" id="facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-logo" id="twitter"><i class="fab fa-twitter-square"></i></i></a>
-                    <a href="#" class="social-logo" id="instagram"><i class="fab fa-instagram"></i></i></a>
-                </article>
-            </div>
-            <div class="extra-info" id="first">
-                        <h3>Título de la Sección 1</h3>
-                        <ul class="unordered-list">
-                            <li>Elemento 1</li>
-                            <li>Elemento 2</li>
-                            <li>Elemento 3</li>
-                        </ul>
-            </div>
-            <div class="extra-info" id="second">
-                        <h3>Título de la Sección 2</h3>
-                        <ul class="unordered-list">
-                            <li>Elemento 1</li>
-                            <li>Elemento 2</li>
-                            <li>Elemento 3</li>
-                        </ul>
-            </div>
-            <div class="extra-info" id="third">
-                        <h3>Título de la Sección 3</h3>
-                        <ul class="unordered-list">
-                            <li>Elemento 1</li>
-                            <li>Elemento 2</li>
-                            <li>Elemento 3</li>
-                        </ul>
-            </div>
-        </div>
-        <h2>@2021 by BMG Records. Todos los Derechos Reservados.</h2>
-    </footer>
+    <%- include('../partials/footer') %>
 </body>
 </html>

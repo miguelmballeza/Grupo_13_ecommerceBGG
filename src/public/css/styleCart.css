@@ -2,9 +2,11 @@
   margin: 0px 0px;
   font-family: "Roboto", sans-serif;
 }
+
 body {
   width: 100vw;
 }
+
 .navbar {
   background-color: green;
   box-sizing: border-box;
@@ -46,6 +48,7 @@ body {
   border-radius: 15px;
   align-items: center;
 }
+
 .img {
   width: 97px;
   height: 90%;
@@ -115,6 +118,7 @@ body {
   margin: 0 auto;
   padding: 4% 0;
 }
+
 input {
   border-radius: 20px;
 }
@@ -130,6 +134,7 @@ button {
   background-color: limegreen;
   color: white;
 }
+
 .codigo button:hover{
   /* background-color: #6B8F71; */
   /* background-color: #00CC99; */
@@ -138,26 +143,33 @@ button {
 }
 
 @media (max-width:380px) {
-.contenido{
-  width: 90%;
-}
+
+  .contenido{
+    width: 90%;
+  }
+
 }
 
 @media (min-width:577px) {
+
   .encabezado p{
     font-size: 30px;
   }
+
   .encabezado img{
     width: 28px;
     height: 28px;
   }
+
   .album {
     width: 15%;
   }
+
   .contenido {
     font-size: 20px;
     width: 80%;
   }
+
   .img {
     width: 106px;
     height: 100%;
@@ -165,20 +177,25 @@ button {
     border-radius: 10px;
     box-sizing: border-box;
   }
+
   .cupon {
     font-size: 20px;
   }
+
   .codigo input {
     width: 30%;
     font-size: 16px;
     text-align: center;
   }
+
   .codigo button {
     font-size: 16px;
   }
+
   .subtotal{
     font-size: 20px;
   }
+  
   .subtotal button{
     font-size: 16px;
   }
