@@ -1,9 +1,17 @@
 const mainController = {
     main: function(req, res) {
-        res.render('main/index');
+        const head = {
+            title: "Inicio",
+            styleSheet: "/css/styles.css",
+        };
+        res.render('main/index', {head: head});
     },
     cart: function(req, res) {
-        res.render('main/productCart');
+        const head = {
+            title: "Carrito",
+            styleSheet: "/css/stylesCart.css",
+        };
+        res.render('main/productCart', {head: head});
     },
 };
 
