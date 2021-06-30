@@ -111,6 +111,23 @@ textarea:focus, textarea:hover{
     color: white;
 }
 
+#search {
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    color: grey;
+    display: inline-block;
+    border-radius: 25px;
+    width: 110px;
+    height: 40px;
+    border: 1px black solid;
+}
+
+#search:hover {
+    background-color: black;
+    color: white;
+}
+
 @media (min-width: 576px){
     .product-edit{
         max-width: 450px;
