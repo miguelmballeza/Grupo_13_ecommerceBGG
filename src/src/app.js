@@ -1,14 +1,20 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const routers = require('./routes/');
+const methodOverride = require('method-override');
+
+const app = express();
+
 const publicPATH = path.resolve(__dirname, '../public');
 const viewsPATH = path.resolve(__dirname, './views');
 const PORT = process.env.PORT || 3000;
-const routers = require('./routes/');
 
 app.use(express.static(publicPATH));
 app.set('view engine', 'ejs');
 app.set('views', viewsPATH);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(methodOverride('_method'));
 
 app.use('/', routers.mainRouter);
 

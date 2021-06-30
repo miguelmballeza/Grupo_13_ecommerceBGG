@@ -11,7 +11,16 @@ const productsController = {
             title: "Detalle del Producto",
             styleSheet: "/css/stylesDetail.css",
         };
-        res.render('products/productDetail', {head: head});
+        try{
+            let id = parseInt(req.params.id);
+            if(id>0){
+                res.render('products/productDetail', { head : head, id : id });
+            } else {
+                res.send('Producto no encontrado :(');
+            }
+        } catch(error) {
+            res.send('Error en la carga del Producto.');
+        }
     },
     createProduct: function(req, res) {
         const head = {
