@@ -1,6 +1,7 @@
 * {
   margin: 0px 0px;
   font-family: "Roboto";
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -217,6 +218,10 @@ button {
     width: 960px;
   }  
 
+  .banner-header, .banner-aditional {
+    padding-left: 0px;
+  }
+
   .banner-header a{
     font-size: 20px;
   }
@@ -244,4 +249,7 @@ button {
   .container{
     width: 1760px;
   }  
+  .banner-header{
+    padding-left: 0%;
+  }
 }
