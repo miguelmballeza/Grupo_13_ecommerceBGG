@@ -15,7 +15,7 @@ const usersController = {
     },
     login: function(req, res) {
         const head = {
-            title: "Inicio de Sesión",
+            title: "Iniciar Sesión",
             styleSheet: "/css/stylesLogin.css",
         };
         res.render('users/login', {head: head});
