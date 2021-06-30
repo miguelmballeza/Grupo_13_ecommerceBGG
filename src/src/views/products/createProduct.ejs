@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>
+<body>
+    <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
+    <h1>Registro de Producto</h1>
+    <section class="container">
+        <form action="" class="product-register" method="POST">
+            <div class="info">
+                <label for="name">Nombre del producto: </label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="info">
+                <label for="description">Descripción: </label>
+                <input type="text" name="description" id="description">
+            </div>
+            <div class="info">
+                <label for="image">Imagen: </label>
+                <input type="file" name="image" id="image">
+            </div>
+            <div class="info">
+                <label for="category">Categoria: </label>
+                <input type="text" name="category" id="category">
+            </div>
+            <div class="info">
+                <label for="specs">Especificaciones: </label>
+                <input type="text" name="specs" id="specs">
+            </div>
+            <div class="info">
+                <label for="price">Precio: </label>
+                <input type="number" name="price" id="price">
+            </div>
+            <button type="submit" id="submit-product">Registrar</button>
+        </form>
+    </section>
+    <%- include('../partials/footer') %>
+</body>
