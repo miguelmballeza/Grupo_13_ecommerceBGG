@@ -22,6 +22,10 @@ app.use('/productos', routers.productsRouter);
 
 app.use('/usuario', routers.usersRouter);
 
+app.use((req, res, next) => {
+    res.status(404).render('inCaseOf/not-found')
+});
+
 app.listen(PORT, () => {
     console.log('El servidor se esta ejecutando en el Puerto 3000.');
 });

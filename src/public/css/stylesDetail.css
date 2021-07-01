@@ -91,7 +91,7 @@ h2 .banner-artistName a{
   text-align: left;
 }
 .banner-preview {
-  max-width: 50%;
+  max-width: 100%;
   height: 152px;
   display: inline-block;
 }
@@ -149,13 +149,17 @@ button {
 }
 
 .lista {
-  margin-top: 30px;
+  margin: 30px 0;
   text-align: center;
   font-size: 140%;
   align-items: center;
   display: flex;
   flex-flow: column;
   justify-content: center;
+}
+
+.lista h2 {
+  margin: 0 0 40px 0;
 }
 
 .cancion {
@@ -225,6 +229,7 @@ button {
   .banner-header a{
     font-size: 20px;
   }
+
 }
 
 @media (min-width:1300px) {
@@ -241,6 +246,10 @@ button {
   .container{
     width: 1460px;
   }  
+
+  .lista {
+    margin: 60px 0;
+  }
 
 }
 
