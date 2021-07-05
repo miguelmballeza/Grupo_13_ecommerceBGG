@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin : 0;
+  }
+  
+  .central-logo {
+    display: block;
+    margin: 30px auto;
+    padding: 5px;
+    width: 200px;
+    height: 70px;
+  }
+  
+  .central-BMG{
+    display: block;
+    padding: 20px 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 120%;
+    color: blue;
+  }
+  
+  h1 {
+    font-size: 25px;
+    margin: 60px auto;
+    width: 250px;
+    text-align: center;
+  }
+  
+  #main {
+    height: 100vh;
+  }
+  
+  #text-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  h2{
+    width: 280px;
+    font-size: 18px;
+    margin: 60px auto;
+    text-align: center;
+  }
+  
+  h3 {
+      height: 80px;
+      width: 100px;
+      font-size: 16px;
+      margin: auto;
+      text-align: center;
+  }
+
+  a {
+      margin: 30px 0;
+  }
+  
+  @media (min-width: 576px){
+    
+    body {
+        background-image: url("/images/vinyl-login-corner.jpeg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top left;
+    }
+  
+    #main {
+      height: 480px;
+    }
+  
+  }
+  
+  @media (min-width: 768px) {
+  
+    #main {
+      height: 700px;
+    }
+  
+    #text-container {
+      background-image: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 100%;
+      height: 520px;
+      position: relative;
+      top: 80px
+  }
+  
+  }
+  
+  @media (min-width: 1500px){
+  
+    .album-home p {
+        padding: 0 13px 20px 13px;
+        font-size: 22px;
+    }
+  
+  }
+
+  @media (min-width: 1560px) {
+    body {
+      background-image: url("/images/vinyl-login-left.jpeg");
+      background-size: contain;
+      background-repeat: no-repeat;
+  }
+}
+
+  

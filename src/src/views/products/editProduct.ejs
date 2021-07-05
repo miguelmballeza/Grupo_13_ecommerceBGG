@@ -1,0 +1,41 @@
+<%- include('../partials/head') %>
+<body>
+    <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
+    <h1>Modificar producto</h1>
+    <section class="container">
+        <form action="" class="product-edit" method="POST">
+            <div class="info">
+                <label for="id">ID del producto: </label>
+                <input type="number" name="id" id="id" required>
+            </div>
+            <button id="search">Buscar</button>
+            <div class="info">
+                <label for="name">Nombre: </label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="info">
+                <label for="description">Descripción: </label>
+                <!-- <input type="text" name="description" id="description"> -->
+                <textarea name="description" id="description" cols="40" rows="5" required></textarea>
+            </div>
+            <div class="info">
+                <label for="category">Categoria: </label>
+                <input type="text" name="category" id="category" required>
+            </div>
+            <div class="info">
+                <label for="specs">Especificaciones: </label>
+                <input type="text" name="specs" id="specs">
+            </div>
+            <div class="info">
+                <label for="price">Precio: </label>
+                <input type="number" name="price" id="price" >
+            </div>
+            <div class="info">
+                <label for="image">Imagen: </label>
+                <input type="file" name="image" id="image">
+            </div>
+            <button type="submit" id="submit-product">Modificar</button>
+        </form>
+    </section>
+    <%- include('../partials/footer') %>
+</body>

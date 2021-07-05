@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<body>
+    <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->
+    <div id="main">
+      <section id="login-and-text-container">
+          <h1>Iniciar Sesión</h1>
+          <form id="login" action="/ruta" method="POST">
+              <article>
+                  <label for="email">Correo electrónico :</label>
+                  <input type="text" name="email" id="email" required>
+              </article>
+              <article>
+                  <label for="password">Contraseña</label>
+                  <input type="password" name="password" id="password" required>
+              </article>
+              <article id="remember-general">
+                <label for="remember" id="label-remember">Recuerdame</label>
+                <input type="checkbox" name="recuerdame" id="remember">
+                </article>
+              <button type="submit" id="submit-button">Iniciar Sesión</button>
+          </form>
+          <p>¿Olvidaste la contraseña? <a href="#" target="_blank"><br>Recuperar contraseña ></a></p>
+          <p>¿No tienes una cuenta? <a href="/usuario/registro">Crear cuenta ></a></p>
+      </section>
+    </div>
+    <%- include('../partials/footer') %>
+</body>
+</html>

@@ -4,9 +4,10 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    margin : 0;
 }
 
-.logo {
+.central-logo {
     display: block;
     margin: 30px auto;
     padding: 5px;
@@ -14,7 +15,7 @@ body {
     height: 70px;
 }
 
-.BMG{
+.central-BMG{
     display: block;
     padding: 20px 0;
     margin: 0 auto;
@@ -126,77 +127,6 @@ p {
     text-align: center;
 }
 
-#BMGfoot {
-    width: 130px;
-    height: 32px;
-    padding: 5px;
-    color: black;
-}
-
-.foot {
-    font-family: 'Roboto', sans-serif;
-    background-color: #3a3c44;
-    display: flex;
-    flex-direction: column;
-    height: 660px;
-}
-
-.foot img {
-    margin: 20px;
-}
-
-.social-networks {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size:28px;
-    padding: 5px;
-    margin: 0 0 20px 0;
-}
-
-.social-logo#facebook {
-    color:#4267B2;
-}
-
-.social-logo#twitter {
-    color:rgb(0, 131, 253)
-}
-
-.social-logo#instagram {
-    color: white;
-}
-
-.extra-info .unordered-list {
-    padding: 0 0 0 20px;
-}
-
-.extra-info h3 {
-    color: white;
-    margin: 10px;
-    padding: 0 0 0 15px;
-    font-weight: 300;
-    font-size: 15px;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-.extra-info ul li {
-    color: #9195a3;
-    list-style: none;
-    text-align: left;
-    padding: 8px;
-}
-
-footer h2 {
-    color: #7d7e80;
-    font-size: 13px;
-    text-transform: none;
-    font-weight: 400;
-    margin: auto;
-}
-
-
-
 @media (min-width: 576px){
     
     body {
@@ -223,84 +153,6 @@ footer h2 {
 
 }
 
-@media (min-width: 768px) {
-
-    .foot {
-        height: 100%;
-    }
-
-    #footer-desktop-view {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .extra-info {
-        margin-top: 20px;
-    }
-
-    .extra-info ul li {
-        font-size: 14px;
-    }
-
-    .social-networks {
-        justify-content: flex-start;
-        padding: 0 0 0 25px;
-        margin: 0 0 20px 0;
-    }
-
-    .social-logo#twitter {
-        margin-left: 20px;
-    }
-    
-    .social-logo#instagram {
-        margin-left: 20px;
-    }
-    
-    .extra-info h3 {
-        color: white;
-        margin: 5px;
-        font-weight: 300;
-        font-size: 13px;
-    }
-    
-    .extra-info ul li {
-        font-size: 11px;
-        text-align: left;
-    }
-
-    .foot {
-        height: 230px;
-    }
-
-    #footer-desktop-view {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .extra-info {
-        margin-top: 20px;
-    }
-
-    .extra-info ul li {
-        font-size: 14px;
-    }
-
-    footer h2 {
-        color: #7d7e80;
-        font-size: 13px;
-        text-transform: none;
-    }
-
-}
-
-@media (min-width: 1200px) {
-    footer h2 {
-        font-size: 15px;
-    }
-}
-
 @media (min-width: 1500px){
 
     body {
@@ -309,35 +161,9 @@ footer h2 {
         background-repeat: no-repeat;
     }
 
-    .foot {
-        height: 250px;
-    }
-
-    #logo-social-networks {
-        position: relative;
-        left: 80px;
-    } 
-
     .album-home p {
         padding: 0 13px 20px 13px;
         font-size: 22px;
     }
 
-    .extra-info h3 {
-        font-size: 18px;
-    }
-
-    .extra-info ul li {
-        font-size: 16px;
-    }
-
-    .foot h2 {
-        margin-top: 60px;
-        margin-bottom: 12.45px;
-    }
-
-    
-    .foot {
-        height: 100%;
-    }
 }

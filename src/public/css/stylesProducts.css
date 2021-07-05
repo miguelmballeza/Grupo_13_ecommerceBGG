@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.fa-compact-disc {
+    color: rgb(208, 206, 206);
+}
+
+.first-section {
+    background-image: url('/images/fondoPrincipal.jpg');
+    height: 200px;
+    background-size: cover;
+}
+
+#principal-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 38px;
+    color: #ffffff;
+    text-align: center;
+    height: 100%;
+    margin: auto;
+    padding: 75px 0;
+    text-transform: uppercase; 
+    max-width: 300px;
+}
+
+.album-home {
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+}
+
+.album-home p {
+    color: white;
+    font-weight: 100;
+    font-size: 18px;
+    text-align: left;
+    padding: 0 5px 20px 5px;
+}
+
+.album-home#house {
+    background-color: gray;
+}
+
+.album-home #strictly {
+    width: 100%;
+    height: 50%;
+}
+
+.album-home#rock {
+    background-color: yellow;
+}
+
+.album-home #beatles {
+    width: 100%;
+    height: 50%;
+}
+
+.album-home#techno {
+    background-color: green;
+}
+
+.album-home #underground {
+    width: 100%;
+    height: 50%;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.album-home a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: black
+}
+
+@media (min-width: 576px) {
+
+    #principal-title {
+        text-align: center;
+        max-width: 700px;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    #principal-title {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .first-section .elements {
+        display: none; /*ESTE ES EL QUE NO ME FUNCIONA.*/
+    }
+
+    .album-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .album-home p {
+        padding: 0 5px 20px 5px;
+    }
+    
+    .album-home a {
+        display: block;
+        text-align: right;
+        margin: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-style: italic;
+        color: black
+    }
+
+    .album-home#house {
+        width: 47%;
+        height: 50%;
+    }
+
+    .album-home#rock {
+        width: 47%;
+        height: 50%;
+    }
+
+    .album-home#techno {
+        width: 47%;
+        height: 50%;
+    }
+
+}
+
+@media (min-width: 992px) {
+    /*A modificar :*/
+
+    #principal-title {
+        max-width: 480px;
+    }
+
+    .album-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .album-home p {
+        padding: 0 10px 20px 10px;
+    }
+    
+    .album-home a {
+        display: block;
+        text-align: right;
+        margin: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-style: italic;
+        color: black
+    }
+
+    .album-home#house {
+        width: 30%;
+    }
+
+    .album-home#rock {
+        width: 30%;
+    }
+
+    .album-home#techno {
+        width: 30%;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    /*Font-size the p de albums en 18 normalmente, hacerla crecer hasta 19 0 20 px y aumentar el margin del parrafo también*/
+
+    #principal-title {
+        font-size: 48px;
+        max-width: 550px;
+    }
+
+    .album-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .album-home {
+        max-width: 400px;
+        max-height: 650px;
+    }
+
+    .album-home p {
+        padding: 0 10px 20px 10px;
+    }
+    
+    .album-home a {
+        display: block;
+        text-align: right;
+        margin: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-style: italic;
+        color: black
+    }
+
+}
+
+
+@media (min-width: 1500px) {
+    /*Font-size the p de albums en 18 normalmente, hacerla crecer hasta 19 0 20 px y aumentar el margin del parrafo también*/
+    .album-home {
+        max-height: 720px;
+    }
+
+}
