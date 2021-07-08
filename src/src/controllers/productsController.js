@@ -1,11 +1,18 @@
+const path = require('path');
+const productsPath = path.resolve(__dirname, '../database/products.json');
+const fs = require('fs');
+const productsString = fs.readFileSync(productsPath, {encoding : 'utf-8'});
+const products = JSON.parse(productsString);
+
 const productsController = {
     index: function(req, res) {
         const head = {
             title: "Productos",
             styleSheet: "/css/stylesProducts.css",
         };
-        res.render('products/index', {head: head});
+        res.render('products/index', { head, products});
     },
+
     productDetail: function(req, res) {
         const head = {
             title: "Detalle del Producto",
@@ -14,27 +21,39 @@ const productsController = {
         try{
             let id = parseInt(req.params.id);
             if(id>0){
-                res.render('products/productDetail', { head : head, id : id });
+                res.render('products/productDetail', { head, id});
             } else {
-                res.send('Producto no encontrado :(');
+                res.status(404).render('inCaseOf/not-found')
             }
         } catch(error) {
-            res.send('Error en la carga del Producto.');
+            res.send('Error en la carga del Producto, verifique que el producto exista.');
         }
     },
+
     createProduct: function(req, res) {
         const head = {
             title: "Creación de Producto",
             styleSheet: "/css/stylesCreateProduct.css",
         };
-        res.render('products/createProduct', {head: head});
+        res.render('products/createProduct', { head });
     },
+    
     editProduct: function(req, res) {
         const head = {
             title: "Edición de Producto",
             styleSheet: "/css/stylesEditProduct.css",
         };
-        res.render('products/editProduct', {head: head});
+
+        try{
+            let id = parseInt(req.params.id);
+            if(id>0){
+                res.render('products/editProduct', { head });
+            } else {
+                res.status(404).render('inCaseOf/not-found')
+            }
+        } catch(error) {
+            res.send('Error en la carga del Producto, verifique que el producto exista.');
+        }
     },
 };
 
