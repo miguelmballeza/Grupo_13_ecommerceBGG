@@ -55,6 +55,13 @@ button a {
     height: 40px;
     width: 140px;
     border: none;
+    transition: all 300ms;
+}
+
+.add-cart:hover {
+    width: 150px;
+    height: 50px;
+    font-size: 17px;
 }
 
 .elements-until-992 {
@@ -81,6 +88,13 @@ button a {
     height: 40px;
     width: 140px;
     border: none;
+    transition: all 300ms;
+}
+
+.Right-Scroll:hover {
+    width: 150px;
+    height: 50px;
+    font-size: 17px;
 }
 
 .album-home {
@@ -89,37 +103,77 @@ button a {
     padding: 10px;
 }
 
-.album-home p {
+.album-home#black {
+    background-color: gray;
+    color: black
+}
+
+
+.album-home#black p {
     color: white;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 18px;
     text-align: left;
-    padding: 0 5px 20px 5px;
+    padding: 0 7px 20px 7px;
 }
 
-.album-home#house {
-    background-color: gray;
+.album-home#black a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: black
 }
 
-.album-home #strictly {
-    width: 100%;
-    height: 50%;
+.album-home#yellow {
+    background-color: rgb(255, 227, 65);
+    color: black;
 }
 
-.album-home#rock {
-    background-color: yellow;
+.album-home#yellow p {
+    color: black;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    padding: 0 7px 20px 7px;
 }
 
-.album-home #beatles {
-    width: 100%;
-    height: 50%;
+.album-home#yellow a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: black
 }
 
-.album-home#techno {
+.album-home#strongGreen {
     background-color: green;
+    color: white;
 }
 
-.album-home #underground {
+.album-home#strongGreen p {
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    padding: 0 7px 20px 7px;
+}
+
+.album-home#strongGreen a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: white;
+}
+
+.album-home #standardImage {
     width: 100%;
     height: 50%;
 }
@@ -129,16 +183,6 @@ h2 {
     font-size: 20px;
     text-align: center;
     text-transform: uppercase;
-}
-
-.album-home a {
-    display: block;
-    text-align: right;
-    margin: 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-style: italic;
-    color: black
 }
 
 @media (min-width: 576px) {
@@ -207,16 +251,31 @@ h2 {
     .Right-Scroll-until-768#element1 {
         position: relative;
         right: 50px;
+        transition: all 300ms;
+    }
+
+    .Right-Scroll-until-768#element1:hover {
+        right: 80px;
     }
 
     .Right-Scroll-until-768#element2 {
         position: relative;
         right: 30px;
+        transition: all 300ms;
+    }
+
+    .Right-Scroll-until-768#element2:hover {
+        right: 60px;
     }
 
     .Right-Scroll-until-768#element3 {
         position: relative;
         right: 10px;
+        transition: all 300ms;
+    }
+
+    .Right-Scroll-until-768#element3:hover {
+        right: 40px;
     }
 
     .first-section .elements {
@@ -226,7 +285,12 @@ h2 {
     .add-cart {
         height: 30px;
         width: 140px;
+    }
 
+    .add-cart:hover {
+        height: 35px;
+        width: 145px;
+        font-size: 16px;
     }
 
     .album-section {
@@ -250,17 +314,17 @@ h2 {
         color: black
     }
 
-    .album-home#house {
+    .album-home#black {
         width: 47%;
         height: 50%;
     }
 
-    .album-home#rock {
+    .album-home#yellow {
         width: 47%;
         height: 50%;
     }
 
-    .album-home#techno {
+    .album-home#strongGreen {
         width: 47%;
         height: 50%;
     }
@@ -346,19 +410,40 @@ h2 {
         border: none;
     }
 
+    .add-cart:hover {
+        height: 30px;
+        width: 142px;
+        font-size: 14px;
+    }
+
     .Right-Scroll-until-992#element1 {
         position: relative;
         right: 60px;
+        transition: all 300ms;
+    }
+
+    .Right-Scroll-until-992#element1:hover {
+        right: 90px;
     }
 
     .Right-Scroll-until-992#element2 {
         position: relative;
         right: 30px;
+        transition: all 300ms;
+    }
+
+    .Right-Scroll-until-992#element2:hover {
+        right: 60px;    
     }
 
     .Right-Scroll-until-992#element3 {
         position: relative;
         right: 0;
+        transition: all 300ms;
+    }
+
+    .Right-Scroll-until-992#element3:hover {
+        right: 30px;
     }
 
     .album-section {
@@ -382,15 +467,15 @@ h2 {
         color: black
     }
 
-    .album-home#house {
+    .album-home#black {
         width: 30%;
     }
 
-    .album-home#rock {
+    .album-home#yellow {
         width: 30%;
     }
 
-    .album-home#techno {
+    .album-home#strongGreen {
         width: 30%;
     }
 
@@ -432,9 +517,19 @@ h2 {
         font-size: 16px;
     }
 
+    .add-cart:hover {
+        height: 45px;
+        width: 145px;
+        font-size: 17px;
+    }
+
     .Right-Scroll-until-992#element1 {
         position: relative;
         right: 40px;
+    }
+
+    .Right-Scroll-until-992#element1:hover {
+        right: 70px;
     }
 
     .Right-Scroll-until-992#element2 {
@@ -442,9 +537,17 @@ h2 {
         right: 0px;
     }
 
+    .Right-Scroll-until-992#element2:hover {
+        right: 30px;
+    }
+
     .Right-Scroll-until-992#element3 {
         position: relative;
         right: -40px;
+    }
+
+    .Right-Scroll-until-992#element3:hover {
+        right: -10px;
     }
 
     .album-section {

@@ -7,8 +7,8 @@
         "genre": "House",
         "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores accusamus dolor aperiam! Nesciunt blanditiis aliquid explicabo fugit possimus quia esse? Tempora, nemo aspernatur? Sit enim possimus, dolor tempora laboriosam fugiat.",
         "price" : 130,
-        "IDContainer" : "house",
-        "IDImage" : "strictly",
+        "IDContainer" : "black",
+        "IDImage" : "standardImage",
         "finalMessage" : "Ir a la colección ->",
         "image": "strictlyrhythm.jpg"
     },
@@ -20,8 +20,8 @@
         "genre": "Foraigne Rock",
         "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores accusamus dolor aperiam! Nesciunt blanditiis aliquid explicabo fugit possimus quia esse? Tempora, nemo aspernatur? Sit enim possimus, dolor tempora laboriosam fugiat.",
         "price" : 80,
-        "IDContainer" : "rock",
-        "IDImage" : "beatles",
+        "IDContainer" : "yellow",
+        "IDImage" : "standardImage",
         "finalMessage" : "Complaceme ->",
         "image": "pleasepleaseme.jpg"
     },
@@ -33,8 +33,8 @@
         "genre": "Underground",
         "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores accusamus dolor aperiam! Nesciunt blanditiis aliquid explicabo fugit possimus quia esse? Tempora, nemo aspernatur? Sit enim possimus, dolor tempora laboriosam fugiat.",
         "price" : 100,
-        "IDContainer" : "techno",
-        "IDImage" : "underground",
+        "IDContainer" : "strongGreen",
+        "IDImage" : "standardImage",
         "finalMessage" : "Cámaras listas? ->",
         "image": "greenvelvet.jpg"
     }
