@@ -101,6 +101,11 @@ button a {
     margin: 10px;
     font-family: 'Roboto', sans-serif;
     padding: 10px;
+    transition: all 300ms;
+}
+
+.album-home:hover {
+    margin: 0;
 }
 
 .album-home#black {
@@ -171,6 +176,76 @@ button a {
     text-transform: uppercase;
     font-style: italic;
     color: white;
+}
+
+.album-home#red {
+    background-color: rgb(242, 85, 85);
+    color: white; 
+}
+
+
+.album-home#red p {
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    padding: 0 7px 20px 7px;
+}
+
+.album-home#red a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: white;
+}
+
+.album-home#brown {
+    background-color: rgb(181, 108, 69);;
+    color: white;
+}
+
+.album-home#brown p {
+    color: rgb(240, 240, 240);
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    padding: 0 7px 20px 7px;
+}
+
+.album-home#brown a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: black
+}
+
+.album-home#blue {
+    background-color: rgb(59, 57, 187);
+    color: rgb(0, 0, 0);
+}
+
+.album-home#blue p {
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    padding: 0 7px 20px 7px;
+}
+
+.album-home#blue a {
+    display: block;
+    text-align: right;
+    margin: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    color: rgb(95, 95, 95);
 }
 
 .album-home #standardImage {
@@ -311,7 +386,6 @@ h2 {
         text-decoration: none;
         text-transform: uppercase;
         font-style: italic;
-        color: black
     }
 
     .album-home#black {
@@ -325,6 +399,21 @@ h2 {
     }
 
     .album-home#strongGreen {
+        width: 47%;
+        height: 50%;
+    }
+
+    .album-home#red {
+        width: 47%;
+        height: 50%;
+    }
+
+    .album-home#brown {
+        width: 47%;
+        height: 50%;
+    }
+
+    .album-home#blue {
         width: 47%;
         height: 50%;
     }
@@ -479,6 +568,18 @@ h2 {
         width: 30%;
     }
 
+    .album-home#red {
+        width: 30%;
+    }
+
+    .album-home#brown {
+        width: 30%;
+    }
+
+    .album-home#blue {
+        width: 30%;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -573,7 +674,6 @@ h2 {
         text-decoration: none;
         text-transform: uppercase;
         font-style: italic;
-        color: black
     }
 
 }
