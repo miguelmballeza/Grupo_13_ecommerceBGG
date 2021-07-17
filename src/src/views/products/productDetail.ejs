@@ -7,23 +7,23 @@
       </div>
       <div class="container">
         <div class="banner-header">
-          <h1 class="banner-albumName"><%= products[id-1].title %></h1>
+          <h1 class="banner-albumName"><%= product.title %></h1>
           <label class="banner-artistName">
-            <a href="#"><%= products[id-1].artist %></a>
+            <a href="#"><%= product.artist %></a>
           </label>
         </div>
         <div class="banner-preview">
-          <img id="<%= products[id-1].IDImage %>" src="/images/<%= products[id-1].image %>" alt="Imágen de Album">
+          <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" alt="Imágen de Album">
         </div>
         <div class="banner-aditional">
-          <div class="banner-year"><p><date>1999</date></p></div>
+          <div class="banner-year"><p><date><%= product.year %></date></p></div>
         </div>
       </div>
     </div>
     <div class="agregar">
       <div class="precio">
         <p>Precio</p>
-        <p><strong>$<%= products[id-1].price %></strong></p>
+        <p><strong>$<%= product.price %></strong></p>
       </div>
       <div class="carrito">
         <button>Agregar al carrito</button>
@@ -31,11 +31,11 @@
     </div>
     <div class="lista">
       <h2>Canciones</h2>
-      <% for(let i = 0; i< products[id-1].songs.length; i++){ %>
+      <% for(let i = 0; i < product.songs.length; i++){ %>
       <div class="cancion">
-        <p class="numero"> #<%=i+1 %> </p>
-        <p> <%= products[id-1].songs[i].title %> </p>
-        <p class="duracion"> <%= products[id-1].songs[i].length %> </p>
+        <p class="numero"> #<%= i + 1 %> </p>
+        <p> <%= product.songs[i].title %> </p>
+        <p class="duracion"> <%= product.songs[i].length %> </p>
       </div>
       <% } %>
       <!-- <div class="cancion">
