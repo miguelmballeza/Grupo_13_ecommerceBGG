@@ -21,7 +21,7 @@ const productsController = {
         try{
             let id = parseInt(req.params.id);
             if(id>0){
-                res.render('products/productDetail', { head, id});
+                res.render('products/productDetail', { head, products, id});
             } else {
                 res.status(404).render('inCaseOf/not-found')
             }

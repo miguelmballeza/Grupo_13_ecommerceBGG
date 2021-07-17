@@ -169,8 +169,15 @@ button {
   width: 80%;
   height: 40px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+
+.numero{
+  margin-left: 50px;
+}
+.duracion{
+  margin-right: 50px;
 }
 
 
