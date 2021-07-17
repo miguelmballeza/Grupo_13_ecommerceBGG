@@ -55,6 +55,32 @@ const productsController = {
             res.send('Error en la carga del Producto, verifique que el producto exista.');
         }
     },
+    agregar: function(req, res){
+        let id = products.length+1;
+        let datos = {id:id, title:'Creacion', artist:"beatles", name:req.params.name, genre:req.params.category, description:req.params.description, price:parseInt(req.params.price), IDContainer:"yellow", IDImage:"standardImage", finalMessage:"Ir a la colección ->", image:"pleasepleaseme.jpg"}
+        products.push()
+        res.send(datos)
+    },
+    
+    actualizarProduct: function(req, res) {
+        const head = {
+            title: "Edición de Producto",
+            styleSheet: "/css/stylesEditProduct.css",
+        };
+        
+            let id = parseInt(req.params.id)
+            if(id>0){
+                let producto = products[id-1]
+                products[id-1].title = 'prueba';
+                products[id-1].name = req.body.name;
+                products[id-1].artist = req.body.artist;
+                products[id-1].description = req.body.description;
+                products[id-1].price = req.body.price;
+                
+                res.send(producto)
+        }
+        
+    }
 };
 
 module.exports = productsController;
