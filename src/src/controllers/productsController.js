@@ -35,7 +35,7 @@ const productsController = {
             title: "Creación de Producto",
             styleSheet: "/css/stylesCreateProduct.css",
         };
-        res.render('products/createProduct', { head });
+        res.render('products/createProduct', { head});
     },
     
     editProduct: function(req, res) {
@@ -47,7 +47,7 @@ const productsController = {
         try{
             let id = parseInt(req.params.id);
             if(id>0){
-                res.render('products/editProduct', { head });
+                res.render('products/editProduct', { head, products, id });
             } else {
                 res.status(404).render('inCaseOf/not-found')
             }

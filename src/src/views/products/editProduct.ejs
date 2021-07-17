@@ -4,35 +4,37 @@
     <h1>Modificar producto</h1>
     <section class="container">
         <form action="" class="product-edit" method="POST">
-            <div class="info">
+            <!-- <div class="info">
                 <label for="id">ID del producto: </label>
                 <input type="number" name="id" id="id" required>
             </div>
-            <button id="search">Buscar</button>
+            <button id="search">Buscar</button> -->
             <div class="info">
                 <label for="name">Nombre: </label>
-                <input type="text" name="name" id="name" required>
+                <input type="text" name="name" id="name" required value="  <%= products[id].title %>">
+            </div>
+            <div class="info">
+                <label for="artist">Artista: </label>
+                <input type="text" name="artist" id="artist" value=" <%= products[id].artist %>">
+            </div>
+            <div class="info">
+                <label for="genero">Genero: </label>
+                <input type="text" name="category" id="category" required value=" <%= products[id].genre%>">
             </div>
             <div class="info">
                 <label for="description">Descripción: </label>
-                <!-- <input type="text" name="description" id="description"> -->
-                <textarea name="description" id="description" cols="40" rows="5" required></textarea>
-            </div>
-            <div class="info">
-                <label for="category">Categoria: </label>
-                <input type="text" name="category" id="category" required>
-            </div>
-            <div class="info">
-                <label for="specs">Especificaciones: </label>
-                <input type="text" name="specs" id="specs">
+                <textarea name="description" id="description" cols="20" rows="5" required>
+                    <%= products[id].description %>
+                </textarea>
             </div>
             <div class="info">
                 <label for="price">Precio: </label>
-                <input type="number" name="price" id="price" >
+                <input type="number" name="price" id="price" value="<%=products[id].price %>">
             </div>
             <div class="info">
                 <label for="image">Imagen: </label>
-                <input type="file" name="image" id="image">
+                <img id="<%= products[id].IDImage %>" src="/images/<%= products[id].image %>" alt="Imágen de Album" width="200px">
+                <!-- <input type="file" name="image" id="image"> -->
             </div>
             <button type="submit" id="submit-product">Modificar</button>
         </form>
