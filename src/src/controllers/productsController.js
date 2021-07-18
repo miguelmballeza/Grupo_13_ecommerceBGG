@@ -49,8 +49,9 @@ const productsController = {
 
         try{
             let id = parseInt(req.params.id);
+            const product = products[id - 1];
             if(id>0){
-                res.render('products/editProduct', { head, products, id });
+                res.render('products/editProduct', { head, product });
             } else {
                 res.status(404).render('inCaseOf/not-found')
             }
