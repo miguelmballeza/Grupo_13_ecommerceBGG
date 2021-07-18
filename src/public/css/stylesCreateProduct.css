@@ -50,6 +50,21 @@ h1 {
     display: flex;
     flex-wrap: wrap;
 }
+.songs {
+    width: 450px;
+    /* border-top: 1px solid black; */
+    margin-top: 2px;
+}
+
+#color-selector{
+    width: 450px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#color-album{
+    margin: auto;
+}
 
 label {
     display: block; 
