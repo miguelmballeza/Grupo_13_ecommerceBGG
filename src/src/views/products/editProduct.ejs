@@ -3,41 +3,99 @@
     <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
     <h1>Modificar producto</h1>
     <section class="container">
-        <form action="actualizar?_method=PUT" class="product-edit" method="POST">
-            <!-- <div class="info">
-                <label for="id">ID del producto: </label>
-                <input type="number" name="id" id="id" required>
-            </div>
-            <button id="search">Buscar</button> -->
+        <form action="/productos/<%= product.id %>?_method=PUT" class="product-register" method="POST" class="product-edit">
             <div class="info">
-                <label for="name">Nombre: </label>
-                <input type="text" name="name" id="name" required value="  <%= product.name %>">
+                <label for="name">Nombre del Artista: </label>
+                <input type="text" name="name" id="name" required value="<%= product.artist %>">
             </div>
             <div class="info">
-                <label for="artist">Artista: </label>
-                <input type="text" name="artist" id="artist" value=" <%= product.artist %>">
+                <label for="album">Nombre del Album: </label>
+                <input type="text" name="album" id="album" required value="<%= product.name %>">
             </div>
             <div class="info">
-                <label for="genero">Genero: </label>
-                <input type="text" name="category" id="category" required value=" <%= product.genre%>">
+                <label for="genre">Genero: </label>
+                <input type="text" name="genre" id="genre" value="<%= product.genre %>">
             </div>
             <div class="info">
-                <label for="description">Descripción: </label>
-                <textarea name="description" id="description" cols="20" rows="5" required>
-                    <%= product.description %>
-                </textarea>
+                <label for="year">Año de lanzamiento: </label>
+                <input type="number" name="year" id="year"  value="<%= product.year %>">
             </div>
             <div class="info">
                 <label for="price">Precio: </label>
-                <input type="number" name="price" id="price" value="<%=product.price %>">
+                <input type="number" name="price" id="price"  value="<%= product.price %>">
             </div>
             <div class="info">
-                <label for="image">Imagen: </label>
-                <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" alt="Imágen de Album" width="200px">
-                <!-- <input type="file" name="image" id="image"> -->
+                <label for="description">Descripción: </label>
+                <!-- <input type="text" name="description" id="description"> -->
+                <textarea name="description" id="description" cols="40" rows="5" required><%= product.description %></textarea>
             </div>
-            <button type="submit" id="submit-product">Modificar</button>
+            <div class="info">
+                <label for="image">Imagen Actual: </label>
+                <img id="<%= product.IDImage %>" src="/images/<%= product.image %>">
+                <input type="file" name="image" id="image">
+            </div>
+            <div class="info">
+                <label for="color" id="color-selector">Color predominante del album (o color parecido)</label>
+                
+                <select name="color-album" id="color-album">
+                  <option value="black" <%= product.IDContainer == 'black' ? 'selected' : '' %> >Negro</option>
+                  <option value="yellow"  <%= product.IDContainer == 'yellow' ? 'selected' : '' %> >Amarillo</option>
+                  <option value="green velvet" <%= product.IDContainer == 'strongGreen' ? 'selected' : '' %> >Verde</option>
+                  <option value="red" <%= product.IDContainer == 'red' ? 'selected' : '' %> >Rojo</option>
+                  <option value="brown" <%= product.IDContainer == 'brown' ? 'selected' : '' %> >Cafe</option>
+                  <option value="blue" <%= product.IDContainer == 'blue' ? 'selected' : '' %> >Azul</option>
+                </select>
+                
+                <!-- <img class="eliminar" src="/icons/eliminar.svg" alt="" /> -->
+              </div>
+            <div class="info">
+                <label>Canciones </label>
+                <% for(let i = 0; i < product.songs.length; i++) { %>
+                <div class="songs">
+                    <label for="songs">Titulo de canción <%= i + 1 %>: </label>
+                    <input type="text" name="songs" id="songs" value="<%= product.songs[i].title %>">
+                    <label for="lenght">Duracion: </label>
+                    <input type="text" name="lenght" id="lenght" value="<%= product.songs[i].length %>" >
+                </div>
+                <% } %>
+            </div>
+            <button type="submit" id="submit-product">Registrar</button>
         </form>
     </section>
     <%- include('../partials/footer') %>
 </body>
+
+<!--
+<section class="container">
+    <form action="/productos/<%= product.id %>?_method=PUT" class="product-edit" method="POST">
+        <div class="info">
+            <label for="name">Nombre: </label>
+            <input type="text" name="name" id="name" required value="  <%= product.name %>">
+        </div>
+        <div class="info">
+            <label for="artist">Artista: </label>
+            <input type="text" name="artist" id="artist" value=" <%= product.artist %>">
+        </div>
+        <div class="info">
+            <label for="genero">Genero: </label>
+            <input type="text" name="category" id="category" required value=" <%= product.genre%>">
+        </div>
+        <div class="info">
+            <label for="description">Descripción: </label>
+            <textarea name="description" id="description" cols="20" rows="5" required>
+                <%= product.description %>
+            </textarea>
+        </div>
+        <div class="info">
+            <label for="price">Precio: </label>
+            <input type="number" name="price" id="price" value="<%=product.price %>">
+        </div>
+        <div class="info">
+            <label for="image">Imagen: </label>
+            <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" alt="Imágen de Album" width="200px">
+        </div>
+        <button type="submit" id="submit-product">Modificar</button>
+    </form>
+</section>
+
+-->
