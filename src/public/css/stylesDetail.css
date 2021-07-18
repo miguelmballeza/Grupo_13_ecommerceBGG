@@ -40,7 +40,6 @@
 }
 
 .banner-fondo-img {
-  background-image: url("../images/greenvelvet.jpg");
   transform: scale(1.2);
   background-position: center;
   position: absolute;

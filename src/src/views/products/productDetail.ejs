@@ -3,11 +3,11 @@
     <%- include('../partials/header') %>  
     <div class="banner">
       <div class="banner-fondo">
-        <div class="banner-fondo-img"></div>
+        <div class="banner-fondo-img" style="background-image: url('/images/<%= product.image %>')"></div>
       </div>
       <div class="container">
         <div class="banner-header">
-          <h1 class="banner-albumName"><%= product.title %></h1>
+          <h1 class="banner-albumName"><%= product.name %></h1>
           <label class="banner-artistName">
             <a href="#"><%= product.artist %></a>
           </label>
