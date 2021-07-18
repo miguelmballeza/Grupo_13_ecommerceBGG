@@ -5,8 +5,24 @@
     <section class="container">
         <form action="crear" class="product-register" method="POST">
             <div class="info">
-                <label for="name">Nombre del producto: </label>
+                <label for="name">Nombre del Artista: </label>
                 <input type="text" name="name" id="name" required>
+            </div>
+            <div class="info">
+                <label for="album">Nombre del Album: </label>
+                <input type="text" name="album" id="album" required>
+            </div>
+            <div class="info">
+                <label for="genre">Genero: </label>
+                <input type="text" name="genre" id="genre">
+            </div>
+            <div class="info">
+                <label for="year">Año de lanzamiento: </label>
+                <input type="number" name="year" id="year" >
+            </div>
+            <div class="info">
+                <label for="price">Precio: </label>
+                <input type="number" name="price" id="price" >
             </div>
             <div class="info">
                 <label for="description">Descripción: </label>
@@ -14,20 +30,31 @@
                 <textarea name="description" id="description" cols="40" rows="5" required></textarea>
             </div>
             <div class="info">
-                <label for="category">Categoria: </label>
-                <input type="text" name="category" id="category" required>
-            </div>
-            <div class="info">
-                <label for="specs">Especificaciones: </label>
-                <input type="text" name="specs" id="specs">
-            </div>
-            <div class="info">
-                <label for="price">Precio: </label>
-                <input type="number" name="price" id="price" >
-            </div>
-            <div class="info">
                 <label for="image">Imagen: </label>
                 <input type="file" name="image" id="image">
+            </div>
+            <div class="info">
+                <label for="color" id="color-selector">Color predominante del album (o color parecido)</label>
+                
+                <select name="color-album" id="color-album">
+                  <option value="black">Negro</option>
+                  <option value="yellow">Amarillo</option>
+                  <option value="green velvet">Verde</option>
+                  <option value="red">Rojo</option>
+                  <option value="brown">Cafe</option>
+                  <option value="blue">Azul</option>
+                </select>
+                
+                <!-- <img class="eliminar" src="/icons/eliminar.svg" alt="" /> -->
+              </div>
+            <div class="info">
+                <label>Canciones </label>
+                <div class="songs">
+                    <label for="songs">Titulo: </label>
+                    <input type="text" name="songs" id="songs">
+                    <label for="lenght">Duracion: </label>
+                    <input type="text" name="lenght" id="lenght" value=":">
+                </div>
             </div>
             <button type="submit" id="submit-product">Registrar</button>
         </form>

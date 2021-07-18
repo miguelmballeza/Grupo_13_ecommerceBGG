@@ -61,7 +61,7 @@ const productsController = {
     
     agregar: function(req, res){
         let id = products.length+1;
-        let datos = {id:id, title:'Creacion', artist:"beatles", name:req.params.name, genre:req.params.category, description:req.params.description, price:parseInt(req.params.price), IDContainer:"yellow", IDImage:"standardImage", finalMessage:"Ir a la colección ->", image:"pleasepleaseme.jpg"}
+        let datos = {id:id, title:req.body.album, artist:req.body.artist,year: parseInt(req.body.year), name:req.params.album, genre:req.body.genre, description:req.body.description, price:parseInt(req.body.price), IDContainer:"yellow", IDImage:"standardImage", finalMessage:"Ir a la colección ->", image:"pleasepleaseme.jpg", songs: [{title: req.body.songs, length: req.body.length}]}
         products.push()
         res.send(datos)
     },
