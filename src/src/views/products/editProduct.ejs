@@ -3,7 +3,7 @@
     <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
     <h1>Modificar producto</h1>
     <section class="container">
-        <form action="/productos/<%= product.id %>?_method=PUT" class="product-register" method="POST" class="product-edit">
+        <form action="/productos/<%= product.id %>?_method=PUT" class="product-edit" method="POST" class="product-edit">
             <div class="info">
                 <label for="name">Nombre del Artista: </label>
                 <input type="text" name="name" id="name" required value="<%= product.artist %>">
@@ -31,7 +31,7 @@
             </div>
             <div class="info">
                 <label for="image">Imagen Actual: </label>
-                <img id="<%= product.IDImage %>" src="/images/<%= product.image %>">
+                <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" width="40%">
                 <input type="file" name="image" id="image">
             </div>
             <div class="info">
@@ -59,7 +59,10 @@
                 </div>
                 <% } %>
             </div>
-            <button type="submit" id="submit-product">Registrar</button>
+            <button type="submit" id="submit-product">Modificar</button>
+        </form>
+        <form action="/productos/<%= product.id %>?_method=DELETE" method="POST" class="product-delete">
+            <button type="submit" id="delete-product">Eliminar</button>
         </form>
     </section>
     <%- include('../partials/footer') %>

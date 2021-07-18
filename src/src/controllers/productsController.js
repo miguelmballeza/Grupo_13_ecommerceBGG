@@ -86,6 +86,10 @@ const productsController = {
             product.image = req.body.image;
                 
             res.redirect('products/productDetail', { head, product});
+        
+    },
+    eliminarProduct: function(req, res){
+        
     }
 };
 
