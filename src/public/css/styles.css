@@ -245,7 +245,7 @@ button a {
     text-decoration: none;
     text-transform: uppercase;
     font-style: italic;
-    color: rgb(95, 95, 95);
+    color: rgb(0, 0, 0);
 }
 
 .album-home #standardImage {

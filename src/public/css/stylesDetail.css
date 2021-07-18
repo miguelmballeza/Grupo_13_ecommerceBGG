@@ -107,6 +107,48 @@ h2 .banner-artistName a{
   margin: 6px 0 24px;
 }
 
+.creation {
+  padding: 0;
+  font-size: 18px;
+  background-color: rgb(61, 208, 102);
+  width: 100%;
+  height: 40px;
+}
+
+#principal-title-creation {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  height: 100%;
+  margin: auto;
+  padding: 10px 0 0 0 ;
+  text-transform: uppercase; 
+  max-width: 300px;
+}
+
+.edition {
+  padding: 0;
+  font-size: 18px;
+  background-color: rgb(73, 89, 206);
+  width: 100%;
+  height: 40px;
+}
+
+#principal-title-edition {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  height: 100%;
+  margin: auto;
+  padding: 10px 0 0 0 ;
+  text-transform: uppercase; 
+  max-width: 300px;
+}
+
 .agregar {
   display: flex;
   justify-content: space-evenly;

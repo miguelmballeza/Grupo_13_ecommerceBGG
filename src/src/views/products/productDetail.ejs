@@ -20,6 +20,16 @@
         </div>
       </div>
     </div>
+    <% if(locals && locals.creation) { %>
+      <section class="creation">
+          <div id="principal-title-creation">Producto Creado con Éxito</div>
+      </section>
+    <% } %>
+    <% if(locals && locals.edition) { %>
+      <section class="edition">
+          <div id="principal-title-edition">Producto Modificado con Éxito</div>
+      </section>
+    <% } %>
     <div class="agregar">
       <div class="precio">
         <p>Precio</p>
@@ -35,34 +45,9 @@
       <div class="cancion">
         <p class="numero"> #<%= i + 1 %> </p>
         <p> <%= product.songs[i].title %> </p>
-        <p class="duracion"> <%= product.songs[i].length %> </p>
+        <p class="duracion"> <%= product.songs[i].lenght %> </p>
       </div>
       <% } %>
-      <!-- <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div> -->
     </div>
     <div class="editar">
       <button><a href="/productos/<%= product.id %>/editar">Editar Producto</a></button>

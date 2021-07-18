@@ -3,7 +3,7 @@
     <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
     <h1>Registro de Producto</h1>
     <section class="container">
-        <form action="/productos/crear" class="product-register" method="POST" enctype="multipart/form-data">
+        <form action="/productos/<%= length + 1 %>" class="product-register" method="POST" enctype="multipart/form-data">
             <div class="info">
                 <label for="name">Nombre del Artista: </label>
                 <input type="text" name="name" id="name" required>
@@ -14,15 +14,15 @@
             </div>
             <div class="info">
                 <label for="genre">Genero: </label>
-                <input type="text" name="genre" id="genre">
+                <input type="text" name="genre" id="genre" required>
             </div>
             <div class="info">
                 <label for="year">Año de lanzamiento: </label>
-                <input type="number" name="year" id="year" >
+                <input type="number" name="year" id="year" required>
             </div>
             <div class="info">
                 <label for="price">Precio: </label>
-                <input type="number" name="price" id="price" >
+                <input type="number" name="price" id="price" required>
             </div>
             <div class="info">
                 <label for="description">Descripción: </label>
@@ -31,11 +31,11 @@
             </div>
             <div class="info">
                 <label for="image">Imagen: </label>
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" required>
             </div>
             <div class="info">
                 <label for="color" id="color-selector">Color predominante del album (o color parecido)</label>
-                <select name="color" id="color-album">
+                <select name="color" id="color-album" required>
                   <option value="black">Negro</option>
                   <option value="yellow">Amarillo</option>
                   <option value="green velvet">Verde</option>
@@ -50,9 +50,9 @@
                 <label>Canciones </label>
                 <div class="songs">
                     <label for="songs">Titulo: </label>
-                    <input type="text" name="songs" id="songs">
+                    <input type="text" name="songs" id="songs" required>
                     <label for="lenght">Duracion: </label>
-                    <input type="text" name="lenght" id="lenght" value=":">
+                    <input type="text" name="lenght" id="lenght" value="00:00" required>
                 </div>
             </div>
             <button type="submit" id="submit-product">Registrar</button>

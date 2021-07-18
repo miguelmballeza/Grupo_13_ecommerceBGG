@@ -4,6 +4,11 @@
     <section class="first-section">
         <div id="principal-title">Productos <i class="fas fa-compact-disc"></i></div>
     </section>
+    <% if(locals && locals.deletion) { %>
+        <section class="deletion-section">
+            <div id="principal-title-deletion">Producto Eliminado con Éxito</div>
+        </section>
+    <% } %>
     <section class="album-section">
         <% for(let i = 0; i < products.length; i++) { %>
         <article class="album-home" id="<%= products[i].IDContainer %>">
