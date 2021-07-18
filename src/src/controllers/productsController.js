@@ -88,7 +88,34 @@ const productsController = {
         
     },
     eliminarProduct: function(req, res){
-        
+        const head = {
+            title: "Productos",
+            styleSheet: "/css/stylesProducts.css",
+        };
+        let id = parseInt(req.params.id);
+        // function borrar(){
+            products.filter(product => {
+                if(product.id == id){
+                    delete product.id;
+                    delete product.title;
+                    delete product.artist;
+                    delete product.songs;
+                    delete product.year;
+                    delete product.name;
+                    delete product.genre;
+                    delete product.description;
+                    delete product.price;
+                    delete product.IDContainer;
+                    delete product.IDImage;
+                    delete product.finalMessage;
+                    
+                    res.send(products) 
+                    // res.render('products/index', { head, products})
+                }
+            })
+        // }
+        // setTimeout(borrar,1000);   
+        /*la funcion borrar y setTimeout es para darle un pequeño tiempo de espera */     
     }
 };
 
