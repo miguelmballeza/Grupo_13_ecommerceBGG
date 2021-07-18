@@ -61,10 +61,10 @@ const productsController = {
         }
     },
     
-    agregar: function(req, res){
+    agregarProducto: function(req, res){
         let id = products.length;
         const product = {id:id, title:req.body.album, artist:req.body.artist, year: parseInt(req.body.year), name:req.body.album, genre:req.body.genre, description:req.body.description, price: parseInt(req.body.price), IDContainer:req.body.color, IDImage:"standardImage", finalMessage:"Ir a la colección ->", image: req.file.filename, songs: [{title: req.body.songs, length: req.body.lenght}]}
-        products.push(JSON.parse(product));
+        products.push(JSON.parse(JSON.stringify(product)));
         res.redirect('products/productDetail', product);
     },
     
