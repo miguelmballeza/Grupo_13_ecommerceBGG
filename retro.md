@@ -57,3 +57,27 @@ ahora 2 integrantes solamente.
 5. Dejar de hacer .-
 
 	Leer mal las instrucciones, no verificar lo que se acordo para estar seguros en cuanto al tema en cuestión.
+
+Correspondiente al Sprint 4.-
+
+Como el punto anterior, se dieron respuestas a las preguntas propuestas con la participación de todo el grupo 13 :
+
+1. Comenzar a hacer .-
+
+	Terminar con los obstaculos que nos impiden desarrollarnos mejor como equipo.
+
+2. Hacer más .-
+	
+	Mensajes diarios, además de Daylies, para actualizarnos en cuanto a rendimiento, no solo con el tablero, o ser claros en mensajes desde el tablero acerca de la situación.
+
+3. Continuar haciendo .-
+
+	Retrospectivas por igual, nos han funcionado de mejor manera.
+
+4. Hacer menos .-
+
+	Malas prácticas de código, dejar de confiarnos.
+
+5. Dejar de hacer .-
+
+	Dejar problemas sin resolver para nuestros yo's del futuro.
