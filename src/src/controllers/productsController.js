@@ -67,23 +67,24 @@ const productsController = {
         res.send(datos)
     },
     
-    actualizarProduct: function(req, res) {
+    updateProduct : function(req, res) {
         const head = {
-            title: "Edición de Producto",
-            styleSheet: "/css/stylesEditProduct.css",
+            title: "Detalle del Producto",
+            styleSheet: "/css/stylesDetail.css",
         };
-        
-            let id = parseInt(req.params.id)
-            if(id>0){
-                let producto = products[id-1]
-                products[id-1].title = 'prueba';
-                products[id-1].name = req.body.name;
-                products[id-1].artist = req.body.artist;
-                products[id-1].description = req.body.description;
-                products[id-1].price = req.body.price;
+            let id = parseInt(req.params.id);
+            const product = products[id - 1]; // because the initial 0 in arrays.
+            product.artist = req.body.artist;
+            product.name = req.body.name;
+            product.title = req.body.name;
+            product.year = req.body.year;
+            product.genre = req.body.genre;
+            product.description = req.body.description;
+            product.price = req.body.price;
+            product.IDContainer = req.body.color;
+            product.image = req.body.image;
                 
-                res.send(producto)
-        }
+            res.redirect('products/productDetail', { head, product});
         
     }
 };
