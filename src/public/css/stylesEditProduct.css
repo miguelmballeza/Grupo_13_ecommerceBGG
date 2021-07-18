@@ -26,7 +26,7 @@ body {
 .container {
     display: block;
     width: 100vw;
-    height: 1050px;
+    height: 100%;
 }
 
 h1 {
@@ -42,14 +42,16 @@ h1 {
     justify-content: space-evenly;
     margin: auto;
     width: 90%;
-    height: 900px;
+    height: 90%;
     border: 1px gray solid;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .info {
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 0;
 }
 .info img {
     margin: 0 60px;
@@ -100,7 +102,7 @@ textarea:focus, textarea:hover{
 }
 
 #submit-product {
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: white;
     text-align: center;
     color: grey;
@@ -109,10 +111,39 @@ textarea:focus, textarea:hover{
     width: 110px;
     height: 40px;
     border: 1px black solid;
+
 }
 
 #submit-product:hover {
     background-color: black;
+    color: white;
+}
+
+.product-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    /* border: 1px gray solid; */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#delete-product {
+    margin: 5px auto;
+    background-color: white;
+    text-align: center;
+    color: red;
+    display: inline-block;
+    border-radius: 25px;
+    width: 110px;
+    height: 40px;
+    border: 1px black solid;
+}
+#delete-product:hover {
+    background-color: red;
     color: white;
 }
 
