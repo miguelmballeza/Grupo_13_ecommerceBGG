@@ -3,27 +3,37 @@
     <%- include('../partials/header') %>  
     <div class="banner">
       <div class="banner-fondo">
-        <div class="banner-fondo-img"></div>
+        <div class="banner-fondo-img" style="background-image: url('/images/<%= product.image %>')"></div>
       </div>
       <div class="container">
         <div class="banner-header">
-          <h1 class="banner-albumName">Album</h1>
+          <h1 class="banner-albumName"><%= product.name %></h1>
           <label class="banner-artistName">
-            <a href="#">artista</a>
+            <a href="#"><%= product.artist %></a>
           </label>
         </div>
         <div class="banner-preview">
-          <img src="/images/greenvelvet.jpg" alt="" />
+          <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" alt="Imágen de Album">
         </div>
         <div class="banner-aditional">
-          <div class="banner-year"><p><date>1999</date></p></div>
+          <div class="banner-year"><p><date><%= product.year %></date></p></div>
         </div>
       </div>
     </div>
+    <% if(locals && locals.creation) { %>
+      <section class="creation">
+          <div id="principal-title-creation">Producto Creado con Éxito</div>
+      </section>
+    <% } %>
+    <% if(locals && locals.edition) { %>
+      <section class="edition">
+          <div id="principal-title-edition">Producto Modificado con Éxito</div>
+      </section>
+    <% } %>
     <div class="agregar">
       <div class="precio">
         <p>Precio</p>
-        <p><strong>$12.34</strong></p>
+        <p><strong>$<%= product.price %></strong></p>
       </div>
       <div class="carrito">
         <button>Agregar al carrito</button>
@@ -31,36 +41,16 @@
     </div>
     <div class="lista">
       <h2>Canciones</h2>
+      <% for(let i = 0; i < product.songs.length; i++){ %>
       <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
+        <p class="numero"> #<%= i + 1 %> </p>
+        <p> <%= product.songs[i].title %> </p>
+        <p class="duracion"> <%= product.songs[i].lenght %> </p>
       </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
-      <div class="cancion">
-        <p>#</p>
-        <p>Titulo cancion</p>
-        <p>3:00</p>
-      </div>
+      <% } %>
+    </div>
+    <div class="editar">
+      <button><a href="/productos/<%= product.id %>/editar">Editar Producto</a></button>
     </div>
     <%- include('../partials/footer') %>
   </body>

@@ -4,49 +4,40 @@
     <section class="first-section">
         <div class="title-paragraph-and-elements-until-992">
             <div class="title-paragraph-until-992">
-                <h1 id="principal-title">Mensaje de Genero Musical o Hit del Momento dependiente al Elemento Seleccionado.</h1>
-                <p class="paragraph-until-992">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis pariatur in, ipsa deserunt exercitationem ea. Quidem maxime illo nihil atque, laborum labore fugiat, doloremque, ducimus necessitatibus commodi sunt esse iusto?</p>
+                <h1 id="principal-title"><%= firstSection.title %></h1>
+                <p class="paragraph-until-992"><%= firstSection.description %><p>
             </div>
             <article class="elements-until-992">
-                <button class="Right-Scroll-until-992" id="element1">Elemento 1</button>
-                <button class="Right-Scroll-until-992" id="element2">Elemento 2</button>
-                <button class="Right-Scroll-until-992" id="element3">Elemento 3</button>
+                <% for(let i = 0; i < firstSection.elements.length; i++) { %>
+                <button class="Right-Scroll-until-992" id="element<%= firstSection.elements[i].id %>"><a href="<%= firstSection.elements[i].link %>"><%= firstSection.elements[i].elementName %></a></button>
+                <% } %>
             </article>
         </div>
         <div class="paragraph-and-elements">
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis pariatur in, ipsa deserunt exercitationem ea. Quidem maxime illo nihil atque, laborum labore fugiat, doloremque, ducimus necessitatibus commodi sunt esse iusto?</p>
+            <p class="paragraph"><%= firstSection.description %></p>
             <article class="elements-until-768">
-                <button class="Right-Scroll-until-768" id="element1">Elemento 1</button>
-                <button class="Right-Scroll-until-768" id="element2">Elemento 2</button>
-                <button class="Right-Scroll-until-768" id="element3">Elemento 3</button>
+                <% for(let i = 0; i < firstSection.elements.length; i++) { %>
+                    <button class="Right-Scroll-until-768" id="element<%= firstSection.elements[i].id %>"><a href="<%= firstSection.elements[i].link %>"><%= firstSection.elements[i].elementName %></a></button>
+                <% } %>
             </article>
         </div>
-        <button class="add-cart">Añadir al Carrito</button>
+        <button class="add-cart"><a href="/carrito-de-compras">Añadir al Carrito</a></button>
         <article class="elements">
-            <button class="Right-Scroll">Elemento 1</button>
-            <button class="Right-Scroll">Elemento 2</button>
-            <button class="Right-Scroll">Elemento 3</button>
+            <% for(let i = 0; i < firstSection.elements.length; i++) { %>
+                <button class="Right-Scroll"><a href="<%= firstSection.elements[i].link %>"><%= firstSection.elements[i].elementName %></a></button>
+            <% } %>
         </article>
     </section>
+
     <section class="album-section">
-        <article class="album-home" id="house">
-            <img id="strictly" src="/images/strictlyrhythm.jpg" alt="Imágen de Album">
-            <h2>Lo mejor de Strictly Rhythm</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores accusamus dolor aperiam! Nesciunt blanditiis aliquid explicabo fugit possimus quia esse? Tempora, nemo aspernatur? Sit enim possimus, dolor tempora laboriosam fugiat.</p>
-            <a href="/productos/1">ir a la colección ---></a>
+        <% for(let i = 0; i < products.length; i++) { %>
+        <article class="album-home" id="<%= products[i].IDContainer %>">
+            <img id="<%= products[i].IDImage %>" src="/images/<%= products[i].image %>" alt="Imágen de Album">
+            <h2><%= products[i].title %></h2>
+            <p><%= products[i].description %></p>
+            <a href="/productos/<%= products[i].id %>"><%= products[i].finalMessage %></a>
         </article>
-        <article class="album-home" id="rock">
-            <img id="beatles" src="/images/pleasepleaseme.jpg" alt="Imágen de Album">
-            <h2>El inicio de una gran historia</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores accusamus dolor aperiam! Nesciunt blanditiis aliquid explicabo fugit possimus quia esse? Tempora, nemo aspernatur? Sit enim possimus, dolor tempora laboriosam fugiat.</p>
-            <a href="/productos/1">ir a la colección ---></a>
-        </article>
-        <article class="album-home" id="techno">
-            <img id="underground" src="/images/greenvelvet.jpg" alt="Imágen de Album">
-            <h2>Underground para variar</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores accusamus dolor aperiam! Nesciunt blanditiis aliquid explicabo fugit possimus quia esse? Tempora, nemo aspernatur? Sit enim possimus, dolor tempora laboriosam fugiat.</p>
-            <a href="/productos/1">ir a la colección ---></a>
-        </article>
+        <% } %>
     </section>
     <%- include('../partials/footer') %>
 </body>
