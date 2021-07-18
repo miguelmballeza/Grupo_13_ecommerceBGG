@@ -1,8 +1,9 @@
 const path = require('path');
 const productsPath = path.resolve(__dirname, '../data/products.json');
-const fs = require('fs');
-const productsString = fs.readFileSync(productsPath, {encoding : 'utf-8'});
-const products = JSON.parse(productsString);
+const products = require(productsPath);
+// const fs = require('fs');
+// const productsString = fs.readFileSync(productsPath, {encoding : 'utf-8'});
+// const products = JSON.parse(productsString);
 
 const productsController = {
     index: function(req, res) {
