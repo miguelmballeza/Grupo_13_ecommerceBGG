@@ -21,7 +21,7 @@
                 <% } %>
             </article>
         </div>
-        <button class="add-cart"><a href="/carrito-de-compras">Añadir al Carrito</a></button>
+        <button class="add-cart"><a href="#">Añadir al Carrito</a></button>
         <article class="elements">
             <% for(let i = 0; i < firstSection.elements.length; i++) { %>
                 <button class="Right-Scroll"><a href="<%= firstSection.elements[i].link %>"><%= firstSection.elements[i].elementName %></a></button>
@@ -32,7 +32,7 @@
     <section class="album-section">
         <% for(let i = 0; i < products.length; i++) { %>
         <article class="album-home" id="<%= products[i].IDContainer %>">
-            <img id="<%= products[i].IDImage %>" src="/images/<%= products[i].image %>" alt="Imágen de Album">
+            <img id="<%= products[i].IDImage %>" src="/images/registeredProducts/<%= products[i].image %>" alt="Imágen de Album">
             <h2><%= products[i].title %></h2>
             <p><%= products[i].description %></p>
             <a href="/productos/<%= products[i].id %>"><%= products[i].finalMessage %></a>

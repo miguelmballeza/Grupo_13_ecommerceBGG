@@ -3,7 +3,7 @@
     <%- include('../partials/header') %>  
     <div class="banner">
       <div class="banner-fondo">
-        <div class="banner-fondo-img" style="background-image: url('/images/<%= product.image %>')"></div>
+        <div class="banner-fondo-img" style="background-image: url('/images/registeredProducts/<%= product.image %>')"></div>
       </div>
       <div class="container">
         <div class="banner-header">
@@ -13,7 +13,7 @@
           </label>
         </div>
         <div class="banner-preview">
-          <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" alt="Imágen de Album">
+          <img id="<%= product.IDImage %>" src="/images/registeredProducts/<%= product.image %>" alt="Imágen de Album">
         </div>
         <div class="banner-aditional">
           <div class="banner-year"><p><date><%= product.year %></date></p></div>

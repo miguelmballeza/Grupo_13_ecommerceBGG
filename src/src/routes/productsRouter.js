@@ -9,7 +9,7 @@ let products = require(productsPath);
 
 const storageToCreate = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, path.resolve(path.join(__dirname, '..', '..' ,'/public/images')));
+        cb(null, path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredProducts')));
     },
     filename: function(req, file, cb) {
         cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);
@@ -18,7 +18,7 @@ const storageToCreate = multer.diskStorage({
 
 const storageToEdit = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, path.resolve(path.join(__dirname, '..', '..' ,'/public/images')));
+        cb(null, path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredProducts')));
     },
     filename: function(req, file, cb) {
         const product = products.find( product => product.id == req.params.id);
@@ -36,8 +36,8 @@ router.get('/:id', productsController.productDetail);
 router.get('/:id/editar', productsController.editProduct);
 
 
-router.post('/:id', uploadFile.single('image'), productsController.agregarProducto )
+router.post('/:id', uploadFile.single('image'), productsController.createProductPost )
 router.put('/:id', editFile.single('image'), productsController.updateProduct );
-router.delete('/:id', productsController.eliminarProduct);
+router.delete('/:id', productsController.deleteProduct);
 
 module.exports = router;

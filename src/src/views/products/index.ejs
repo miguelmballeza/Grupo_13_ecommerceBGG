@@ -12,7 +12,7 @@
     <section class="album-section">
         <% for(let i = 0; i < products.length; i++) { %>
         <article class="album-home" id="<%= products[i].IDContainer %>">
-            <img id="<%= products[i].IDImage %>" src="/images/<%= products[i].image %>" alt="Imágen de Album">
+            <img id="<%= products[i].IDImage %>" src="/images/registeredProducts/<%= products[i].image %>" alt="Imágen de Album">
             <h2><%= products[i].title %></h2>
             <p><%= products[i].description %></p>
             <a href="/productos/<%= products[i].id %>"><%= products[i].finalMessage %></a>

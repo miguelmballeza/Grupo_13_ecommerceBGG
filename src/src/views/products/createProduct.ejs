@@ -6,7 +6,7 @@
         <form action="/productos/<%= length + 1 %>" class="product-register" method="POST" enctype="multipart/form-data">
             <div class="info">
                 <label for="name">Nombre del Artista: </label>
-                <input type="text" name="name" id="name" required>
+                <input type="text" name="artist" id="name" required>
             </div>
             <div class="info">
                 <label for="album">Nombre del Album: </label>
@@ -50,7 +50,7 @@
                 <label>Canciones </label>
                 <div class="songs">
                     <label for="songs">Titulo: </label>
-                    <input type="text" name="songs" id="songs" required>
+                    <input type="text" name="song" id="songs" required>
                     <label for="lenght">Duracion: </label>
                     <input type="text" name="lenght" id="lenght" value="00:00" required>
                 </div>

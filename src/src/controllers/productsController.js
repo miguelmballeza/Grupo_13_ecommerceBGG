@@ -1,6 +1,8 @@
 const path = require('path');
 const productsPath = path.resolve(__dirname, '../data/products.json');
 let products = require(productsPath);
+const colorsPath = path.resolve(__dirname, '../data/availableColors.json');
+const availableColors = require(colorsPath);
 // const fs = require('fs');
 // const productsString = fs.readFileSync(productsPath, {encoding : 'utf-8'});
 // const products = JSON.parse(productsString);
@@ -51,7 +53,7 @@ const productsController = {
             let id = parseInt(req.params.id);
             const product = products.find( product => product.id == id);
             if(id>0 && product){
-                res.render('products/editProduct', { head, product });
+                res.render('products/editProduct', { head, product, availableColors });
             } else {
                 res.status(404).render('inCaseOf/not-found')
             }
@@ -60,7 +62,7 @@ const productsController = {
         }
     },
     
-    agregarProducto: function(req, res){
+    createProductPost : function(req, res){
         const head = {
             title: "Detalle del Producto",
             styleSheet: "/css/stylesDetail.css",
@@ -68,7 +70,7 @@ const productsController = {
         let id = products.length + 1;
         let product = {"id":id, 
         "title": req.body.album ,
-        "artist": req.body.name,
+        "artist": req.body.artist,
          "year": parseInt(req.body.year) ,
          "name": req.body.album ,
          "genre": req.body.genre ,
@@ -76,12 +78,12 @@ const productsController = {
          "price": req.body.price ,
          "IDContainer": req.body.color ,
          "IDImage":"standardImage", 
-         "finalMessage":"Album nuevo ->",
+         "finalMessage":"Nuevo Albúm ->",
          "image": req.file.filename,
-         "songs":[{"title" : req.body.songs, "length" : req.body.lenght}]};
+         "songs":[{"title" : req.body.song, "lenght" : req.body.lenght}]};
         products.push(product);
         const creation = true;
-        res.render('products/productDetail', {head, product, creation});
+        res.render('products/productDetail', { head, product, creation });
     },
     
     updateProduct : function(req, res) {
@@ -91,7 +93,7 @@ const productsController = {
         };
         let id = req.params.id;
         let product = products.find( product => product.id == id);
-        product.artist = req.body.name;
+        product.artist = req.body.artist;
         product.name = req.body.album;
         product.genre = req.body.genre;
         product.year = req.body.year;
@@ -136,7 +138,7 @@ const productsController = {
         res.render('products/productDetail', { head, product, edition });
     },
 
-    eliminarProduct: function(req, res){
+    deleteProduct : function(req, res){
         const head = {
             title: "Productos",
             styleSheet: "/css/stylesProducts.css",
