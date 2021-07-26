@@ -1,15 +1,17 @@
 const express = require('express');
-const router = express.Router();
-const productsController = require('../controllers/productsController');
 const multer = require('multer');
 const path = require('path');
+const productsController = require('../controllers/productsController');
 const productsPath = path.resolve(__dirname, '../data/products.json');
 let products = require(productsPath);
+
+const router = express.Router();
+const productsImagePath = path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredProducts'));
 
 
 const storageToCreate = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredProducts')));
+        cb(null, productsImagePath);
     },
     filename: function(req, file, cb) {
         cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);
@@ -18,7 +20,7 @@ const storageToCreate = multer.diskStorage({
 
 const storageToEdit = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredProducts')));
+        cb(null, productsImagePath);
     },
     filename: function(req, file, cb) {
         const product = products.find( product => product.id == req.params.id);
