@@ -6,15 +6,15 @@
         <form id="register" action="/usuario/<%= newID %>" method="POST" enctype="multipart/form-data">
             <article>
                 <label for="firstName">Nombre(s) :</label>
-                <input type="text" name="firstName" id="firstName" required>
+                <input type="text" name="firstName" id="firstName" value="<%= locals.writtenValues && writtenValues.firstName ? writtenValues.firstName : '' %>" required>
             </article>
             <article>
                 <label for="lastName">Apellidos :</label>
-                <input type="text" name="lastName" id="lastName" required>
+                <input type="text" name="lastName" id="lastName" value="<%= locals.writtenValues && writtenValues.lastName ? writtenValues.lastName : '' %>" required>
             </article>
             <article>
                 <label for="email">Email :</label>
-                <input type="text" name="email" id="email" required>
+                <input type="text" name="email" id="email" value="<%= locals.writtenValues && writtenValues.email ? writtenValues.email : '' %>" required>
             </article>
             <article>
                 <label for="password">Contraseña :</label>

@@ -5,12 +5,12 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
 const usersController = {
-    info: function(req, res) {
+    profile: function(req, res) {
         const head = {
             title: "Perfil de Usuario",
             styleSheet: "/css/stylesUser.css",
         };
-        res.render('users/info', { head });
+        res.render('users/profile', { head, user: req.session.user });
     },
     register: function(req, res) {
         const head = {
@@ -28,12 +28,14 @@ const usersController = {
         res.render('users/login', { head });
     },
     registerPost: function(req, res) {
-        // const head = {
-        //     title: "Usuario registrado",
-        //     styleSheet: "/css/stylesUser.css", // faltan estilos.
-        // };
         const errors = validationResult(req);
         if(errors.isEmpty()){
+            if((users.find( user => user.email == req.body.email) == undefined)){
+            const head = {
+                title: "Usuario registrado",
+                styleSheet: "/css/stylesUser.css", // faltan estilos.
+            };
+            const fileName = req.body.image ? req.file.filename : 'defaultUser_img_.jpg';
             const user = {
                 "id": users.length + 1,
                 "firstName": req.body.firstName,
@@ -41,18 +43,62 @@ const usersController = {
                 "email": req.body.email,
                 "password": bcrypt.hashSync(req.body.password, 12),
                 "category": "user",
-                "image": req.file.filename,
-            }
+                "image": fileName,
+            };
+
             users.push(user);
-            res.status(200).send('usuario registrado');
-            //res.render('users/profile', { head, user });
+            //res.status(200).send('usuario registrado');
+            req.session.user = user;
+            res.render('users/profile', { head, user });
+            } else {
+                const head = {
+                    title: "Registro",
+                    styleSheet: "/css/stylesRegister.css",
+                };
+                const newID = users.length + 1;
+                const writtenValues = req.body;
+                res.render('users/register', { head, newID, errors : [ { msg: 'Este correo ya fue registrado.' } ] }, writtenValues);
+            }   
         } else {
             const head = {
                 title: "Registro",
                 styleSheet: "/css/stylesRegister.css",
             };
             const newID = users.length + 1;
-            return res.render('users/register', { head, newID, errors : errors.array() });
+            const writtenValues = req.body;
+            return res.render('users/register', { head, newID, errors : errors.array(), writtenValues });
+        }
+    },
+    loginPost: function(req, res) {
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+            const user = users.find( user => {
+                return user.email == req.body.email
+            });
+            if(user){
+                if(bcrypt.compareSync(req.body.password, user.password)){
+                    const head = {
+                        title: "Perfil de " + user.firstName,
+                        styleSheet: "/css/stylesUser.css", // faltan estilos.
+                    };
+                    res.render('users/profile', { head, user });
+                    // return res.send('usuario encontrado.');
+                } 
+            } else {
+                const head = {
+                    title: "Iniciar Sesión",
+                    styleSheet: "/css/stylesLogin.css",
+                };
+                const email = req.body.email;
+                res.render('users/login', { head,  errors : [ { msg: 'Correo o contraseña incorrectos.' } ] }, email );
+            }
+        } else {
+            const head = {
+                title: "Iniciar Sesión",
+                styleSheet: "/css/stylesLogin.css",
+            };
+            const email = req.body.email;
+            res.render('users/login', { head, errors : errors.array(), email });
         }
     },
 };
