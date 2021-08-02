@@ -3,6 +3,7 @@ const path = require('path');
 const routers = require('./routes/');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const middlewares = require('./middlewares');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({ secret: "bmg_ecommerce" }));
+//app.use(middlewares.logMiddleware);
 
 app.use('/', routers.mainRouter);
 

@@ -5,6 +5,7 @@ const path = require('path');
 const usersImagePath = path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredUsers'));
 const router = express.Router();
 const { body } = require('express-validator');
+const usersMiddlewares = require('../middlewares/users');
 
 const registerValidation = [
     body('firstName').notEmpty().withMessage('El campo de nombre esta vacío.'),
@@ -30,9 +31,10 @@ const storageToRegister = multer.diskStorage({
 const uploadFile = multer({ storage : storageToRegister });
 
 router.get('/registro', usersController.register);
-router.get('/inicio-de-sesion', usersController.login);
-router.get('/:id', usersController.profile);
+router.get('/inicio-de-sesion', usersMiddlewares.existentUserMiddleware, usersController.login);
+router.get('/perfil', usersMiddlewares.usersMiddleware, usersController.profile);
+
+router.post('/perfil', logInValidation, usersController.loginPost);
 router.post('/:id', uploadFile.single('image'), registerValidation, usersController.registerPost);
-router.post('/', logInValidation, usersController.loginPost);
 
 module.exports = router;

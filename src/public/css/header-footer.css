@@ -203,6 +203,11 @@ li a {
         right: 175px;
     }
 
+    /* p#user { cuando comparta parametros con cualquier página que tenga el header.
+        display: inline;
+        font-size: 10px;
+    } */
+
     .social-networks {
         justify-content: flex-start;
         padding: 0 0 0 25px;

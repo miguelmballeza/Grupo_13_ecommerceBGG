@@ -4,6 +4,10 @@ const users = require(usersPath);
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
+const fs = require('fs');
+const usersJSON = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), { encoding: 'utf-8' });
+const usersParse = JSON.parse(usersJSON);
+
 const usersController = {
     profile: function(req, res) {
         const head = {
@@ -35,7 +39,7 @@ const usersController = {
                 title: "Usuario registrado",
                 styleSheet: "/css/stylesUser.css", // faltan estilos.
             };
-            const fileName = req.body.image ? req.file.filename : 'defaultUser_img_.jpg';
+            const fileName = req.file ? req.file.filename : 'defaultUser_img_.jpg';
             const user = {
                 "id": users.length + 1,
                 "firstName": req.body.firstName,
@@ -45,8 +49,9 @@ const usersController = {
                 "category": "user",
                 "image": fileName,
             };
-
             users.push(user);
+            usersParse.push(user);
+            fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(usersParse));
             //res.status(200).send('usuario registrado');
             req.session.user = user;
             res.render('users/profile', { head, user });
@@ -57,7 +62,7 @@ const usersController = {
                 };
                 const newID = users.length + 1;
                 const writtenValues = req.body;
-                res.render('users/register', { head, newID, errors : [ { msg: 'Este correo ya fue registrado.' } ] }, writtenValues);
+                res.render('users/register', { head, newID, errors : [ { msg: 'Este correo ya fue registrado.' } ], writtenValues});
             }   
         } else {
             const head = {
@@ -81,16 +86,24 @@ const usersController = {
                         title: "Perfil de " + user.firstName,
                         styleSheet: "/css/stylesUser.css", // faltan estilos.
                     };
+                    req.session.user = user;
                     res.render('users/profile', { head, user });
                     // return res.send('usuario encontrado.');
-                } 
+                } else {
+                    const head = {
+                        title: "Iniciar Sesión",
+                        styleSheet: "/css/stylesLogin.css",
+                    };
+                    const email = req.body.email;
+                    res.render('users/login', { head,  errors : [ { msg: 'Correo o contraseña incorrectos.' } ], email}); 
+                }
             } else {
                 const head = {
                     title: "Iniciar Sesión",
                     styleSheet: "/css/stylesLogin.css",
                 };
                 const email = req.body.email;
-                res.render('users/login', { head,  errors : [ { msg: 'Correo o contraseña incorrectos.' } ] }, email );
+                res.render('users/login', { head,  errors : [ { msg: 'Correo o contraseña incorrectos.' } ], email});
             }
         } else {
             const head = {

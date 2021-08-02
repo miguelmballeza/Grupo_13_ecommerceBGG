@@ -4,7 +4,7 @@
     <div id="main">
       <section id="login-and-text-container">
           <h1>Iniciar Sesión</h1>
-          <form id="login" action="/usuario/" method="POST">
+          <form id="login" action="/usuario/perfil" method="POST">
               <article>
                   <label for="email">Correo electrónico :</label>
                   <input type="text" name="email" id="email" value="<%= locals.email && email ? email : '' %>" required>
@@ -15,7 +15,7 @@
               </article>
               <% if(locals && locals.errors) { %>
               <% errors.forEach( error => { %>
-              <p id="error">*<%= error.msg %></p><br>
+              <br><p id="error">*<%= error.msg %></p>
               <%  }) %>
               <% } %>
               <article id="remember-general">
