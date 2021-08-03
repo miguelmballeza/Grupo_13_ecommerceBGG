@@ -1,11 +1,10 @@
 * {
-  margin: 0px 0px;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
 
 body {
-  width: 100vw;
+  margin: 0px 0px;
 }
 
 .navbar {

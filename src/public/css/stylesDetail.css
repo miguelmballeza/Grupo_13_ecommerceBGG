@@ -1,7 +1,11 @@
 * {
-  margin: 0px 0px;
   font-family: "Roboto";
   box-sizing: border-box;
+}
+
+body {
+  margin: 0px 0px;
+
 }
 
 .navbar {

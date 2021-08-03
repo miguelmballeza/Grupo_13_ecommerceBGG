@@ -97,5 +97,14 @@
     "password": "$2a$12$m23cBYOmrWXrMSTtuOGVHuNfirSO4B1OTWNIwlDc6xAeDjZ9S7b.K",
     "category": "user",
     "image": "1628014524733_img_.jpg"
+  },
+  {
+    "id": 12,
+    "firstName": "Alejandro",
+    "lastName": "Gomez",
+    "email": "correo@prueba.com",
+    "password": "$2a$12$RzxM3.dfsPU62H0a9vEEgul.XgCEuO7HFhXOVv4FXW7h/QorYdKta",
+    "category": "user",
+    "image": "defaultUser_img_.jpg"
   }
 ]
