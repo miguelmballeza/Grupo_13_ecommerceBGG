@@ -2,7 +2,10 @@
 <body>
     <%- include('../partials/header') %>
     <section class="profile-section">
-        <h2 id="acc">Cuenta</h2>
+        <div id="first-container">
+            <h2 id="acc">Cuenta</h2>
+            <h2 id="acc"><a id="logout" href="#">Cerrar Sesión</a></h2>
+        </div>
         <div id="greeting-and-image">
             <h2 id="greeting">Hola <%= user.firstName %></h2>
             <img id="img-after768" src="/images/registeredUsers/<%= user.image %>">
@@ -12,6 +15,7 @@
         <div><h3 class="field">Nombre completo : </h3><h3 class="info"><%= user.firstName + " " + user.lastName %></h3></div>
         <div><h3 class="field">Correo electrónico :</h3><h3 class="info"><%= user.email %></h3></div>
         <div><h3 class="field">Contraseña :</h3><h3 class="info">**** <a href="#">Cambiar contraseña</a></h3></div>
+        <br><div><h3 class="field"><a id="products" href="/productos/">-> Mis productos registrados.</h3></a></div>
         <img id="img-before768" src="/images/registeredUsers/<%= user.image %>">
     </section>
     <%- include('../partials/footer') %>

@@ -3,6 +3,8 @@ const multer = require('multer');
 const path = require('path');
 const productsController = require('../controllers/productsController');
 const productsPath = path.resolve(__dirname, '../data/products.json');
+const { visitorNotUserMiddleware } = require('../middlewares/visitors');
+
 let products = require(productsPath);
 
 const router = express.Router();
@@ -33,7 +35,7 @@ const editFile = multer({ storage : storageToEdit });
 
 
 router.get('/', productsController.index);
-router.get('/crear', productsController.createProduct);
+router.get('/crear', visitorNotUserMiddleware,productsController.createProduct);
 router.get('/:id', productsController.productDetail);
 router.get('/:id/editar', productsController.editProduct);
 

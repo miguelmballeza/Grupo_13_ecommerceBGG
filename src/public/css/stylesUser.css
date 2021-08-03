@@ -13,6 +13,12 @@ body {
     margin: 0 0 120px 0;
 }
 
+div#first-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 img#img-after768 {
     display: none
 }
@@ -61,6 +67,15 @@ h3.info {
 a {
     text-decoration: none;
     color: blue
+
+}
+
+a#products {
+    color:rgb(107, 10, 243)
+}
+
+a#logout {
+    color: black;
 }
 
 @media (min-width: 768px) {
@@ -101,11 +116,27 @@ a {
 @media (min-width: 992px) {
 
    .profile-section {
-        margin: 0 0 160px 15%;
+        margin: 0 0 140px 15%;
     } 
+
+    div#greeting-and-image {
+        margin: 50px 0 0 0;
+    }
+
+    div#first-container {
+        width: 80%;
+    }
 
     div {
         margin: 0 12px 8px 0;
+    }
+
+}
+
+@media (min-width: 1600px) {
+
+    div#greeting-and-image {
+        margin: 110px 0 0 0;
     }
 
 }

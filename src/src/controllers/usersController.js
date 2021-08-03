@@ -37,7 +37,7 @@ const usersController = {
             if((users.find( user => user.email == req.body.email) == undefined)){
             const head = {
                 title: "Usuario registrado",
-                styleSheet: "/css/stylesUser.css", // faltan estilos.
+                styleSheet: "/css/stylesRegisterConfirmation.css",
             };
             const fileName = req.file ? req.file.filename : 'defaultUser_img_.jpg';
             const user = {
@@ -51,10 +51,9 @@ const usersController = {
             };
             users.push(user);
             usersParse.push(user);
-            fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(usersParse));
-            //res.status(200).send('usuario registrado');
+            fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(usersParse, null, 2));
             req.session.user = user;
-            res.render('users/profile', { head, user });
+            res.render('users/createdUser', { head });
             } else {
                 const head = {
                     title: "Registro",
@@ -86,6 +85,7 @@ const usersController = {
                         title: "Perfil de " + user.firstName,
                         styleSheet: "/css/stylesUser.css", // faltan estilos.
                     };
+                    req.body.recuerdame ? res.cookie('recuerdame', user.id, { maxAge: 300000 }) : '' ;
                     req.session.user = user;
                     res.render('users/profile', { head, user });
                     // return res.send('usuario encontrado.');
