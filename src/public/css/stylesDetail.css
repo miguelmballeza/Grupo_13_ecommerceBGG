@@ -169,7 +169,7 @@ h2 .banner-artistName a{
 }
 
 .carrito {
-  align-items: center;
+  align-self: center;
   text-align: center;
   width: 30%;
 }
