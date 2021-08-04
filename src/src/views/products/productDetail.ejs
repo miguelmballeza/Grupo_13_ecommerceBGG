@@ -36,7 +36,9 @@
         <p><strong>$<%= product.price %></strong></p>
       </div>
       <div class="carrito">
-        <button>Agregar al carrito</button>
+        <form action="/carrito-de-compras/<%= product.id %>" method="POST">
+          <button type="submit">Agregar al Carrito</button>
+        </form>
       </div>
     </div>
     <div class="lista">

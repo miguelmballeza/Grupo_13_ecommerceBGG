@@ -26,6 +26,18 @@ const mainController = {
         };
         res.render('main/productCart', { head });
     },
+    cartPost: function(req, res) {
+        const head = {
+            title: "Producto agregado",
+            styleSheet: "/css/stylesCart.css",
+        };
+        let totalPrice;
+        const product = products.find( product => product.id == req.params.id);
+        req.session.addedProducts ? req.session.addedProducts.push( product ) : req.session.addedProducts = [ product ];
+        req.session.addedProducts ? totalPrice = req.session.addedProducts.reduce( (acum = 0, addedProduct) => acum + addedProduct.price, 0) : totalPrice = 0;
+        req.session.totalPrice = totalPrice;
+        res.render('main/productCart', { head, addedProducts: req.session.addedProducts, totalPrice });
+    },
 };
 
 module.exports = mainController;

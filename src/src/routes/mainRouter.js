@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
-const { visitorNotUserMiddleware } = require('../middlewares/visitors/');
+const usersMiddlewares = require('../middlewares/users/');
 
 router.get('/', mainController.main);
-router.get('/carrito-de-compras', visitorNotUserMiddleware, mainController.cart);
+router.get('/carrito-de-compras', usersMiddlewares.addedProductsMiddleware, mainController.cart);
+
+router.post('/carrito-de-compras/:id', usersMiddlewares.usersMiddleware, mainController.cartPost);
 
 module.exports = router;

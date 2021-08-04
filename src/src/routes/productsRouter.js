@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const productsController = require('../controllers/productsController');
 const productsPath = path.resolve(__dirname, '../data/products.json');
-const { visitorNotUserMiddleware } = require('../middlewares/visitors');
+const { usersMiddleware } = require('../middlewares/users');
 
 let products = require(productsPath);
 
@@ -35,9 +35,9 @@ const editFile = multer({ storage : storageToEdit });
 
 
 router.get('/', productsController.index);
-router.get('/crear', visitorNotUserMiddleware,productsController.createProduct);
+router.get('/crear', usersMiddleware, productsController.createProduct);
 router.get('/:id', productsController.productDetail);
-router.get('/:id/editar', productsController.editProduct);
+router.get('/:id/editar', usersMiddleware, productsController.editProduct);
 
 
 router.post('/:id', uploadFile.single('image'), productsController.createProductPost )

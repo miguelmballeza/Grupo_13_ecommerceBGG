@@ -31,7 +31,7 @@ h1 {
 }
 
 #main {
-  height: 80vh;
+  height: 90vh;
 }
 
 #login-and-text-container {
@@ -49,7 +49,7 @@ h1 {
   justify-content: center;
   margin: auto;
   width: 90%;
-  height: 400px;
+  height: 300px;
   border: 1px gray solid;
   border-radius: 10px;
 }
@@ -147,6 +147,8 @@ p#error {
   text-align: center;
   color:rgb(209, 50, 50)
 }
+
+/* until here */
 
 @media (min-width: 576px){
   

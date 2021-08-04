@@ -25,9 +25,7 @@ app.use(userCookie);
 //app.use(middlewares.logMiddleware);
 
 app.use('/', routers.mainRouter);
-
 app.use('/productos', routers.productsRouter);
-
 app.use('/usuario', routers.usersRouter);
 
 app.use((req, res, next) => {

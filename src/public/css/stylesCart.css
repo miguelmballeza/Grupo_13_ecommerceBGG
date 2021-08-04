@@ -4,7 +4,7 @@
 }
 
 body {
-  margin: 0px 0px;
+  margin: 0;
 }
 
 .navbar {
@@ -33,11 +33,24 @@ body {
   border-radius: 15px;
   height: 150px;
   width: 80%;
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+}
+
+.img {
+  width: 97px;
+  height: 90%;
+  /*border: 1px solid black;*/
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.info {
+  text-align: center;
+  margin: 15px 8px 15px 8px;
 }
 
 .album {
@@ -49,20 +62,14 @@ body {
   align-items: center;
 }
 
-.img {
-  width: 97px;
-  height: 90%;
-  border: 1px solid black;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-.info {
-  margin: 15px;
-  text-align: center;
-}
 .datos {
   margin-bottom: 10px;
 }
+
+h2.datos {
+  font-size: 15px;
+}
+
 .cantidad {
   margin: 15px;
   text-align: center;
@@ -98,6 +105,7 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 .codigo input {
   text-align: center;
 }
@@ -113,10 +121,10 @@ body {
 .precio {
   border: 1px solid black;
   border-radius: 15px;
-  display: flex;
-  justify-content: space-around;
   margin: 0 auto;
   padding: 4% 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 input {
@@ -150,7 +158,7 @@ button {
 
 }
 
-@media (min-width:577px) {
+@media (min-width:576px) {
 
   .encabezado p{
     font-size: 30px;
@@ -168,6 +176,11 @@ button {
   .contenido {
     font-size: 20px;
     width: 80%;
+  }
+
+  .info {
+    text-align: center;
+    margin: 15px;
   }
 
   .img {
@@ -228,6 +241,12 @@ button {
     width: 400px;
     margin: 50px 75px
   }
+
+  .img {
+    width: 100%;
+    height: 100%;
+  }
+
 }
 
 /* @media (min-width:1100px) {
