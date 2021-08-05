@@ -22,7 +22,7 @@
             </div>
             <div class="info">
                 <label for="price">Precio: </label>
-                <input type="number" name="price" id="price" required>
+                <input type="number" step="0.01" name="price" id="price" required>
             </div>
             <div class="info">
                 <label for="description">Descripción: </label>
@@ -49,12 +49,17 @@
             <div class="info">
                 <label>Canciones :</label>
                 <div class="songs">
-                    <label for="songs">Titulo: </label>
+                    <label for="songs">Titulo :</label>
                     <input type="text" name="song" id="songs" required>
-                    <label for="lenght">Duracion: </label>
+                    <label for="lenght">Duracion :</label>
                     <input type="text" name="lenght" id="lenght" value="00:00" required>
                 </div>
             </div>
+            <% if(locals && locals.errors) { %>
+                <% errors.forEach( error => { %>
+                <p id="error">*<%= error.msg %></p><br>
+                <% }) %> 
+            <% } %>
             <button type="submit" id="submit-product">Registrar</button>
         </form>
     </section>

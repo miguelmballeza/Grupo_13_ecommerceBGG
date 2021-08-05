@@ -41,7 +41,7 @@ h1 {
     justify-content: space-evenly;
     margin: auto;
     width: 90%;
-    height: 900px;
+    height: 1000px;
     border: 1px gray solid;
     border-radius: 10px;
 }
@@ -50,9 +50,9 @@ h1 {
     display: flex;
     flex-wrap: wrap;
 }
+
 .songs {
-    width: 450px;
-    /* border-top: 1px solid black; */
+    width: 89%;
     margin-top: 2px;
 }
 
@@ -81,6 +81,14 @@ input {
     border: 0.5px gray solid;
     border-radius: 20px;
     outline: none;
+}
+
+input#songs {
+    width: 100%;
+}
+
+input#lenght {
+    width: 100%;
 }
 
 input:hover,input:focus{
@@ -124,6 +132,13 @@ textarea:focus, textarea:hover{
 #submit-product:hover {
     background-color: black;
     color: white;
+}
+
+p#error {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    color:rgb(209, 50, 50)
 }
 
 @media (min-width: 576px){

@@ -21,8 +21,7 @@ const usersController = {
             title: "Registro",
             styleSheet: "/css/stylesRegister.css",
         };
-        const newID = users.length + 1;
-        res.render('users/register', { head, newID });
+        res.render('users/register', { head, newID: users.length + 1 });
     },
     login: function(req, res) {
         const head = {
@@ -51,7 +50,7 @@ const usersController = {
             };
             users.push(user);
             usersParse.push(user);
-            fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(usersParse, null, 2));
+            //fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(usersParse, null, 2));
             req.session.user = user;
             res.render('users/createdUser', { head });
             } else {
@@ -70,7 +69,7 @@ const usersController = {
             };
             const newID = users.length + 1;
             const writtenValues = req.body;
-            return res.render('users/register', { head, newID, errors : errors.array(), writtenValues });
+            res.render('users/register', { head, newID, errors : errors.array(), writtenValues });
         }
     },
     loginPost: function(req, res) {

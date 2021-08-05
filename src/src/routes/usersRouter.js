@@ -35,6 +35,6 @@ router.get('/inicio-de-sesion', usersMiddlewares.existentUserMiddleware, usersCo
 router.get('/perfil', usersMiddlewares.usersMiddleware, usersController.profile);
 
 router.post('/perfil', logInValidation, usersController.loginPost);
-router.post('/:id', uploadFile.single('image'), registerValidation, usersController.registerPost);
+router.post('/:id', registerValidation, uploadFile.single('image'),  usersController.registerPost);
 
 module.exports = router;

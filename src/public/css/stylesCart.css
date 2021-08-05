@@ -38,6 +38,7 @@ body {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  background-color: rgb(243, 242, 242)
 }
 
 .img {
@@ -68,6 +69,16 @@ body {
 
 h2.datos {
   font-size: 15px;
+}
+
+h2#empty {
+  display: block;
+  color: black;
+  font-size: 18px;
+  max-width: 80%;
+  font-weight: 300;
+  text-align: center;
+  margin: 40px auto;
 }
 
 .cantidad {
@@ -191,6 +202,11 @@ button {
     box-sizing: border-box;
   }
 
+  h2#empty {
+    font-size: 20px;
+    max-width: 60%;
+  }
+
   .cupon {
     font-size: 20px;
   }
@@ -235,6 +251,11 @@ button {
   }
   .contenido {
     width: 800px;
+  }
+
+  h2#empty {
+    font-size: 22px;
+    max-width: 70%;
   }
   
   .prueba .cupon, .prueba .subtotal {

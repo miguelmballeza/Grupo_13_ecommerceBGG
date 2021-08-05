@@ -24,7 +24,7 @@ const mainController = {
             title: "Carrito",
             styleSheet: "/css/stylesCart.css",
         };
-        res.render('main/productCart', { head });
+        res.render('main/productCart', { head, addedProducts: req.session.addedProducts, totalPrice: req.session.totalPrice });
     },
     cartPost: function(req, res) {
         const head = {
@@ -36,7 +36,7 @@ const mainController = {
         req.session.addedProducts ? req.session.addedProducts.push( product ) : req.session.addedProducts = [ product ];
         req.session.addedProducts ? totalPrice = req.session.addedProducts.reduce( (acum = 0, addedProduct) => acum + addedProduct.price, 0) : totalPrice = 0;
         req.session.totalPrice = totalPrice;
-        res.render('main/productCart', { head, addedProducts: req.session.addedProducts, totalPrice });
+        res.redirect('/carrito-de-compras');
     },
 };
 

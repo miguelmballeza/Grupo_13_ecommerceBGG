@@ -8,7 +8,7 @@
       </div>
       <% if(locals && locals.addedProducts) { %>
         <% addedProducts.forEach( addedProduct => { %>
-        <div class="contenido" style="background-color: rgb(243, 242, 242)">
+        <div class="contenido">
           <div class="album info">
             <a href="/productos/<%= addedProduct.id %>"><img class="img" src="/images/registeredProducts/<%= addedProduct.image %>" alt="Imagen del producto Añadido, <%= addedProduct.name + ' de ' + addedProduct.artist %>"/></a>
           </div>
@@ -37,7 +37,7 @@
         </div>
         <% }) %>
       <% } else { %>
-        <h2>Ningun producto ha sido añadido todavía.</h2>
+        <h2 id="empty">Ningun producto ha sido añadido todavía.</h2>
       <% } %>
       <div class="prueba">
 

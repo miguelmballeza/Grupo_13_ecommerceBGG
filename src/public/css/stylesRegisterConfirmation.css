@@ -42,9 +42,7 @@ h2#message {
 @media (min-width: 576px) {
 
     h2#message {
-        font-size: 14px;
         max-width: 60%;
-        margin: 40px auto;
     }
 
     h2#greeting {

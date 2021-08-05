@@ -164,6 +164,13 @@ textarea:focus, textarea:hover{
     color: white;
 }
 
+p#error {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    color:rgb(209, 50, 50)
+}
+
 @media (min-width: 576px){
     .product-edit{
         max-width: 450px;
