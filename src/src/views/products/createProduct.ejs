@@ -1,51 +1,58 @@
 <%- include('../partials/head') %>
 <body>
-    <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
+    <%- include('../partials/header') %>
+    <!-- <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a>-->  
     <h1>Registro de Producto</h1>
     <section class="container">
         <form action="/productos/<%= length + 1 %>" class="product-register" method="POST" enctype="multipart/form-data">
-            <div class="info">
-                <label for="name">Nombre del Artista: </label>
-                <input type="text" name="artist" id="name" required>
+            <div class="division">
+                <div class="info">
+                    <label for="name">Nombre del Artista: </label>
+                    <input type="text" name="artist" id="name" required>
+                </div>
+                <div class="info">
+                    <label for="album">Nombre del Album: </label>
+                    <input type="text" name="album" id="album" required>
+                </div>
             </div>
-            <div class="info">
-                <label for="album">Nombre del Album: </label>
-                <input type="text" name="album" id="album" required>
+            <div class="division">
+                <div class="info">
+                    <label for="genre">Genero: </label>
+                    <input type="text" name="genre" id="genre" required>
+                </div>
+                <div class="info">
+                    <label for="year">Año de lanzamiento: </label>
+                    <input type="number" name="year" id="year" required>
+                </div>
             </div>
-            <div class="info">
-                <label for="genre">Genero: </label>
-                <input type="text" name="genre" id="genre" required>
+            <div class="division">
+                <div class="info">
+                    <label for="price">Precio: $</label>
+                    <input type="number" step="0.01" name="price" id="price" required>
+                </div>
+                <div class="info">
+                    <label for="description">Descripción: </label>
+                    <!-- <input type="text" name="description" id="description"> -->
+                    <textarea name="description" id="description" cols="40" rows="5" required></textarea>
+                </div>
             </div>
-            <div class="info">
-                <label for="year">Año de lanzamiento: </label>
-                <input type="number" name="year" id="year" required>
+            <div class="division">
+                <div class="info">
+                    <label for="image">Imagen: </label>
+                    <input type="file" name="image" id="image" required>
+                </div>
+                <div class="info">
+                    <label for="color" id="color-selector">Color predominante del album :</label>
+                    <select name="color" id="color-album" required>
+                        <% if(locals && locals.availableColors) { %>
+                            <% availableColors.forEach( colour => { %>
+                        <option value="<%= colour.color %>"><%= colour.name %></option>
+                            <% }) %>
+                        <% } %>
+                    </select>
+                </div>
             </div>
-            <div class="info">
-                <label for="price">Precio: </label>
-                <input type="number" step="0.01" name="price" id="price" required>
-            </div>
-            <div class="info">
-                <label for="description">Descripción: </label>
-                <!-- <input type="text" name="description" id="description"> -->
-                <textarea name="description" id="description" cols="40" rows="5" required></textarea>
-            </div>
-            <div class="info">
-                <label for="image">Imagen: </label>
-                <input type="file" name="image" id="image" required>
-            </div>
-            <div class="info">
-                <label for="color" id="color-selector">Color predominante del album :</label>
-                <select name="color" id="color-album" required>
-                  <option value="black">Negro</option>
-                  <option value="yellow">Amarillo</option>
-                  <option value="green velvet">Verde</option>
-                  <option value="red">Rojo</option>
-                  <option value="brown">Cafe</option>
-                  <option value="blue">Azul</option>
-                </select>
-                
-                <!-- <img class="eliminar" src="/icons/eliminar.svg" alt="" /> -->
-              </div>
+            <div class="division" id="all-songs">
             <div class="info">
                 <label>Canciones :</label>
                 <div class="songs">
@@ -55,11 +62,14 @@
                     <input type="text" name="lenght" id="lenght" value="00:00" required>
                 </div>
             </div>
-            <% if(locals && locals.errors) { %>
-                <% errors.forEach( error => { %>
-                <p id="error">*<%= error.msg %></p><br>
-                <% }) %> 
-            <% } %>
+            <div id="in-case-of-errors">
+                <% if(locals && locals.errors) { %>
+                    <% errors.forEach( error => { %>
+                    <p id="error">*<%= error.msg %></p><br>
+                    <% }) %> 
+                <% } %>
+            </div>
+            </div>
             <button type="submit" id="submit-product">Registrar</button>
         </form>
     </section>

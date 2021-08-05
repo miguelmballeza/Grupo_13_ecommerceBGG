@@ -14,6 +14,7 @@ body {
     width: 200px;
     height: 70px;
 }
+
 .central-BMG {
     display: block;
     padding: 20px 0;
@@ -26,6 +27,10 @@ body {
     display: block;
     width: 100vw;
     height: 1050px;
+}
+
+.division {
+    margin:0
 }
 
 h1 {
@@ -81,6 +86,10 @@ input {
     border: 0.5px gray solid;
     border-radius: 20px;
     outline: none;
+}
+
+input#price {
+    max-width: 80px;
 }
 
 input#songs {
@@ -141,8 +150,59 @@ p#error {
     color:rgb(209, 50, 50)
 }
 
+div#in-case-of-errors {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 @media (min-width: 576px){
     .product-register{
         max-width: 450px;
     }
+}
+
+@media (min-width: 1200px) {
+
+    .container {
+        height: 85vh;
+        max-height: 650px;
+    }
+
+    .product-register{
+        width: 80%;
+        max-width: 760px;
+        height: 94%;
+        max-height: 650px;
+    }
+
+    .division {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .division#all-songs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    div.info {
+        width: 45%;
+    }
+
+    input {
+        width: 380px;
+        max-width: 380px;
+    }
+
+    input#price {
+        align-self: center;
+    }
+
+    label#color-selector {
+        width: 250px;
+    }
+
 }

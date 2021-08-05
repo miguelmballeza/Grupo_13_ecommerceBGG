@@ -1,6 +1,6 @@
 const path = require('path');
 const productsPath = path.resolve(__dirname, '../data/products.json');
-let products = require(productsPath);
+const products = require(productsPath);
 
 const mainController = {
     main: function(req, res) {
