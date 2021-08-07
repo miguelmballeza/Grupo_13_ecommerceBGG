@@ -3,17 +3,16 @@ Tareas Completas :
 	* Realizamos una breve restrospectiva.
 	* Actualizamos el tablero de Trello.
 	* Estamos implementando un archivo de marcado con nuestro resumen de las tareas realizadas, los impedimentos y además las soluciones.
-	* Implementamos el motor de templates.
-	* Separamos las vistas en carpetas para aumentar la organización.
-	* Separamos los componentes repetidos en archivos o vistas parciales.
-	* Se creó la página de Creación de Producto y la de Edición de Producto.
+	* Implementamos las rutas para usuarios con login y sin login.
+	* Se añadieron carpetas para aumentar la organización(archivos de usuarios, imagenes, etc.).
+	* Se agrego la opción de recordar al usuario así como la encriptación de las contraseñas.
+	* Se crearon las validaciones a través de middlewares.
 
 Impedimetos : 
 
-	* Falta de tiempo para la compresión de los temas, y en general la comprensión del mismo.
-	* Abandono prematuro de integrante.
 
 Soluciones :
 
 	* Buena actitud.
 	* Basarnos mucho en el material de PlayGround y en las clases en tiempo real.
+	* Corregir o modificar archivos para el correcto funcionamiento con las nuevas implementaciones.
