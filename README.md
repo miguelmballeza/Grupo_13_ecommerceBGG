@@ -19,11 +19,6 @@ Jose Alejandro Gomez Trapero .- Soy estudiando de Ingenieria Mecatronica de la U
 Soy relativamente nuevo en esto de desarrollo ya que descubrí el desarrollo web hace apenas 6 meses por lo que no tengo mucha experiencia per si muchas ganas de aprender.
 Lo poco que he visto me ha gustado pero creo que si tuviera que escoger entre el fronted y backend me quedaria con el backend.
 
-Alejandro Guzmán Rivera .- Soy egresado de la carrera de Publicidad y Relaciones Públicas, especialista en Métodos Estadísticos, maestro en Gestión de Organizaciones y pronto,
- maestro en Economía Ambiental y Ecológica por la Universidad Veracruzana. Aunque soy un novato, disfruto mucho aprender cosas nuevas y más recientemente, programar. 
-Espero poder desarrollar esta habilidad al máximo durante este periodo.
-
-
 5 Sitios de Referencia para el Desarrollo del Proyecto : 
 Los siguiente sitios fueron elegidos por los productos que ofrecen, el público al que va dirigido y por su estética .-
 
@@ -47,6 +42,5 @@ https://es.wix.com/website-template/view/html/1633?siteId=f52fc1cd-22a1-499f-981
 Enlace de nuestro tablero de trabajo en Trello :
 https://trello.com/b/VtTaxAo9/e-commercebgg
 
-El Link anterior es actualmente el Tablero activo para la organización de nuestro trabajo del equipo 13, E-commerce BGG, para 
-el Sprint 3.
+El Link anterior es actualmente el Tablero activo para la organización de nuestro trabajo del equipo 13, E-commerce BGG, vigente hasta el Sprint 5.
 
