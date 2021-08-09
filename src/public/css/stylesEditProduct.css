@@ -182,7 +182,7 @@ textarea:focus, textarea:hover{
 
 p#error {
     width: 80%;
-    margin: 10px auto;
+    margin: 0 auto;
     text-align: center;
     color:rgb(209, 50, 50)
 }

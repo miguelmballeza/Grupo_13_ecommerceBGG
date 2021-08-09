@@ -10,12 +10,12 @@ const usersMiddlewares = require('../middlewares/users');
 const registerValidation = [
     body('firstName').notEmpty().withMessage('El campo de nombre esta vacío.'),
     body('lastName').notEmpty().withMessage('El campo de apellidos esta vacío.'),
-    body('email').notEmpty().withMessage('El campo de Email esta vacío.').bail().isEmail().withMessage('El formato del Email tiene que ser correcto.'),
-    body('password').notEmpty().withMessage('La contraseña no puede estar vacía.').bail().isLength({ min: 8 }).withMessage('La contraseña tiene que tener 8 caracteres como mínimo.').bail()
+    body('email').notEmpty().withMessage('El campo de Email esta vacío.').bail().isEmail().withMessage("El formato del email no es correcto."),
+    body('password').notEmpty().withMessage('La contraseña no puede estar vacía.').bail().isLength({ min: 8 }).withMessage("La contraseña debe tener 8 caracteres como mínimo."),
 ];
 
 const logInValidation = [
-    body('email').notEmpty().withMessage('El campo de Email esta vacío.').bail().isEmail().withMessage('El formato del Email tiene que ser correcto.'),
+    body('email').notEmpty().withMessage('El campo de Email esta vacío.').bail().isEmail().withMessage('El formato del email no es correcto.'),
     body('password').notEmpty().withMessage('La contraseña no puede estar vacía.')
 ];
 
@@ -35,6 +35,6 @@ router.get('/inicio-de-sesion', usersMiddlewares.existentUserMiddleware, usersCo
 router.get('/perfil', usersMiddlewares.usersMiddleware, usersController.profile);
 
 router.post('/perfil', logInValidation, usersController.loginPost);
-router.post('/:id', registerValidation, uploadFile.single('image'),  usersController.registerPost);
+router.post('/:id', registerValidation, uploadFile.single('image'), usersController.registerPost);
 
 module.exports = router;
