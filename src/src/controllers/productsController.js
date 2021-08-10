@@ -1,6 +1,12 @@
 const path = require('path');
 const productsPath = path.resolve(__dirname, '../data/products.json');
-const products = require(productsPath);
+let products = require(productsPath); 
+/* 
+    Se le asignó nuevamente "let" y no "const" debido a que para eliminar un producto, 
+    necesitas hacer una asignación más a la variable de "products" para obtener todos 
+    los productos que sean diferentes al id del eliminado, para más detalle mirar 
+    método 'deleteProduct'.
+*/
 const colorsPath = path.resolve(__dirname, '../data/availableColors.json');
 const availableColors = require(colorsPath);
 const { validationResult } = require('express-validator');
@@ -83,7 +89,8 @@ const productsController = {
                 title: "Creación de Producto",
                 styleSheet: "/css/stylesCreateProduct.css",
             };
-            res.render('products/createProduct', { head, length: products.length, errors: errors.array() });
+            const writtenValues = req.body;
+            res.render('products/createProduct', { head, length: products.length, errors: errors.array(), writtenValues, availableColors});
         }
     },
     updateProduct : function(req, res) {
@@ -140,8 +147,9 @@ const productsController = {
                 title: "Edición de Producto",
                 styleSheet: "/css/stylesEditProduct.css",
             };
+            const writtenValues = req.body;
             const product = products.find( product => product.id == req.params.id); // because the initial 0 in arrays.
-            res.render('products/editProduct', { head, product, availableColors, errors: errors.array() });
+            res.render('products/editProduct', { head, product, availableColors, errors: errors.array(), writtenValues });
         }
     },
     deleteProduct : function(req, res){

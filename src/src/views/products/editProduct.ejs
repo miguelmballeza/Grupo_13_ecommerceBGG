@@ -8,46 +8,46 @@
             <div class="division">
                 <div class="info">
                     <label for="name">Nombre del Artista: </label>
-                    <input type="text" name="artist" id="name" required value="<%= product.artist %>" required>
+                    <input type="text" name="artist" id="name" value="<%= locals && locals.writtenValues ? writtenValues.artist : locals && locals.product ? product.artist : '' %>" required>
                 </div>
                 <div class="info">
                     <label for="album">Nombre del Album: </label>
-                    <input type="text" name="album" id="album" required value="<%= product.name %>" required>
+                    <input type="text" name="album" id="album" value="<%= locals && locals.writtenValues ? writtenValues.album : locals && locals.product ? product.name : '' %>" required>
                 </div>
             </div>
             <div class="division">
                 <div class="info">
                     <label for="genre">Genero: </label>
-                    <input type="text" name="genre" id="genre" value="<%= product.genre %>" required>
+                    <input type="text" name="genre" id="genre" value="<%= locals && locals.writtenValues ? writtenValues.genre : locals && locals.product ? product.genre : '' %>" required>
                 </div>
                 <div class="info">
                     <label for="year">Año de lanzamiento: </label>
-                    <input type="number" name="year" id="year"  value="<%= product.year %>" required>
+                    <input type="number" name="year" id="year"  value="<%= locals && locals.writtenValues ? writtenValues.year : locals && locals.product ? product.year : '' %>" required>
                 </div>
             </div>
             <div class="division">
                 <div class="info">
                     <label for="price">Precio: </label>
-                    <input type="number" name="price" step="0.01" id="price"  value="<%= product.price %>" required>
+                    <input type="number" name="price" step="0.01" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : locals && locals.product ? product.price : '' %>" required>
                 </div>
                 <div class="info">
                     <label for="description">Descripción: </label>
                     <!-- <input type="text" name="description" id="description"> -->
-                    <textarea name="description" id="description" cols="40" rows="5" required><%= product.description %></textarea>
+                    <textarea name="description" id="description" cols="40" rows="5" required><%= locals && locals.writtenValues ? writtenValues.description : locals && locals.product ? product.description : '' %></textarea>
                 </div>
             </div>
             <div class="division">
                 <div class="info">
                     <label for="image">Imagen Actual: </label>
                     <img id="<%= product.IDImage %>" src="/images/registeredProducts/<%= product.image %>" width="40%">
-                    <input type="file" name="image" id="image" value="<%= product.image %>" required>
+                    <input type="file" name="image" id="image" required>
                 </div>
                 <div class="info">
                     <label for="color" id="color-selector">Color predominante del album : </label>
                     <select name="color" id="color-album">
                     <% if(locals && locals.availableColors) { %>
                         <% availableColors.forEach( colour => { %>
-                    <option value="<%= colour.color %>" <%= product.IDContainer == colour.color ? 'selected' : '' %> ><%= colour.name %></option>
+                    <option value="<%= colour.color %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.color ) ? 'selected' : locals && locals.product && ( product.IDContainer == colour.color ) ? 'selected' : '' %> ><%= colour.name %></option>
                         <% }) %>
                     <% } %>
                     </select>
@@ -60,9 +60,9 @@
                     <div class="songs">
                         <br>
                         <label for="songs">Titulo de canción <%= i + 1 %>: </label>
-                        <input type="text" name="song<%= i + 1 %>" id="songs" value="<%= product.songs[i].title %>">
+                        <input type="text" name="song<%= i + 1 %>" id="songs" value="<%= locals && locals.writtenValues ? writtenValues.song1 : product.songs[i].title %>">
                         <label for="lenght">Duración: </label>
-                        <input type="text" name="lenght<%= i + 1 %>" id="lenght" value="<%= product.songs[i].lenght %>" >
+                        <input type="text" name="lenght<%= i + 1 %>" id="lenght" value="<%= locals && locals.writtenValues ? writtenValues.lenght1 : locals && locals.product ? product.songs[i].lenght : '' %>">
                     </div>
                     <% } %>
                 </div>
