@@ -134,6 +134,14 @@ p {
     text-align: center;
 }
 
+p#password-rule {
+    display: inline;
+    font-size: 12px;
+    padding: 0;
+    margin: 0 0 0 12px;
+    font-weight: 600;
+}
+
 p#error {
     width: 80%;
     margin: 0 auto;
