@@ -107,7 +107,7 @@ const productsController = {
             product.year = req.body.year;
             product.price = req.body.price;
             product.description = req.body.description;
-            product.image = req.file.filename; 
+            req.file ? product.image = req.file.filename : '';
             product.IDContainer = req.body.color;
             for(let i = 0; i < product.songs.length; i++) {
                 i == 0 ? product.songs[i].title = req.body.song1 : 

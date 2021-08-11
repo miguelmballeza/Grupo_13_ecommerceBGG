@@ -28,7 +28,7 @@
             <div class="division">
                 <div class="info">
                     <label for="price">Precio: </label>
-                    <input type="number" name="price" step="0.01" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : locals && locals.product ? product.price : '' %>" required>
+                    <input type="text" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : locals && locals.product ? product.price : '' %>" required>
                 </div>
                 <div class="info">
                     <label for="description">Descripción: </label>
@@ -40,7 +40,7 @@
                 <div class="info">
                     <label for="image">Imagen Actual: </label>
                     <img id="<%= product.IDImage %>" src="/images/registeredProducts/<%= product.image %>" width="40%">
-                    <input type="file" name="image" id="image" required>
+                    <input type="file" name="image" id="image">
                 </div>
                 <div class="info">
                     <label for="color" id="color-selector">Color predominante del album : </label>
