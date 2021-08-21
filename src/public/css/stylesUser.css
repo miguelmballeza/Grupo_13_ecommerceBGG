@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    color: rgb(63, 59, 59);
+    background-color: rgb(248, 248, 248);
+}
+
+.profile-section {
+    margin: 0 0 120px 0;
+}
+
+div#first-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img#img-after768 {
+    display: none
+}
+
+img#img-before768 {
+    display: block;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    margin : 20px auto;
+}
+
+h2#acc {
+    font-size: 16px;
+    padding: 15px;
+    font-weight: 300;
+}
+
+h2#greeting {
+    font-size: 24px;
+    padding: 0 0 30px 15px;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    padding: 0 0 25px 15px;
+    font-weight: 300;
+}
+
+h3.field {
+    display: inline;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 8px 5px 15px;
+}
+
+h3.info {
+    display: inline;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: blue
+
+}
+
+a#products {
+    color:rgb(107, 10, 243)
+}
+
+a#logout {
+    color: black;
+}
+
+@media (min-width: 768px) {
+
+    img#img-before768 {
+        display: none;
+    }
+
+    img#img-after768 {
+        display: inline-block;
+        border-radius: 50px;
+        height: 100px;
+        width: 100px;
+        padding: 0;
+        margin : 0;
+    }
+
+    div#greeting-and-image {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        border-radius: 50px;
+        height: 100px;
+        width: 100%;
+        padding: 0 0 30px 15px;
+    }
+
+    h2#greeting {
+        font-size: 36px;
+        font-weight: 300;
+        padding: 0 15% 0 0;
+        margin: 0;
+        align-self: center;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+   .profile-section {
+        margin: 0 0 140px 15%;
+    } 
+
+    div#greeting-and-image {
+        margin: 50px 0 0 0;
+    }
+
+    div#first-container {
+        width: 80%;
+    }
+
+    div {
+        margin: 0 12px 8px 0;
+    }
+
+}
+
+@media (min-width: 1600px) {
+
+    div#greeting-and-image {
+        margin: 110px 0 0 0;
+    }
+
+}

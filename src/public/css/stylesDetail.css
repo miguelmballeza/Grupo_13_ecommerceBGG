@@ -1,7 +1,11 @@
 * {
-  margin: 0px 0px;
   font-family: "Roboto";
   box-sizing: border-box;
+}
+
+body {
+  margin: 0px 0px;
+
 }
 
 .navbar {
@@ -165,7 +169,7 @@ h2 .banner-artistName a{
 }
 
 .carrito {
-  align-items: center;
+  align-self: center;
   text-align: center;
   width: 30%;
 }

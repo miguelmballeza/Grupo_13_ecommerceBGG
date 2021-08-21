@@ -7,6 +7,7 @@
     border-bottom: 1px black solid;
     min-width: 360px;
     color: black;
+    background-color: white;
 }
 
 .hamburguer-button {
@@ -128,7 +129,7 @@ footer h2 {
     background-color: #3a3c44;
     display: flex;
     flex-direction: column;
-    height: 660px;
+    height: 600px;
 }
 
 .foot img {
@@ -201,6 +202,11 @@ li a {
         position: absolute;
         right: 175px;
     }
+
+    /* p#user { cuando comparta parametros con cualquier página que tenga el header.
+        display: inline;
+        font-size: 10px;
+    } */
 
     .social-networks {
         justify-content: flex-start;

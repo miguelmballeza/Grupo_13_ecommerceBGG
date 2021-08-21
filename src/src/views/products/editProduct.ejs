@@ -1,61 +1,78 @@
 <%- include('../partials/head') %>
 <body>
-    <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->  
+    <%- include('../partials/header') %>
+    <!-- <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a>--> <!--<i class="fas fa-compact-disc"></i>-->  
     <h1>Modificar producto</h1>
     <section class="container">
-        <form action="/productos/<%= product.id %>?_method=PUT" class="product-edit" method="POST" class="product-edit" enctype="multipart/form-data">
-            <div class="info">
-                <label for="name">Nombre del Artista: </label>
-                <input type="text" name="name" id="name" required value="<%= product.artist %>" required>
-            </div>
-            <div class="info">
-                <label for="album">Nombre del Album: </label>
-                <input type="text" name="album" id="album" required value="<%= product.name %>" required>
-            </div>
-            <div class="info">
-                <label for="genre">Genero: </label>
-                <input type="text" name="genre" id="genre" value="<%= product.genre %>" required>
-            </div>
-            <div class="info">
-                <label for="year">Año de lanzamiento: </label>
-                <input type="number" name="year" id="year"  value="<%= product.year %>" required>
-            </div>
-            <div class="info">
-                <label for="price">Precio: </label>
-                <input type="number" name="price" id="price"  value="<%= product.price %>" required>
-            </div>
-            <div class="info">
-                <label for="description">Descripción: </label>
-                <!-- <input type="text" name="description" id="description"> -->
-                <textarea name="description" id="description" cols="40" rows="5" required><%= product.description %></textarea>
-            </div>
-            <div class="info">
-                <label for="image">Imagen Actual: </label>
-                <img id="<%= product.IDImage %>" src="/images/<%= product.image %>" width="40%">
-                <input type="file" name="image" id="image" value="<%= product.image %>" required>
-            </div>
-            <div class="info">
-                <label for="color" id="color-selector">Color predominante del album : </label>
-                <select name="color" id="color-album">
-                  <option value="black" <%= product.IDContainer == 'black' ? 'selected' : '' %> >Negro</option>
-                  <option value="yellow"  <%= product.IDContainer == 'yellow' ? 'selected' : '' %> >Amarillo</option>
-                  <option value="green velvet" <%= product.IDContainer == 'strongGreen' ? 'selected' : '' %> >Verde</option>
-                  <option value="red" <%= product.IDContainer == 'red' ? 'selected' : '' %> >Rojo</option>
-                  <option value="brown" <%= product.IDContainer == 'brown' ? 'selected' : '' %> >Cafe</option>
-                  <option value="blue" <%= product.IDContainer == 'blue' ? 'selected' : '' %> >Azul</option>
-                </select>
-              </div>
-            <div class="info">
-                <label>Canciones:</label>
-                <% for(let i = 0; i < product.songs.length; i++) { %>
-                <div class="songs">
-                    <br>
-                    <label for="songs">Titulo de canción <%= i + 1 %>: </label>
-                    <input type="text" name="song<%= i + 1 %>" id="songs" value="<%= product.songs[i].title %>">
-                    <label for="lenght">Duración: </label>
-                    <input type="text" name="lenght<%= i + 1 %>" id="lenght" value="<%= product.songs[i].lenght %>" >
+        <form action="/productos/<%= product.id %>?_method=PUT" class="product-edit" method="POST" enctype="multipart/form-data">
+            <div class="division">
+                <div class="info">
+                    <label for="name">Nombre del Artista: </label>
+                    <input type="text" name="artist" id="name" value="<%= locals && locals.writtenValues ? writtenValues.artist : locals && locals.product ? product.artist : '' %>" required>
                 </div>
-                <% } %>
+                <div class="info">
+                    <label for="album">Nombre del Album: </label>
+                    <input type="text" name="album" id="album" value="<%= locals && locals.writtenValues ? writtenValues.album : locals && locals.product ? product.name : '' %>" required>
+                </div>
+            </div>
+            <div class="division">
+                <div class="info">
+                    <label for="genre">Genero: </label>
+                    <input type="text" name="genre" id="genre" value="<%= locals && locals.writtenValues ? writtenValues.genre : locals && locals.product ? product.genre : '' %>" required>
+                </div>
+                <div class="info">
+                    <label for="year">Año de lanzamiento: </label>
+                    <input type="number" name="year" id="year"  value="<%= locals && locals.writtenValues ? writtenValues.year : locals && locals.product ? product.year : '' %>" required>
+                </div>
+            </div>
+            <div class="division">
+                <div class="info">
+                    <label for="price">Precio: </label>
+                    <input type="text" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : locals && locals.product ? product.price : '' %>" required>
+                </div>
+                <div class="info">
+                    <label for="description">Descripción: </label>
+                    <!-- <input type="text" name="description" id="description"> -->
+                    <textarea name="description" id="description" cols="40" rows="5" required><%= locals && locals.writtenValues ? writtenValues.description : locals && locals.product ? product.description : '' %></textarea>
+                </div>
+            </div>
+            <div class="division">
+                <div class="info">
+                    <label for="image">Imagen Actual: </label>
+                    <img id="<%= product.IDImage %>" src="/images/registeredProducts/<%= product.image %>" width="40%">
+                    <input type="file" name="image" id="image">
+                </div>
+                <div class="info">
+                    <label for="color" id="color-selector">Color predominante del album : </label>
+                    <select name="color" id="color-album">
+                    <% if(locals && locals.availableColors) { %>
+                        <% availableColors.forEach( colour => { %>
+                    <option value="<%= colour.color %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.color ) ? 'selected' : locals && locals.product && ( product.IDContainer == colour.color ) ? 'selected' : '' %> ><%= colour.name %></option>
+                        <% }) %>
+                    <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="division" id="all-songs">
+                <div class="info">
+                    <label>Canciones:</label>
+                    <% for(let i = 0; i < product.songs.length; i++) { %>
+                    <div class="songs">
+                        <br>
+                        <label for="songs">Titulo de canción <%= i + 1 %>: </label>
+                        <input type="text" name="song<%= i + 1 %>" id="songs" value="<%= locals && locals.writtenValues ? writtenValues.song1 : product.songs[i].title %>">
+                        <label for="lenght">Duración: </label>
+                        <input type="text" name="lenght<%= i + 1 %>" id="lenght" value="<%= locals && locals.writtenValues ? writtenValues.lenght1 : locals && locals.product ? product.songs[i].lenght : '' %>">
+                    </div>
+                    <% } %>
+                </div>
+                <div id="in-case-of-errors">
+                    <% if(locals && locals.errors) { %>
+                        <% errors.forEach( error => { %>
+                        <p id="error">*<%= error.msg %></p><br>
+                        <% }) %> 
+                    <% } %>
+                </div>
             </div>
             <button type="submit" id="submit-product">Modificar</button>
         </form>

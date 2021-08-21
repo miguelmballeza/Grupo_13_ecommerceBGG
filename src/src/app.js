@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const routers = require('./routes/');
 const methodOverride = require('method-override');
+const session = require('express-session');
+//const middlewares = require('./middlewares');
+const cookieParser = require('cookie-parser');
+const userCookie = require('./middlewares/users/userCookieMiddleware');
 
 const app = express();
 
@@ -15,11 +19,13 @@ app.set('views', viewsPATH);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({ secret: "bmg_ecommerce" }));
+app.use(cookieParser());
+app.use(userCookie);
+//app.use(middlewares.logMiddleware);
 
 app.use('/', routers.mainRouter);
-
 app.use('/productos', routers.productsRouter);
-
 app.use('/usuario', routers.usersRouter);
 
 app.use((req, res, next) => {

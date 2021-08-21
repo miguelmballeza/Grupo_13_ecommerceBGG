@@ -5,6 +5,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    background-color: rgb(248, 248, 248);
 }
 
 .central-logo {
@@ -14,6 +15,7 @@ body {
     width: 200px;
     height: 70px;
 }
+
 .central-BMG {
     display: block;
     padding: 20px 0;
@@ -26,6 +28,10 @@ body {
     display: block;
     width: 100vw;
     height: 1050px;
+}
+
+.division {
+    margin:0
 }
 
 h1 {
@@ -41,18 +47,19 @@ h1 {
     justify-content: space-evenly;
     margin: auto;
     width: 90%;
-    height: 900px;
+    height: 1000px;
     border: 1px gray solid;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .info {
     display: flex;
     flex-wrap: wrap;
 }
+
 .songs {
-    width: 450px;
-    /* border-top: 1px solid black; */
+    width: 89%;
     margin-top: 2px;
 }
 
@@ -81,6 +88,18 @@ input {
     border: 0.5px gray solid;
     border-radius: 20px;
     outline: none;
+}
+
+input#price {
+    max-width: 80px;
+}
+
+input#songs {
+    width: 100%;
+}
+
+input#lenght {
+    width: 100%;
 }
 
 input:hover,input:focus{
@@ -126,8 +145,66 @@ textarea:focus, textarea:hover{
     color: white;
 }
 
+p#error {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color:rgb(209, 50, 50)
+}
+
+div#in-case-of-errors {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 @media (min-width: 576px){
     .product-register{
         max-width: 450px;
     }
+}
+
+@media (min-width: 1200px) {
+
+    .container {
+        height: 85vh;
+        max-height: 650px;
+    }
+
+    .product-register{
+        width: 80%;
+        max-width: 760px;
+        height: 94%;
+        max-height: 650px;
+    }
+
+    .division {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .division#all-songs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    div.info {
+        width: 45%;
+    }
+
+    input {
+        width: 380px;
+        max-width: 380px;
+    }
+
+    input#price {
+        align-self: center;
+    }
+
+    label#color-selector {
+        width: 250px;
+    }
+
 }

@@ -81,3 +81,27 @@ Como el punto anterior, se dieron respuestas a las preguntas propuestas con la p
 5. Dejar de hacer .-
 
 	Dejar problemas sin resolver para nuestros yo's del futuro.
+
+Correspondiente al Sprint 5.-
+
+Como los puntos anteriores, se dieron respuesta a las preguntas propuestas con todo el grupo 13 "Ecommerce BGG" presente.
+
+1. Comenzar a hacer .-
+
+	Commits con mensajes descriptivos y precisos acerca de lo que hizo cada quien en un respectivo punto del historico.
+
+2. Hacer más .-
+
+	Prácticas enfocadas a los contenidos vistos en las clases virtuales, de manera grupal como individual.
+
+3. Continuar haciendo .-
+
+	Seguirnos comunicando acertivamente y de manera constante a través de mensajes de texto como en las daylies para dejar en claro que trabajo se realizo o no se termina de realizar, y seguir realizando daylies o weeklies, más esta ultima en nuestro caso.
+
+4. Hacer menos .-
+
+	Postergar algo que sea un obstaculo para avanzar de manera más eficiente, en comparación con Sprints anteriores.
+
+5. Dejar de hacer .-
+
+	Confiarnos en los tiempos cuando se cree que todo ya se cumplió, más bien, tendriamos que avanzar en aspectos que se pueden seguir mejorando dentro del proyecto.
