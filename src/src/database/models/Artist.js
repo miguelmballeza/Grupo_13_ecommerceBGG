@@ -55,7 +55,7 @@ artist.associate = (models) => {
         as: 'recordLabelsArtists',
         through: 'recordLabel_artists',
         foreignKey: 'artist_id_3',
-        otherKey: 'recordLabel_id_8',
+        otherKey: 'recordLabel_id_3',
         timestamps: false
     });
     artist.belongsTo(models.colors, {

@@ -2,10 +2,10 @@ module.exports = (sequelize, dataTypes) => {
 
     const artistSongs = sequelize.define('artistsSongs', {
     artist_id_1 : {
-        type: dataTypes.INTEGER, allowNull: false, model: 'artists', key: 'artist_id'
+        type: dataTypes.INTEGER, allowNull: false, references : { model: 'artists', key: 'artist_id' }
     },
     song_id_2 : {
-        type: dataTypes.INTEGER, allowNull: false, model: 'songs', key: 'song_id'
+        type: dataTypes.INTEGER, allowNull: false, references : { model: 'songs', key: 'song_id' }
     },
 }, {
     tableName: 'artist_songs',

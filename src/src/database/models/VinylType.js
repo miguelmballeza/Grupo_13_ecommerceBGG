@@ -5,7 +5,7 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
     },
     RPM : {
-        type: dataTypes.STRING(25), allowNull: false
+        type: dataTypes.STRING(6), allowNull: false
     },
     diameter : {
         type: dataTypes.INTEGER, allowNull: false
