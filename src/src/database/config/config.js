@@ -9,16 +9,18 @@ module.exports = {
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "1234567",
+    "database": "vinylecommerce",
     "host": "127.0.0.1",
+    "port": "3306",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
+    "password": "1234567",
+    "database": "vinylecommerce",
     "host": "127.0.0.1",
+    "port": "3306",
     "dialect": "mysql"
   }
 };

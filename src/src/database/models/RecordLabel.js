@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
     
-    const recordLabel = sequelize.define('recordLabels', {
+    const recordLabel = sequelize.define("recordLabels", {
         recordLabel_id: {
             type: dataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
         },

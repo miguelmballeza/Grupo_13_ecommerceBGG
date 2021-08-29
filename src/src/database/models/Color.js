@@ -1,10 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const color = sequelize.define('colors', {
+    const color = sequelize.define("colors", {
     color_id : {
         type: dataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
     },
     name : {
+        type: dataTypes.STRING(25).BINARY, allowNull: false
+    },
+    value : {
         type: dataTypes.STRING(25).BINARY, allowNull: false
     }
 }, {

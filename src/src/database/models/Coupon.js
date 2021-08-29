@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const coupon = sequelize.define('coupons', {
+    const coupon = sequelize.define("coupons", {
     coupon_id : {
         type: dataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
     },

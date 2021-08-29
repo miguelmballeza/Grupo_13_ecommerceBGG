@@ -10,28 +10,21 @@
         <% addedProducts.forEach( addedProduct => { %>
         <div class="contenido">
           <div class="album info">
-            <a href="/productos/<%= addedProduct.id %>"><img class="img" src="/images/registeredProducts/<%= addedProduct.image %>" alt="Imagen del producto Añadido, <%= addedProduct.name + ' de ' + addedProduct.artist %>"/></a>
+            <a href="/productos/<%= addedProduct.vinyl_id %>"><img class="img" src="/images/registeredProducts/<%= addedProduct.image %>" alt="Imagen del producto Añadido, <%= addedProduct.name + ' de ' + addedProduct.fullName %>"/></a>
           </div>
           <div class="info">
             <h2 class="datos"><%= addedProduct.name  %></h2>
-            <p class="datos"><%= addedProduct.artist %></p>
+            <p class="datos"><%= addedProduct.fullName %></p>
             <p class="datos"><strong>$<%= addedProduct.price %></strong></p>
           </div>
           <div class="cantidad">
             <label for="cantidad-discos">Cantidad</label>
             <select name="cantidad-discos" id="cantidad-discos">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+              <% for(let i = 1; i <= addedProduct.vinylPieces; i++) { %>
+              <option value="<%= i %>" <%= addedProduct.pieces == addedProduct.vinylPieces ? 'selected' : '' %>><%= i %></option>
+              <% } %>
             </select>
-            <br />
+            <br/>
             <i class="far fa-trash-alt eliminar"></i>
           </div>
         </div>

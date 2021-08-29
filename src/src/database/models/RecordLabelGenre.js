@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const recordLabelGenre = sequelize.define('recordLabelsGenres', {
+    const recordLabelGenre = sequelize.define("recordLabelsGenres", {
     recordLabel_id_2 : {
         type: dataTypes.INTEGER, allowNull: false, references : { model: 'recordLabels', key: 'recordLabel_id' }
     },

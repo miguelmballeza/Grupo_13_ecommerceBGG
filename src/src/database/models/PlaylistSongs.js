@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const playlistSongs = sequelize.define('playlistsSongs', {
+    const playlistSongs = sequelize.define("playlistsSongs", {
     playlist_id_1 : {
         type: dataTypes.INTEGER, allowNull: false, references : { model: 'playlists', key: 'playlist_id' }
     },

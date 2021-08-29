@@ -64,6 +64,42 @@ h3.info {
     margin: 0;
 }
 
+input {
+    display: inline;
+    width: 150px;
+}
+
+#submit-button {
+    background-color: white;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    border-radius: 25px;
+    height: 40px;
+    width: 120px;
+    border: solid 1px black;
+}
+
+#submit-button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#last-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+
+#canceling-changes {
+    align-self: center;
+}
+
+select {
+    width: 100px;
+}
+
 a {
     text-decoration: none;
     color: blue
@@ -74,8 +110,19 @@ a#products {
     color:rgb(107, 10, 243)
 }
 
+a#edit-profile {
+    color:rgb(0, 0, 0)
+}
+
 a#logout {
     color: black;
+}
+
+p#error {
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+    color:rgb(209, 50, 50)
 }
 
 @media (min-width: 768px) {

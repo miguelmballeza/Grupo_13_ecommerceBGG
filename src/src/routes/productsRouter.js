@@ -11,28 +11,32 @@ const products = require(productsPath);
 const productsImagePath = path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredProducts'));
 
 const registeredProductValidation = [
-    body('artist').notEmpty().withMessage('El artista no puede estar vacío.'),
+    body('artists').notEmpty().withMessage('El artista no puede estar vacío.'),
     body('album').notEmpty().withMessage('El album no puede estar vacío.'),
-    body('genre').notEmpty().withMessage('El genero no puede estar vacío.'),
+    body('type').notEmpty().withMessage('El tipo no puede estar vacío.'),
     body('year').notEmpty().withMessage('El año no puede estar vacío.').bail().isNumeric().withMessage('El año debe ser un número valido.').bail().matches('^[1-2][09][0-9][0-9]$').withMessage("El año debe contener un formato valido. [ABCD > 1900]"),
     body('price').notEmpty().withMessage('El precio no puede estar vacío.').bail().isNumeric().withMessage('El precio debe ser un formato valido.').bail().matches('^[0-9]*.[0-9][0-9]$').withMessage("El precio debe tener dos decimales y por lo menos un entero."),
     body('description').notEmpty().withMessage('La descripción no puede estar vacía.').bail().isLength({ max: 140 }).withMessage('La descripción no puede exceder los 140 caracteres.'),
     body('color').notEmpty().withMessage('Debes de seleccionar un color.'),
-    body('song').notEmpty().withMessage('La canción 1 no puede estar vacía.'),
-    body('lenght').notEmpty().withMessage('La duración 1 no puede estar vacía.').matches('^[0-9][0-9]:[0-9][0-9]$').withMessage('La duración de la canción debe tener un formato valido (XX:XX).')
+    body('pieces').notEmpty().withMessage('Debes de escribir una cantidad de piezas.').bail().isNumeric().withMessage('Las piezas deben de ser un formato valido.').bail().matches('^[0-9]*$').withMessage("El número de piezas puede ser : X, XX ó XXX."),
+    body('recordLabel').notEmpty().withMessage('Debes de seleccionar un sello discografico.'),
+    body('songs').notEmpty().withMessage('La canción 1 no puede estar vacía.')
+    // body('lenght').notEmpty().withMessage('La duración 1 no puede estar vacía.').matches('^[0-9][0-9]:[0-9][0-9]$').withMessage('La duración de la canción debe tener un formato valido (XX:XX).')
 ]; // // AQUi se hará más dinámico, debido a que se tendran tantas canciones como sea necesario, con el JS en el front-end
 // quite : body('image').notEmpty().withMessage('La imagen no puede estar vacía.'), , debido a que no funcionaba correctamente, siempre decia que estaba vacía.
 
 const updatedProductValidation = [
-    body('artist').notEmpty().withMessage('El artista no puede estar vacío.'),
+    body('artists').notEmpty().withMessage('El artista no puede estar vacío.'),
     body('album').notEmpty().withMessage('El album no puede estar vacío.'),
-    body('genre').notEmpty().withMessage('El genero no puede estar vacío.'),
+    body('type').notEmpty().withMessage('El tipo no puede estar vacío.'),
     body('year').notEmpty().withMessage('El año no puede estar vacío.').bail().isNumeric().withMessage('El año debe ser un número valido.').bail().matches('^[1-2][09][0-9][0-9]$').withMessage("El año debe contener un formato valido. [ABCD > 1900]"),
     body('price').notEmpty().withMessage('El precio no puede estar vacío.').bail().isNumeric().withMessage('El precio debe ser un formato valido.').bail().matches('^[0-9]*.[0-9][0-9]$').withMessage("El precio debe tener dos decimales y por lo menos un entero."),
     body('description').notEmpty().withMessage('La descripción no puede estar vacía.').bail().isLength({ max: 140 }).withMessage('La descripción no puede exceder los 140 caracteres.'),
     body('color').notEmpty().withMessage('Debes de seleccionar un color.'),
-    body('song1').notEmpty().withMessage('El titlo debe estar completo.'),
-    body('lenght1').notEmpty().withMessage('La duración 1 no puede estar vacía.').matches('^[0-9][0-9]:[0-9][0-9]$').withMessage('La duración de la canción debe tener un formato valido (XX:XX).')
+    body('pieces').notEmpty().withMessage('Debes de escribir una cantidad de piezas.').bail().isNumeric().withMessage('Las piezas deben de ser un formato valido.').bail().matches('^[0-9]*$').withMessage("El número de piezas puede ser : X, XX ó XXX."),
+    body('recordLabel').notEmpty().withMessage('Debes de seleccionar un sello discografico.'),
+    // body('song1').notEmpty().withMessage('El titlo debe estar completo.'),
+    // body('lenght1').notEmpty().withMessage('La duración 1 no puede estar vacía.').matches('^[0-9][0-9]:[0-9][0-9]$').withMessage('La duración de la canción debe tener un formato valido (XX:XX).')
 ]; // AQUi se hará más dinámico, debido a que se tendran tantas canciones como sea necesario.
 // quite : body('image').notEmpty().withMessage('La imagen no puede estar vacía.'), , debido a que no funcionaba correctamente, siempre decia que estaba vacía.
 

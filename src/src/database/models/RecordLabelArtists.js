@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const recordLabelArtists = sequelize.define('recordLabelsArtists', {
+    const recordLabelArtists = sequelize.define("recordLabelsArtists", {
     recordLabel_id_3 : {
         type: dataTypes.INTEGER, allowNull: false, references : { model: 'recordLabels', key: 'recordLabel_id' }
     },

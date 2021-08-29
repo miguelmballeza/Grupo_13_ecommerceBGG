@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-const bill = sequelize.define('bills', {
+const bill = sequelize.define("bills", {
     bill_id: {
         type: dataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
     },
@@ -63,4 +63,5 @@ bill.associate = (models) => {
         timestamps: false
     });
 };
+return bill;
 };

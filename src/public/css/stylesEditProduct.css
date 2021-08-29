@@ -27,7 +27,7 @@ body {
 .container {
     display: block;
     width: 100vw;
-    height: 1390px;
+    height: 1380px;
 }
 
 .division {
@@ -47,7 +47,7 @@ h1 {
     justify-content: space-evenly;
     margin: auto;
     width: 90%;
-    height: 1270px;
+    height: 1240px;
     border: 1px gray solid;
     border-radius: 5px;
     margin-bottom: 10px; /* extra con respecto a createProduct styles.*/
@@ -94,15 +94,54 @@ h1 {
     margin-top: 2px;
 }
 
+#type-selector{
+    margin-bottom: auto;
+}
+
+#songs-album {
+    width: 290px;
+    margin: 0 0 0 18px;
+}
+
+#type-album{
+    margin: auto 5px;
+    display: inline;
+}
+
+#vinyl-type {
+    margin: 30px 0;
+}
+
 #color-selector{
     width: 450px;
     display: block;
     margin-bottom: 20px;
 }
 
-#color-album{
+select {
+    display: block;
     margin: auto;
 }
+
+#types {
+    display: inline;
+}
+
+#color-album{
+    margin: 0 auto 10px;
+}
+
+#record-selector{
+    width: 450px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#record-album{
+    margin: auto;
+}
+
+
 
 .info img {
     margin: 0 60px;
@@ -195,6 +234,14 @@ div#in-case-of-errors {
     align-content: center;
 }
 
+div#info-pieces {
+    width: 80px;
+}
+
+div #pieces {
+    width: 60px;
+}
+
 /* #search { no existe
     margin: 0 auto;
     background-color: white;
@@ -266,6 +313,34 @@ div#in-case-of-errors {
         height: 20px;
         width: 70px;
         align-self: center;
+    }
+
+    label#type-selector {
+        width: 90px;
+        margin: 0 0 0 20px;
+    }
+
+    #type-album {
+        margin: 0;
+        height: 20px;
+        width: 200px;
+        align-self: center;
+    }
+
+    select#color-album select#record-album {
+        width: 80px;
+    }
+
+    div.info.three {
+        width: 245px;
+    }
+
+    div#info-pieces {
+        height: 30px;
+    }
+
+    #songs-album {
+        width: 340px;
     }
 
 }
