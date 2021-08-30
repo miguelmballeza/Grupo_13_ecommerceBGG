@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 let { db } = require('../database/models');
+const { Op } = require('sequelize');
 /* 
     Se le asignó nuevamente "let" y no "const" debido a que para eliminar un producto, 
     necesitas hacer una asignación más a la variable de "products" para obtener todos 
@@ -13,9 +14,25 @@ const productsController = {
             title: "Productos",
             styleSheet: "/css/stylesProducts.css",
         };
+        const content = { title : 'Todos los productos' };
         const products = await db.vinyls.findAll({ include: ["colors"] });
-        console.log("color : " + products[0].colors.value);
-        res.render('products/index', { head, products });
+        // console.log("color : " + products[0].colors.value);
+        res.render('products/index', { head, products, content });
+    },
+    search: async function(req, res) {
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+        const head = {
+            title: "Resultado de la busqueda",
+            styleSheet: "/css/stylesProducts.css",
+        };
+                const content = { title : `Resultados de la busqueda por : ${req.query.search}` };
+        const products = await db.vinyls.findAll({ where: { name: {  [Op.like] : '%' + req.query.search.toUpperCase() + '%' } }, include: ["colors"] });
+        res.render('products/index', { head, products, content });
+        } else {
+            const path = req._parsedOriginalUrl.pathname.replace(req.route.path, '');
+            res.redirect(path);
+        }
     },
     productDetail: async function(req, res) {
         const head = {
@@ -25,7 +42,6 @@ const productsController = {
         try{
             // const product = products.find( product => product.id == req.params.id); // because the initial 0 in arrays.
             const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
-            console.log(product.artists.fullName);
             if(parseInt(req.params.id)>0 && product){
                 res.render('products/productDetail', { head, product});
             } else {

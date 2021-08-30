@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { body } = require('express-validator');
+const { query } = require('express-validator');
 const productsController = require('../controllers/productsController');
 const { usersMiddleware } = require('../middlewares/users');
 
@@ -40,6 +41,10 @@ const updatedProductValidation = [
 ]; // AQUi se hará más dinámico, debido a que se tendran tantas canciones como sea necesario.
 // quite : body('image').notEmpty().withMessage('La imagen no puede estar vacía.'), , debido a que no funcionaba correctamente, siempre decia que estaba vacía.
 
+const searchValidation = [
+    query("search").notEmpty().withMessage("La búsqueda no puede estar vacía.")
+];
+
 const storageToCreate = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, productsImagePath);
@@ -63,6 +68,7 @@ const uploadFile = multer({ storage : storageToCreate });
 const editFile = multer({ storage : storageToEdit });
 
 router.get('/', productsController.index);
+router.get('/busqueda', searchValidation, productsController.search);
 router.get('/crear', usersMiddleware, productsController.createProduct);
 router.get('/:id', productsController.productDetail);
 router.get('/:id/editar', usersMiddleware, productsController.editProduct);

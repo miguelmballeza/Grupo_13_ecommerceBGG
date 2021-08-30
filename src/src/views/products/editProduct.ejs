@@ -47,7 +47,7 @@
             <div class="division">
                 <div class="info">
                     <label for="price">Precio: </label>
-                    <input type="text" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : locals && locals.product ? product.price : '' %>" required>
+                    <input type="number" step="0.01" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : locals && locals.product ? product.price : '' %>" required>
                 </div>
                 <div class="info">
                     <label for="description">Descripción: </label>
@@ -66,7 +66,7 @@
                     <select name="color" id="color-album">
                     <% if(locals && locals.availableColors) { %>
                         <% availableColors.forEach( colour => { %>
-                    <option value="<%= colour.color_id %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.value ) ? 'selected' : locals && locals.product && ( product.color_id_1 == colour.color_id ) ? 'selected' : '' %>><%= colour.name %></option>
+                    <option value="<%= colour.color_id %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.color_id ) ? 'selected' : locals && locals.product && ( product.color_id_1 == colour.color_id ) ? 'selected' : '' %>><%= colour.name %></option>
                         <% }) %>
                     <% } %>
                     </select>

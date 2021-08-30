@@ -11,6 +11,7 @@
             <img id="img-after768" src="/images/registeredUsers/<%= user.image %>">
         </div>
         <h1>Detalles de la Cuenta :</h1>
+        <h4 id="edited"><%= locals && locals.edited ? 'Cambios guardados exitosamente.' : '' %></h4>
         <div><h3 class="field">Número de cliente :</h3><h3 class="info"><%= user.user_id %></h3></div>
             <% if(!locals.editing) { %>
                 <div><h3 class="field">Nombre(s) : </h3>

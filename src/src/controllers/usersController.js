@@ -24,16 +24,6 @@ const usersController = {
             .then( response => response.json());
         res.render('users/profile', { head, user: req.session.user, editing: true, countries });
     },
-
-
-
-
-
-
-
-
-
-
     editProfilePost: async function(req, res) {
         const errors = validationResult(req);
         if(errors.isEmpty()){
@@ -61,7 +51,7 @@ const usersController = {
             });
             const user = await db.users.findByPk(req.session.user.user_id);
             req.session.user = user;
-            res.render('users/profile', { head, user: user });
+            res.render('users/profile', { head, user: user, edited: true });
             // res.redirect('/usuario/perfil');
         } else {
             const head = {
@@ -73,24 +63,6 @@ const usersController = {
             res.render('users/profile', { head, user: req.session.user, editing: true, countries, errors: errors.array() });
         }
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     register: async function(req, res) {
         const head = {
             title: "Registro",
@@ -107,13 +79,6 @@ const usersController = {
         };
         res.render('users/login', { head });
     },
-
-
-
-
-
-
-
     registerPost: async function(req, res) {
         const errors = validationResult(req);
         if(errors.isEmpty()){
@@ -162,15 +127,6 @@ const usersController = {
             res.render('users/register', { head, newID, countries, errors : errors.array(), writtenValues });
         }
     },
-
-
-
-
-
-
-
-
-
     loginPost: async function(req, res) {
         const errors = validationResult(req);
         if(errors.isEmpty()){
