@@ -105,3 +105,27 @@ Como los puntos anteriores, se dieron respuesta a las preguntas propuestas con t
 5. Dejar de hacer .-
 
 	Confiarnos en los tiempos cuando se cree que todo ya se cumplió, más bien, tendriamos que avanzar en aspectos que se pueden seguir mejorando dentro del proyecto.
+
+Correspondiente al Sprint 6.-
+
+1. Comenzar a hacer .- 
+
+	Planear mejor y de manera más precisa el impacto que puede llegar o debe tener el proyecto, desde la parte de diseño de nuestras herramientas.
+
+2. Hacer más .- 
+
+	Ceremonias daily/stand up.	
+
+3. Continuar haciendo .-
+
+	La constante retroalimentación entre el equipo y seguir aclarando dudas sustanciales para el proyecto.
+
+4. Hacer menos .-
+
+	Dejar de utilizar prácticas de programación que no son las más recomendadas o actuales, todo dependiendo de lo que se quiera hacer, por lo aprendido en clase o por lo visto en alguna otra fuente actualizada.
+
+5. Dejar de hacer .-
+
+	Irnos menos por el lado de que el tiempo decidirá eso cuando podemos seguir trabajando en el desarrollo del tema y poder concretar de mejor manera una idea de diseño o implementación, por ejemplo para tratar el punto escrito en 'Comenzar a hacer'.
+
+	
