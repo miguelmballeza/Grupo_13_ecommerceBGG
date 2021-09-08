@@ -7,8 +7,15 @@
         <form action="/productos/<%= length + 1 %>" class="product-register" method="POST" enctype="multipart/form-data">
             <div class="division">
                 <div class="info">
-                    <label for="name">Nombre del Artista: </label>
-                    <input type="text" name="artist" id="name" value="<%= locals && locals.writtenValues ? writtenValues.artist : '' %>" required>
+                    <label for="artists">Selecciona Artista:</label>
+                    <select name="artists" id="type-album">
+                        <% if(locals && locals.artists) { %>
+                            <% artists.forEach( artist => { %>
+                        <option value="<%= artist.artist_id %>" <%= locals && locals.writtenValues && ( writtenValues.artists == artist.artist_id ) ? 'selected' : '' %> ><%= artist.fullName %></option>
+                            <%  }) %>
+                        <% } %>
+                    </select>
+                    <!-- <input type="text" name="artist" id="name" value="<%= locals && locals.writtenValues ? writtenValues.artist : '' %>" placeholder="Escribelos separados por comas, si no estan..." required> -->
                 </div>
                 <div class="info">
                     <label for="album">Nombre del Album: </label>
@@ -16,9 +23,15 @@
                 </div>
             </div>
             <div class="division">
-                <div class="info">
-                    <label for="genre">Genero: </label>
-                    <input type="text" name="genre" id="genre" value="<%= locals && locals.writtenValues ? writtenValues.genre : '' %>" required>
+                <div class="info" id="vinyl-type">
+                    <label for="type" id="type-selector">Tipo : </label>
+                    <select name="type" id="type-album">
+                        <% if(locals && locals.types) { %>
+                            <% types.forEach( type => { %>
+                        <option value="<%= type.type_id %>" <%= locals && locals.writtenValues && ( writtenValues.type == type.type_id ) ? 'selected' : '' %> >RPM : <%= type.RPM %> Diameter : <%= type.diameter %></option>
+                            <%  }) %>
+                        <% } %>
+                    </select>
                 </div>
                 <div class="info">
                     <label for="year">Año de lanzamiento: </label>
@@ -36,17 +49,27 @@
                     <textarea name="description" id="description" cols="40" rows="5" required><%= locals && locals.writtenValues ? writtenValues.description : '' %></textarea>
                 </div>
             </div>
-            <div class="division">
-                <div class="info">
+            <div class="division" id="three">
+                <div class="info three">
                     <label for="image">Imagen: </label>
-                    <input type="file" name="image" id="image" required>
+                    <input type="file" name="image" id="image">
                 </div>
-                <div class="info">
+                <div class="info three">
                     <label for="color" id="color-selector">Color predominante del album :</label>
                     <select name="color" id="color-album" required>
                         <% if(locals && locals.availableColors) { %>
                             <% availableColors.forEach( colour => { %>
-                        <option value="<%= colour.color %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.color ) ? 'selected' : '' %>><%= colour.name %></option>
+                        <option value="<%= colour.color_id %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.color_id ) ? 'selected' : '' %> ><%= colour.name %></option>
+                            <% }) %>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="info three">
+                    <label for="recordLabel" id="record-selector">Sello discográfico del album :</label>
+                    <select name="recordLabel" id="record-album" required>
+                        <% if(locals && locals.recordLabels) { %>
+                            <% recordLabels.forEach( recordLabel => { %>
+                        <option value="<%= recordLabel.recordLabel_id %>" <%= locals && locals.writtenValues && ( writtenValues.recordLabel == recordLabel.recordLabel_id ) ? 'selected' : '' %> ><%= recordLabel.name %></option>
                             <% }) %>
                         <% } %>
                     </select>
@@ -56,11 +79,23 @@
             <div class="info">
                 <label>Canciones :</label>
                 <div class="songs">
-                    <label for="songs">Titulo :</label>
-                    <input type="text" name="song" id="songs" value="<%= locals && locals.writtenValues ? writtenValues.song : '' %>" required>
-                    <label for="lenght">Duracion :</label>
-                    <input type="text" name="lenght" id="lenght" value="<%= locals && locals.writtenValues ? writtenValues.lenght : '00:00' %>" required>
+                    <label for="songs">Selecciona el titulo :</label>
+                    <select name="songs" id="songs-album">
+                        <% if(locals && locals.songs) { %>
+                            <% songs.forEach( song => { %>
+                        <option value="<%= song.song_id %>" <%= locals && locals.writtenValues && ( writtenValues.songs == song.song_id ) ? 'selected' : '' %>><%= song.name %> de <%= song.artistsSongs[0].fullName %></option>
+                            <%  }) %>
+                        <% } %>
+                    </select>
+                    <!-- <input type="text" name="song" id="songs" value="<%= locals && locals.writtenValues ? writtenValues.song : '' %>" placeholder="Escribelos separados por comas, si no estan..." required>
+                     <label for="lenght">Duracion de la canción:</label>
+                    <input type="text" name="lenght" id="lenght" value="<%= locals && locals.writtenValues ? writtenValues.lenght : '00:00' %>" required> -->
+
                 </div>
+            </div>
+            <div class="info" id="info-pieces">
+                <label for="pieces">Piezas: </label>
+                <input type="number" step="0.01" name="pieces" id="pieces" value="<%= locals && locals.writtenValues ? writtenValues.pieces : '' %>" required>
             </div>
             <div id="in-case-of-errors">
                 <% if(locals && locals.errors) { %>

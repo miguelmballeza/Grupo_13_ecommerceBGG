@@ -13,8 +13,9 @@ body {
 
 .first-section {
     background-image: url('/images/fondoPrincipal.jpg');
-    height: 200px;
+    height: 300px;
     background-size: cover;
+    display: flex;
 }
 
 #principal-title {
@@ -23,11 +24,10 @@ body {
     font-size: 38px;
     color: #ffffff;
     text-align: center;
-    height: 100%;
     margin: auto;
-    padding: 75px 0;
     text-transform: uppercase; 
-    max-width: 300px;
+    width: 100%;
+    align-self: center;
 }
 
 .deletion-section {
@@ -223,12 +223,27 @@ h2 {
     color: black
 }
 
+h2#empty {
+    display: block;
+    margin: 80px auto;
+    color: black;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    max-width: 80%;
+    align-self: center;
+  }
+
 @media (min-width: 576px) {
 
     #principal-title {
         text-align: center;
         max-width: 700px;
     }
+
+    h2#empty {
+        font-size: 20px;
+      }
 
 }
 
@@ -298,15 +313,15 @@ h2 {
 @media (min-width: 992px) {
     /*A modificar :*/
 
-    #principal-title {
-        max-width: 480px;
-    }
-
     .album-section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    #principal-title {
+        max-width: 650px;
     }
 
     .album-home p {
@@ -347,16 +362,16 @@ h2 {
         width: 30%;
     }
 
+    h2#empty {
+        font-size: 22px;
+        max-width: 70%;
+      }
+
 }
 
 @media (min-width: 1200px) {
 
     /*Font-size the p de albums en 18 normalmente, hacerla crecer hasta 19 0 20 px y aumentar el margin del parrafo también*/
-
-    #principal-title {
-        font-size: 48px;
-        max-width: 550px;
-    }
 
     .album-section {
         display: flex;

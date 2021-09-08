@@ -2,7 +2,7 @@
 <body>
     <%- include('../partials/header') %>
     <section class="first-section">
-        <div id="principal-title">Productos <i class="fas fa-compact-disc"></i></div>
+        <div id="principal-title"><%= locals && locals.content ? content.title : 'Productos ' %> <i class="fas fa-compact-disc"></i></div>
     </section>
     <% if(locals && locals.deletion) { %>
         <section class="deletion-section">
@@ -10,13 +10,19 @@
         </section>
     <% } %>
     <section class="album-section">
+        <% if(locals && locals.products){ %>
+        <% if(products.length != 0) { %>
         <% for(let i = 0; i < products.length; i++) { %>
-        <article class="album-home" id="<%= products[i].IDContainer %>">
-            <img id="<%= products[i].IDImage %>" src="/images/registeredProducts/<%= products[i].image %>" alt="Imágen de Album">
+        <article class="album-home" id="<%= products[i].colors.value %>">
+            <img id="standardImage" src="/images/registeredProducts/<%= products[i].image %>" alt="Imágen de Album">
             <h2><%= products[i].title %></h2>
             <p><%= products[i].description %></p>
-            <a href="/productos/<%= products[i].id %>"><%= products[i].finalMessage %></a>
+            <a href="/productos/<%= products[i].vinyl_id %>"><%= products[i].distinctiveMessage %></a>
         </article>
+        <% } %>
+        <% } else { %>
+            <h2 id="empty">Ningun producto ha sido encontrado.</h2>
+        <% } %>
         <% } %>
     </section>
     <%- include('../partials/footer') %>

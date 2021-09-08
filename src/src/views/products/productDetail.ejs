@@ -9,11 +9,11 @@
         <div class="banner-header">
           <h1 class="banner-albumName"><%= product.name %></h1>
           <label class="banner-artistName">
-            <a href="#"><%= product.artist %></a>
+            <a href="#"><%= product.artists[0].fullName %></a>
           </label>
         </div>
         <div class="banner-preview">
-          <img id="<%= product.IDImage %>" src="/images/registeredProducts/<%= product.image %>" alt="Imágen de Album">
+          <img id="standardImage" src="/images/registeredProducts/<%= product.image %>" alt="Imágen de Album">
         </div>
         <div class="banner-aditional">
           <div class="banner-year"><p><date><%= product.year %></date></p></div>
@@ -36,7 +36,7 @@
         <p><strong>$<%= product.price %></strong></p>
       </div>
       <div class="carrito">
-        <form action="/carrito-de-compras/<%= product.id %>" method="POST">
+        <form action="/carrito-de-compras/<%= product.vinyl_id %>" method="POST">
           <button type="submit">Agregar al Carrito</button>
         </form>
       </div>
@@ -46,13 +46,13 @@
       <% for(let i = 0; i < product.songs.length; i++){ %>
       <div class="cancion">
         <p class="numero"> #<%= i + 1 %> </p>
-        <p> <%= product.songs[i].title %> </p>
-        <p class="duracion"> <%= product.songs[i].lenght %> </p>
+        <p> <%= product.songs[i].name %> </p>
+        <p class="duracion"><%= product.songs[i].lengthInMinutes %></p>
       </div>
       <% } %>
     </div>
     <div class="editar">
-      <button><a href="/productos/<%= product.id %>/editar">Editar Producto</a></button>
+      <button><a href="/productos/<%= product.vinyl_id %>/editar">Editar Producto</a></button>
     </div>
     <%- include('../partials/footer') %>
   </body>

@@ -17,7 +17,7 @@
                 <input type="text" name="email" id="email" value="<%= locals.writtenValues && writtenValues.email ? writtenValues.email : '' %>" required>
             </article>
             <article>
-                <label for="password">Contraseña :</label><p id="password-rule">Ingresar como mínimo un caracter mayúsculo, otro minúsculo y otro especial.</p>
+                <label for="password">Contraseña :</label><p id="password-rule">Ingresar como mínimo un caracter númerico, mayúsculo, minúsculo y otro especial.</p>
                 <input type="password" name="password" id="password" required>
             </article>
             <article>
@@ -28,6 +28,41 @@
                 <label for="image" id="imageLabel">Imagen de perfil : </label>
                 <input type="file" name="image" id="image" accept=".jpg, .png">
             </article>
+
+
+            <article>
+                <label for="birthday" id="birthday-label">Cumpleaños :</label>
+                <input type="date" name="birthday" id="birthday" value="<%= locals.writtenValues && writtenValues.birthday ? writtenValues.birthday : '' %>" required>
+            </article>
+            <article>
+                <label for="address" id="address-label">Dirección de residencia :</label>
+                <input type="text" name="address" id="address" value="<%= locals.writtenValues && writtenValues.address ? writtenValues.address : '' %>" required>
+            </article>
+            <article>
+                <label for="zip" id="zip-label">Código postal :</label>
+                <input type="number" name="zip" id="zip" value="<%= locals.writtenValues && writtenValues.zip ? writtenValues.zip : '' %>" required>
+            </article>
+            <article>
+                <label for="city" id="city-label">Ciudad :</label>
+                <input type="text" name="city" id="city" value="<%= locals.writtenValues && writtenValues.city ? writtenValues.city : '' %>" required>
+            </article>
+            <article>
+                <label for="state" id="state-label">Estado :</label>
+                <input type="text" name="state" id="state" value="<%= locals.writtenValues && writtenValues.state ? writtenValues.state : '' %>" required>
+            </article>
+            <article>
+                <label for="country" id="country-label">País :</label>
+                <select name="country" id="country" required>
+                    <% if(locals && locals.countries) { %>
+                        <% countries.forEach( country => { %>
+                    <option value="<%= country.name %>" <%= locals && locals.writtenValues && ( writtenValues.country == country.name ) ? 'selected' : '' %> ><%= country.name %></option>
+                        <%  }) %>
+                    <% } %>
+                </select>
+            </article>
+
+
+
             <% if(locals && locals.errors) { %>
                 <% errors.forEach( error => { %>
                 <p id="error">*<%= error.msg %></p><br>
