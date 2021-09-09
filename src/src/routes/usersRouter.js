@@ -9,8 +9,8 @@ const usersMiddlewares = require('../middlewares/users');
 const { db } = require('../database/models')
 
 const registerValidation = [
-    body('firstName').notEmpty().withMessage('El campo de nombre esta vacío.'),
-    body('lastName').notEmpty().withMessage('El campo de apellidos esta vacío.'),
+    body('firstName').notEmpty().withMessage('El campo de nombre esta vacío.').bail().isLength({ min : 2 }).withMessage("El nombre debe tener 2 caracteres como mínimo."),
+    body('lastName').notEmpty().withMessage('El campo de apellidos esta vacío.').bail().isLength({ min : 2 }).withMessage("El nombre debe tener 2 caracteres como mínimo."),
     body('email').notEmpty().withMessage('El campo de Email esta vacío.').bail().isEmail().withMessage("El formato del email no es correcto."),
     body('password').notEmpty().withMessage('La contraseña no puede estar vacía.').bail().isLength({ min: 8 }).withMessage("La contraseña debe tener 8 caracteres como mínimo.").bail()
         .matches(/(?=.*?[A-Z])/).withMessage('La contraseña debe tener al menos una letra mayúscula.').bail()

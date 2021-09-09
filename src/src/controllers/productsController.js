@@ -89,54 +89,77 @@ const productsController = {
     createProductPost : async function(req, res){
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            const head = {
-                title: "Detalle del Producto",
-                styleSheet: "/css/stylesDetail.css",
+            const vinylImage = req.file ? req.file.filename : 'unknownVinyl.jpg';
+            const fileNameExtension = path.extname(vinylImage).toLowerCase();
+            const extensions = {
+                '.jpg' : true,
+                '.jpeg' : true,
+                '.png' : true,
+                '.gif' : true
             };
-            const color = await db.colors.findOne({ where : { color_id : req.body.color } });
-            const type = await db.vinylTypes.findOne({ where : { type_id : req.body.type } });
-            const recordLabel = await db.recordLabels.findOne({ where : { recordLabel_id : req.body.recordLabel } });
-            let vinylImage;
-            req.file ? vinylImage = req.file.filename : vinylImage = 'unknownVinyl.jpg';
-            await db.vinyls.create({
-                color_id_1: color.color_id,
-                type_id_1 : type.type_id,
-                recordLabel_id_1 : recordLabel.recordLabel_id,
-                user_id_2 : req.session.user.user_id,
-                name: req.body.album.toUpperCase(),
-                title: req.body.album.toUpperCase(),
-                year: parseInt(req.body.year),
-                description: req.body.description,
-                price: req.body.price,
-                pieces : req.body.pieces,
-                image: vinylImage,
-                distinctiveMessage: "Nuevo Albúm ->",
-            });
-            await db.vinylsSongs.create({
-                vinyl_id_1: parseInt(req.params.id),
-                song_id_1: parseInt(req.body.songs)
-            });
-            await db.vinylsArtists.create({
-                vinyl_id_2: parseInt(req.params.id),
-                artist_id_2: parseInt(req.body.artists)
-            });
-            const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
-            // let product = {"id": products.length + 1, 
-            // "title": req.body.album ,
-            // "artist": req.body.artist,
-            //  "year": parseInt(req.body.year) ,
-            //  "name": req.body.album ,
-            //  "genre": req.body.genre ,
-            //  "description":req.body.description,
-            //  "price": req.body.price ,
-            //  "IDContainer": req.body.color ,
-            //  "IDImage":"standardImage", 
-            //  "finalMessage":"Nuevo Albúm ->",
-            //  "image": req.file.filename,
-            //  "songs":[{"title" : req.body.song, "lenght" : req.body.lenght}]};
-            // products.push(product);
-            let creation = product ? true : false;
-            res.render('products/productDetail', { head, product, creation }); // how can I obtain the logic of creation variable with : redirect('/carrito-de-cormpras');
+            const ok = extensions[fileNameExtension];
+            if(ok){
+                const head = {
+                    title: "Detalle del Producto",
+                    styleSheet: "/css/stylesDetail.css",
+                };
+                const color = await db.colors.findOne({ where : { color_id : req.body.color, attributes: ["color_id"] } });
+                const type = await db.vinylTypes.findOne({ where : { type_id : req.body.type }, attributes: ["type_id"]  });
+                const recordLabel = await db.recordLabels.findOne({ where : { recordLabel_id : req.body.recordLabel }, attributes: ["recordLabel_id"]  });
+                if(color && type && recordLabel){
+                    await db.vinyls.create({
+                        color_id_1: color.color_id,
+                        type_id_1 : type.type_id,
+                        recordLabel_id_1 : recordLabel.recordLabel_id,
+                        user_id_2 : req.session.user.user_id,
+                        name: req.body.album.toUpperCase(),
+                        title: req.body.album.toUpperCase(),
+                        year: parseInt(req.body.year),
+                        description: req.body.description,
+                        price: req.body.price,
+                        pieces : req.body.pieces,
+                        image: vinylImage,
+                        distinctiveMessage: "Nuevo Albúm ->",
+                    });
+                    await db.vinylsSongs.create({
+                        vinyl_id_1: parseInt(req.params.id),
+                        song_id_1: parseInt(req.body.songs)
+                    });
+                    await db.vinylsArtists.create({
+                        vinyl_id_2: parseInt(req.params.id),
+                        artist_id_2: parseInt(req.body.artists)
+                    });
+                    const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
+                    let creation = product ? true : false;
+                    res.render('products/productDetail', { head, product, creation }); // how can I obtain the logic of creation variable with : redirect('/carrito-de-cormpras');
+                } else {
+                    const head = {
+                        title: "Creación de Producto",
+                        styleSheet: "/css/stylesCreateProduct.css",
+                    };
+                    const writtenValues = req.body;
+                    const products = await db.vinyls.findAll();
+                    const availableColors = await db.colors.findAll();
+                    const recordLabels = await db.recordLabels.findAll();
+                    const types = await db.vinylTypes.findAll();
+                    const songs = await db.songs.findAll({ include: ["artistsSongs"] });
+                    const artists = await db.artists.findAll();
+                    res.render('products/createProduct', { head, length: products.length, errors: [ { msg : 'El color, el tipo o sello discográfico no fue encontrado. Solicite ayuda técnica.' }], writtenValues, availableColors, recordLabels, types, songs, artists});
+                }
+            } else {
+                const head = {
+                    title: "Creación de Producto",
+                    styleSheet: "/css/stylesCreateProduct.css",
+                };
+                const writtenValues = req.body;
+                const products = await db.vinyls.findAll();
+                const availableColors = await db.colors.findAll();
+                const recordLabels = await db.recordLabels.findAll();
+                const types = await db.vinylTypes.findAll();
+                const songs = await db.songs.findAll({ include: ["artistsSongs"] });
+                const artists = await db.artists.findAll();
+                res.render('products/createProduct', { head, length: products.length, errors: [ { msg : 'La imagen debe ser formato JPG, JPEG, PNG o GIF.' }], writtenValues, availableColors, recordLabels, types, songs, artists});
+            }
         } else {
             const head = {
                 title: "Creación de Producto",
@@ -155,77 +178,58 @@ const productsController = {
     updateProduct : async function(req, res) {
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            const head = {
-                title: "Detalle del Producto",
-                styleSheet: "/css/stylesDetail.css",
-            };
-            // let product = products.find( product => product.id == req.params.id);
             const oldImage = await db.vinyls.findByPk(req.params.id ,{ attributes: ['image']});
-            let vinylImage;
-            req.file ? vinylImage = req.file.filename : vinylImage = oldImage.image;
-            await db.vinyls.update({
-                color_id_1: parseInt(req.body.color),
-                type_id_1 : parseInt(req.body.type),
-                recordLabel_id_1 : parseInt(req.body.recordLabel),
-                user_id_2 : req.session.user.user_id,
-                name: req.body.album.toUpperCase(),
-                title: req.body.album.toUpperCase(),
-                year: parseInt(req.body.year),
-                description: req.body.description,
-                price: req.body.price,
-                pieces : req.body.pieces,
-                image: vinylImage,
-                distinctiveMessage: "Nuevo Albúm ->"
-            },
-            { where : { vinyl_id : parseInt(req.params.id) } });
-            await db.vinylsSongs.update({
-                song_id_1: parseInt(req.body.songs)
-            }, { where : { vinyl_id_1: parseInt(req.params.id), } });
-            await db.vinylsArtists.update({
-                artist_id_2: parseInt(req.body.artists)
-            }, { where : { vinyl_id_2: parseInt(req.params.id), } });
-            const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
-            // product.artist = req.body.artist;
-            // product.name = req.body.album;
-            // product.genre = req.body.genre;
-            // product.year = req.body.year;
-            // product.price = req.body.price;
-            // product.description = req.body.description;
-            // req.file ? product.image = req.file.filename : '';
-            // product.IDContainer = req.body.color;
-            // for(let i = 0; i < product.songs.length; i++) {
-            //     i == 0 ? product.songs[i].title = req.body.song1 : 
-            //     i == 1 ? product.songs[i].title = req.body.song2 : 
-            //     i == 2 ? product.songs[i].title = req.body.song3 : 
-            //     i == 3 ? product.songs[i].title = req.body.song4 : 
-            //     i == 4 ? product.songs[i].title = req.body.song5 : 
-            //     i == 5 ? product.songs[i].title = req.body.song6 : 
-            //     i == 6 ? product.songs[i].title = req.body.song7 : 
-            //     i == 7 ? product.songs[i].title = req.body.song8 : 
-            //     i == 8 ? product.songs[i].title = req.body.song9 : 
-            //     i == 9 ? product.songs[i].title = req.body.song10 : 
-            //     i == 10 ? product.songs[i].title =req.body.song11 : 
-            //     i == 11 ? product.songs[i].title =req.body.song12 : 
-            //     i == 12 ? product.songs[i].title =req.body.song13 : 
-            //     i == 13 ? product.songs[i].title =req.body.song14 : 
-            //     i == 14 ? product.songs[i].title =req.body.song15 : '';
-            //     i == 0 ? product.songs[i].lenght = req.body.lenght1 : 
-            //     i == 1 ? product.songs[i].lenght = req.body.lenght2 : 
-            //     i == 2 ? product.songs[i].lenght = req.body.lenght3 : 
-            //     i == 3 ? product.songs[i].lenght = req.body.lenght4 : 
-            //     i == 4 ? product.songs[i].lenght = req.body.lenght5 : 
-            //     i == 5 ? product.songs[i].lenght = req.body.lenght6 : 
-            //     i == 6 ? product.songs[i].lenght = req.body.lenght7 : 
-            //     i == 7 ? product.songs[i].lenght = req.body.lenght8 : 
-            //     i == 8 ? product.songs[i].lenght = req.body.lenght9 : 
-            //     i == 9 ? product.songs[i].lenght = req.body.lenght10 : 
-            //     i == 10 ? product.songs[i].lenght =req.body.lenght11 : 
-            //     i == 11 ? product.songs[i].lenght =req.body.lenght12 : 
-            //     i == 12 ? product.songs[i].lenght =req.body.lenght13 : 
-            //     i == 13 ? product.songs[i].lenght =req.body.lenght4 : 
-            //     i == 14 ? product.songs[i].lenght =req.body.lenght15 : '';
-            // }
-            res.render('products/productDetail', { head, product, edition: true });
+            const vinylImage = req.file ? req.file.filename : oldImage.image;
+            const fileNameExtension = path.extname(vinylImage).toLowerCase();
+            const extensions = {
+                '.jpg' : true,
+                '.jpeg' : true,
+                '.png' : true,
+                '.gif' : true
+            };
+            const ok = extensions[fileNameExtension];
+            if(ok){
+                const head = {
+                    title: "Detalle del Producto",
+                    styleSheet: "/css/stylesDetail.css",
+                };
+                await db.vinyls.update({
+                    color_id_1: parseInt(req.body.color),
+                    type_id_1 : parseInt(req.body.type),
+                    recordLabel_id_1 : parseInt(req.body.recordLabel),
+                    user_id_2 : req.session.user.user_id,
+                    name: req.body.album.toUpperCase(),
+                    title: req.body.album.toUpperCase(),
+                    year: parseInt(req.body.year),
+                    description: req.body.description,
+                    price: req.body.price,
+                    pieces : req.body.pieces,
+                    image: vinylImage,
+                    distinctiveMessage: "Nuevo Albúm ->"
+                },
+                { where : { vinyl_id : parseInt(req.params.id) } });
+                await db.vinylsSongs.update({
+                    song_id_1: parseInt(req.body.songs)
+                }, { where : { vinyl_id_1: parseInt(req.params.id), } });
+                await db.vinylsArtists.update({
+                    artist_id_2: parseInt(req.body.artists)
+                }, { where : { vinyl_id_2: parseInt(req.params.id), } });
+                const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
+                res.render('products/productDetail', { head, product, edition: true });
+            } else {
+                const head = {
+                    title: "Edición de Producto",
+                    styleSheet: "/css/stylesEditProduct.css",
+                };
+                const writtenValues = req.body;
+                const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs", "vinylTypes", "colors"] });
+                const availableColors = await db.colors.findAll();
+                const recordLabels = await db.recordLabels.findAll();
+                const types = await db.vinylTypes.findAll();
+                const songs = await db.songs.findAll({ include: ["artistsSongs"] });
+                const artists = await db.artists.findAll();
+                res.render('products/editProduct', { head, product, availableColors, errors: [{ msg : 'La imagen debe ser formato JPG, JPEG, PNG o GIF.' }], writtenValues, recordLabels, types, songs, artists });
+            }
         } else {
             const head = {
                 title: "Edición de Producto",
@@ -234,7 +238,6 @@ const productsController = {
             const writtenValues = req.body;
             const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs", "vinylTypes", "colors"] });
             const availableColors = await db.colors.findAll();
-
             const recordLabels = await db.recordLabels.findAll();
             const types = await db.vinylTypes.findAll();
             const songs = await db.songs.findAll({ include: ["artistsSongs"] });
