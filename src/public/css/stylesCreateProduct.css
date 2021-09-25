@@ -191,6 +191,30 @@ div#in-case-of-errors {
     max-width: 60px;
 }
 
+.error-artist {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-album {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-description {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-image {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
 @media (min-width: 576px){
     .product-register{
         max-width: 450px;

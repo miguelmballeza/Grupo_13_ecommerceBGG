@@ -85,6 +85,12 @@ input {
   height: 20px;
 }
 
+.error-email {
+  margin: auto;
+  color: red;
+  text-align: center;
+}
+
 
 @font-face {
   font-family: "fontello";

@@ -15,11 +15,13 @@
                             <%  }) %>
                         <% } %>
                     </select>
+                    <div class="error-artist"></div>
                     <!-- <input type="text" name="artist" id="name" value="<%= locals && locals.writtenValues ? writtenValues.artist : '' %>" placeholder="Escribelos separados por comas, si no estan..." required> -->
                 </div>
                 <div class="info">
                     <label for="album">Nombre del Album: </label>
                     <input type="text" name="album" id="album" value="<%= locals && locals.writtenValues ? writtenValues.album : '' %>" required>
+                    <div class="error-album"></div>
                 </div>
             </div>
             <div class="division">
@@ -36,23 +38,27 @@
                 <div class="info">
                     <label for="year">Año de lanzamiento: </label>
                     <input type="number" name="year" id="year" value="<%= locals && locals.writtenValues ? writtenValues.year : '' %>" required>
+                    <div class="error-year"></div>
                 </div>
             </div>
             <div class="division">
                 <div class="info">
                     <label for="price">Precio: $</label>
                     <input type="number" step="0.01" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : '' %>" required>
+                    <div class="error-price"></div>
                 </div>
                 <div class="info">
                     <label for="description">Descripción: </label>
                     <!-- <input type="text" name="description" id="description"> -->
                     <textarea name="description" id="description" cols="40" rows="5" required><%= locals && locals.writtenValues ? writtenValues.description : '' %></textarea>
+                    <div class="error-description"></div>
                 </div>
             </div>
             <div class="division" id="three">
                 <div class="info three">
                     <label for="image">Imagen: </label>
                     <input type="file" name="image" id="image">
+                    <div class="error-image"></div>
                 </div>
                 <div class="info three">
                     <label for="color" id="color-selector">Color predominante del album :</label>
@@ -110,3 +116,4 @@
     </section>
     <%- include('../partials/footer') %>
 </body>
+<script src="../../../js/validations/crearProductoValidacion.js"></script>

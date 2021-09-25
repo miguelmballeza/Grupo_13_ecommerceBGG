@@ -162,6 +162,70 @@ select#country {
     margin: 0 0 0 10%;
 }
 
+.error-firstName {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-lastName {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-email {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-password {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-rwPassword {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-imagen {
+    color: red;
+    text-align: center;
+}
+
+.error-birthday {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-address {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-zip {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-city {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-state {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
 
 
 @media (min-width: 576px){
