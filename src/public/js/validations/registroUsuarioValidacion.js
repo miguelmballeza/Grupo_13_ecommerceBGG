@@ -1,8 +1,6 @@
 window.addEventListener('load', function(){
 
   let formulario = document.querySelector('form#register');
-
-  formulario.addEventListener('submit', function(e){
     //varible para verificar si existen errores
     let errorCont = 0;
 
@@ -23,7 +21,8 @@ window.addEventListener('load', function(){
     // Validaciones
     // validacion de nombre
     let errorNombre = document.querySelector('.error-firstName');
-    if(nombre.value == ''){
+    nombre.addEventListener("blur", () => {
+    if(nombre.value === ''){
       errorNombre.innerHTML = 'El campo de nombre tiene que estar completo';
       errorCont++;
     }else if(nombre.value.length < 2){
@@ -33,10 +32,12 @@ window.addEventListener('load', function(){
       errorNombre.innerHTML = '';
       errorCont = 0
     }
+  });
     
     // validacion de apellido
     let errorApellido = document.querySelector('.error-lastName');
-    if(apellido.value == ''){
+    apellido.addEventListener("blur", () => {
+    if(apellido.value === ''){
       errorApellido.innerHTML = 'El campo de apellido tiene que estar completo';
       errorCont++;
     }else if(apellido.value.length < 2){
@@ -46,12 +47,14 @@ window.addEventListener('load', function(){
       errorApellido.innerHTML = '';
       errorCont = 0;
     }
+  });
     
     //validacion de correo
     // expresion regular para validar un correo
     let errorCorreo = document.querySelector('.error-email')
     let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    if(correo.value == ''){
+    correo.addEventListener("blur", () => {
+    if(correo.value === ''){
       errorCorreo.innerHTML = 'El campo de correo tiene que esta completo';
       errorCont++;
     }else if(!emailRegex.test(correo.value)){
@@ -61,6 +64,7 @@ window.addEventListener('load', function(){
       errorCorreo.innerHTML='';
       errorCont = 0;
     }
+  });
     
     //validacion contraseña
     let lowerCase = /[a-z]/g;
@@ -69,8 +73,8 @@ window.addEventListener('load', function(){
     let characters = /[!@#$%^&*ñ]/g;
     let errorPassword = document.querySelector('.error-password');
     // /[!%&*\s]  la \s es el espacio en blanco
-    
-    if(password.value == ''){
+    password.addEventListener("blur", () => {
+    if(password.value === ''){
       errorPassword.innerHTML = 'El campo de la contraseña debe estar completo';
       errorCont++;
     }else if(password.value.length < 7){
@@ -92,10 +96,12 @@ window.addEventListener('load', function(){
       errorPassword.innerHTML = ''
       errorCont = 0;
     }
+  });
     
     //validacion de volver a escribir la contraseña
     let errorRwPassword = document.querySelector('.error-rwPassword')
-    if(rwPassword.value == ''){
+    rwPassword.addEventListener("blur", () => {
+    if(rwPassword.value === ''){
       errorRwPassword.innerHTML = 'Debes volver a escribir la contraseña para confírmarla';
       errorCont++;
     }else if(!rwPassword.value.match(password.value)){
@@ -105,11 +111,13 @@ window.addEventListener('load', function(){
       errorRwPassword.innerHTML = '';
       errorCont = 0;
     }
+  });
     
-    // validacion de imagen
+    // validacion de imagen AQUI SOLO FALTA SI LA IMAGEN SE INGRESA COMO MAYUSCULAS EL JPG, ETC.
     let errorImagen = document.querySelector('.error-imagen')
     let extensiones = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-    if(imagen.value != ''){
+    imagen.addEventListener("blur", () => {
+    if(imagen.value !== ''){
       if(!extensiones.exec(imagen.value)){
         errorImagen.innerHTML = 'Formato de imagen invalido';
         errorCont++;
@@ -118,10 +126,12 @@ window.addEventListener('load', function(){
       errorImagen.innerHTML = '';
       errorCont = 0;
     }
+  });
     
     // validacion fecha de nacimiento
     let errorfNac = document.querySelector('.error-birthday');
     let fNac = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
+    fNacimiento.addEventListener("blur", () => {
     if(!fNacimiento.value.match(fNac)){
       errorfNac.innerHTML = 'Debe colocar su cumpleaños';
       errorCont++;
@@ -129,10 +139,12 @@ window.addEventListener('load', function(){
       errorfNac.innerHTML = '';
       errorCont = 0;
     }
+  });
     
     // validacion direccion
     let errorDireccion = document.querySelector('.error-address')
-    if(direccion.value == ''){
+    direccion.addEventListener("blur", () => {
+    if(direccion.value === ''){
       errorDireccion.innerHTML = 'El campo de dirección debe estar completo';
       errorCont++;
     }else if(direccion.value.length < 5){
@@ -142,10 +154,12 @@ window.addEventListener('load', function(){
       errorDireccion.innerHTML = '';
       errorCont = 0;
     }
+  });
     
     // validacion del codigo postal
     let errorZip = document.querySelector('.error-zip')
-    if(zip.value == ''){
+    zip.addEventListener("blur", () => {
+    if(zip.value === ''){
       errorZip.innerHTML = 'El campo de código postal debe estar completo';
       errorCont++;
     }else if(zip.value.length < 5){
@@ -158,10 +172,12 @@ window.addEventListener('load', function(){
       errorZip.innerHTML = '';
       errorCont = 0;
     }
+  });
     
     // validacion ciudad
     let errorCiudad = document.querySelector('.error-city');
-    if(ciudad.value == ''){
+    ciudad.addEventListener("blur", () => {
+    if(ciudad.value === ''){
       errorCiudad.innerHTML = 'El campo de ciudad debe estar completo';
       errorCont++;
     }else if(ciudad.value.length < 3){
@@ -171,10 +187,12 @@ window.addEventListener('load', function(){
       errorCiudad.innerHTML = '';
       errorCont = 0;
     }
+  });
     
     // validacion estado
     let errorEstado = document.querySelector('.error-state');
-    if(estado.value == ''){
+    estado.addEventListener("blur", () => {
+    if(estado.value === ''){
       errorEstado.innerHTML = 'El campo de estado debe estar completo';
       errorCont++;
     }else if(estado.value.length < 3){
@@ -184,7 +202,9 @@ window.addEventListener('load', function(){
       errorEstado.innerHTML = '';
       errorCont = 0;
     }
-
+  });
+    
+    formulario.addEventListener('submit', function(e){
     // prevenir que se envien los datos en caso de un error
     if(errorCont != 0){
       e.preventDefault();
