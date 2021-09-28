@@ -26,6 +26,7 @@
                 <div class="info">
                     <label for="album">Nombre del Album: </label>
                     <input type="text" name="album" id="album" value="<%= locals && locals.writtenValues ? writtenValues.album : locals && locals.product ? product.name : '' %>" required>
+                    <div class="error-album"></div>
                 </div>
             </div>
             <div class="division">
@@ -53,6 +54,7 @@
                     <label for="description">Descripción: </label>
                     <!-- <input type="text" name="description" id="description"> -->
                     <textarea name="description" id="description" cols="40" rows="5" required><%= locals && locals.writtenValues ? writtenValues.description : locals && locals.product ? product.description : '' %></textarea>
+                    <div class="error-description"></div>
                 </div>
             </div>
             <div class="division" id="three">
@@ -85,6 +87,7 @@
             <div class="division" id="all-songs">
                 <div class="info">
                     <label>Canciones :</label>
+                    <div class="error-image"></div>
                     <div class="songs">
                         <label for="songs">Selecciona el titulo :</label>
                         <select name="songs" id="songs-album">
@@ -129,3 +132,4 @@
     </section>
     <%- include('../partials/footer') %>
 </body>
+<script src="../../../js/validations/modificarProductoValidacion.js"></script>
