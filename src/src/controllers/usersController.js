@@ -58,8 +58,15 @@ const usersController = {
                 title: "Editar usuario",
                 styleSheet: "/css/stylesUser.css",
             };
-            const countries = await fetch('https://restcountries.eu/rest/v2/all')
-                .then( response => response.json());
+            const setting = {
+                "url": "https://api.countrylayer.com/v2/all",
+                "access_key": "bd174d5ea7586c1a363b9b29d915b4dc",
+                "method": "GET",
+                "timeout": 0
+            }
+            const countries = await fetch(setting)
+                .then( response => response.json())
+                .catch((error) => console.log("El errror es : " + error));
             res.render('users/profile', { head, user: req.session.user, editing: true, countries, errors: errors.array() });
         }
     },

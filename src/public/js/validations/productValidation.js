@@ -1,8 +1,9 @@
 window.addEventListener('load', function(){
-  let formulario = document.querySelector('form.product-register')
-
-
-    let errorCont = 0;
+  let formulario = document.querySelector('form.productValidation');
+  let boton = document.querySelector("button#submit-product");
+  let errorCont1 = true;
+  let errorCont2 = true;
+  let errorCont3 = true;
     
     // let artista = document.querySelector('#type-album')
     let album = document.querySelector('#album')
@@ -27,14 +28,17 @@ window.addEventListener('load', function(){
     album.addEventListener("blur", () => {
       let errorAlbum = document.querySelector('.error-album');
     if(album.value === ''){
-      errorAlbum.innerHTML = 'Debes ingresar el nombre del álbum'
-      errorCont++;
+      errorAlbum.innerHTML = 'Debes ingresar el nombre del álbum.'
+      errorCont1=true;
+      unavailable();
     }else if(album.value.length < 5){
-      errorAlbum.innerHTML = 'El nombre del álbum debe tener al menos 5 caracteres'
-      errorCont++;
+      errorAlbum.innerHTML = 'El nombre del álbum debe tener al menos 5 caracteres.'
+      errorCont1=true;
+      unavailable();
     }else{
       errorAlbum.innerHTML = '';
-      errorCont = 0;
+      errorCont1=false;
+      available();
     }
     })
     // validacion nombre album
@@ -43,14 +47,17 @@ window.addEventListener('load', function(){
     // validacion descripcion producto
     let errorDescripcion = document.querySelector('.error-description');
     if(description.value === ''){
-      errorDescripcion.innerHTML = 'Debe ingresar una descripción';
-      errorCont++;
+      errorDescripcion.innerHTML = 'Debe ingresar una descripción.';
+      errorCont2=true;
+      unavailable();
     }else if(description.value.length < 20){
-      errorDescripcion.innerHTML = 'La descripción debe tener al menos 20 caracteres'
-      errorCont++;
+      errorDescripcion.innerHTML = 'La descripción debe tener al menos 20 caracteres.'
+      errorCont2=true;
+      unavailable();
     }else{
       errorDescripcion.innerHTML = '';
-      errorCont = 0;
+      errorCont2=false;
+      available();
     }
   });
     
@@ -59,18 +66,36 @@ window.addEventListener('load', function(){
     
     imagen.addEventListener("blur", () => {
     if(!extensiones.exec(imagen.value)){
-      errorImagen.innerHTML = 'Formato de imagen invalido';
-      errorCont++;
+      errorImagen.innerHTML = 'Formato de imagen invalido.';
+      errorCont3=true;
+      unavailable();
     }else{
       errorImagen.innerHTML = '';
-      errorCont = 0;
+      errorCont3=false;
+      available();
     }
   });
 
     // prevenir que se envien los datos en caso de un error
-  formulario.addEventListener('submit', function(e){
-    if(errorCont != 0){
-      e.preventDefault();
+    formulario.addEventListener('submit', function(e){ 
+      if(errorCont1 || errorCont2 || errorCont3){
+        e.preventDefault();
+      }
+    })
+
+  function unavailable() {
+    if(!boton.classList.contains("unavailable")){
+      boton.style.backgroundColor = '#D9D9D9';
+      boton.classList.add("unavailable");
     }
-  })
+  }
+
+  function available() {
+    if(boton.classList.contains("unavailable")){
+      if(!(errorCont1 || errorCont2)){
+        boton.style.backgroundColor = 'white';
+        boton.classList.remove("unavailable");
+      } 
+    }
+  }
 })

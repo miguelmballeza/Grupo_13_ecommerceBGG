@@ -2,7 +2,7 @@ window.addEventListener('load', function(){
 
   let formulario = document.querySelector('form#register');
     //varible para verificar si existen errores
-    let errorCont = 0;
+    let errorCont1, errorCont2, errorCont3, errorCont4, errorCont5, errorCont6, errorCont7, errorCont8, errorCont9, errorCont10, errorCont11 = true;
 
     // declaracion de los datos del formulario
     let nombre = document.querySelector('#firstName');
@@ -24,13 +24,16 @@ window.addEventListener('load', function(){
     nombre.addEventListener("blur", () => {
     if(nombre.value === ''){
       errorNombre.innerHTML = 'El campo de nombre tiene que estar completo';
-      errorCont++;
+      errorCont1=true;
+      unavailable();
     }else if(nombre.value.length < 2){
       errorNombre.innerHTML = 'El campo de nombre tiene que tener al menos 2 caracteres';
-      errorCont++;
+      errorCont1=true;
+      unavailable();
     }else{
       errorNombre.innerHTML = '';
-      errorCont = 0
+      errorCont1=false;
+      available();
     }
   });
     
@@ -39,13 +42,16 @@ window.addEventListener('load', function(){
     apellido.addEventListener("blur", () => {
     if(apellido.value === ''){
       errorApellido.innerHTML = 'El campo de apellido tiene que estar completo';
-      errorCont++;
+      errorCont2=true;
+      unavailable();
     }else if(apellido.value.length < 2){
       errorApellido.innerHTML = 'El campo de apellido tiene que tener al menos 2 caracteres';
-      errorCont++;
+      errorCont2=true;
+      unavailable();
     }else{
       errorApellido.innerHTML = '';
-      errorCont = 0;
+      errorCont2=false;
+      available();
     }
   });
     
@@ -56,13 +62,16 @@ window.addEventListener('load', function(){
     correo.addEventListener("blur", () => {
     if(correo.value === ''){
       errorCorreo.innerHTML = 'El campo de correo tiene que esta completo';
-      errorCont++;
+      errorCont3=true;
+      unavailable();
     }else if(!emailRegex.test(correo.value)){
       errorCorreo.innerHTML = 'Correo no valido';
-      errorCont++;
+      errorCont3=true;
+      unavailable();
     }else{
       errorCorreo.innerHTML='';
-      errorCont = 0;
+      errorCont3=false;
+      available();
     }
   });
     
@@ -76,25 +85,32 @@ window.addEventListener('load', function(){
     password.addEventListener("blur", () => {
     if(password.value === ''){
       errorPassword.innerHTML = 'El campo de la contraseña debe estar completo';
-      errorCont++;
+      errorCont4=true;
+      unavailable();
     }else if(password.value.length < 7){
       errorPassword.innerHTML = 'La contraseña debe tener al menos 8 caracteres';
-      errorCont++;
+      errorCont4=true;
+      unavailable();
     }else if(!password.value.match(lowerCase)){
       errorPassword.innerHTML = 'La contraseña debe contener al menos una letra minúscula';
-      errorCont++;
+      errorCont4=true;
+      unavailable();
     }else if(!password.value.match(upperCase)){
       errorPassword.innerHTML = 'La contraseña debe contener al menos una letra mayúscula';
-      errorCont++;
+      errorCont4=true;
+      unavailable();
     }else if(!password.value.match(numbers)){
       errorPassword.innerHTML = 'La contraseña debe contener al menos un caracter númerico';
-      errorCont++;
+      errorCont4=true;
+      unavailable();
     }else if(!password.value.match(characters)){
       errorPassword.innerHTML = 'La contraseña debe contener al menos un caracter especial';
-      errorCont++;
+      errorCont4=true;
+      unavailable();
     }else{
       errorPassword.innerHTML = ''
-      errorCont = 0;
+      errorCont4=false;
+      available();
     }
   });
     
@@ -103,13 +119,16 @@ window.addEventListener('load', function(){
     rwPassword.addEventListener("blur", () => {
     if(rwPassword.value === ''){
       errorRwPassword.innerHTML = 'Debes volver a escribir la contraseña para confírmarla';
-      errorCont++;
+      errorCont5=true;
+      unavailable();
     }else if(!rwPassword.value.match(password.value)){
       errorRwPassword.innerHTML = 'Las contraseñas no coinciden';
-      errorCont++;
+      errorCont5=true;
+      unavailable();
     }else{
       errorRwPassword.innerHTML = '';
-      errorCont = 0;
+      errorCont5=false;
+      available();
     }
   });
     
@@ -120,11 +139,13 @@ window.addEventListener('load', function(){
     if(imagen.value !== ''){
       if(!extensiones.exec(imagen.value)){
         errorImagen.innerHTML = 'Formato de imagen invalido';
-        errorCont++;
+        errorCont6=true;
+        unavailable();
       }
     }else{
       errorImagen.innerHTML = '';
-      errorCont = 0;
+      errorCont6=false;
+      available();
     }
   });
     
@@ -134,10 +155,12 @@ window.addEventListener('load', function(){
     fNacimiento.addEventListener("blur", () => {
     if(!fNacimiento.value.match(fNac)){
       errorfNac.innerHTML = 'Debe colocar su cumpleaños';
-      errorCont++;
+      errorCont7=true;
+      unavailable();
     }else{
       errorfNac.innerHTML = '';
-      errorCont = 0;
+      errorCont7=false;
+      available();
     }
   });
     
@@ -146,13 +169,16 @@ window.addEventListener('load', function(){
     direccion.addEventListener("blur", () => {
     if(direccion.value === ''){
       errorDireccion.innerHTML = 'El campo de dirección debe estar completo';
-      errorCont++;
+      errorCont8=true;
+      unavailable();
     }else if(direccion.value.length < 5){
       errorDireccion.innerHTML = 'La dirección debe contener al menos 5 caracteres';
-      errorCont++;
+      errorCont8=true;
+      unavailable();
     }else{
       errorDireccion.innerHTML = '';
-      errorCont = 0;
+      errorCont8=false;
+      available();
     }
   });
     
@@ -161,16 +187,20 @@ window.addEventListener('load', function(){
     zip.addEventListener("blur", () => {
     if(zip.value === ''){
       errorZip.innerHTML = 'El campo de código postal debe estar completo';
-      errorCont++;
+      errorCont9=true;
+      unavailable();
     }else if(zip.value.length < 5){
       errorZip.innerHTML = 'El campo de código postal debe contener al menos 5 caracteres';
-      errorCont++;
+      errorCont9=true;
+      unavailable();
     }else if(zip.value.length > 8){
       errorZip.innerHTML = 'El campo de código postal debe contener menos de 8 caracteres';
-      errorCont++;
+      errorCont9=true;
+      unavailable();
     }else{
       errorZip.innerHTML = '';
-      errorCont = 0;
+      errorCont9=false;
+      available();
     }
   });
     
@@ -179,13 +209,16 @@ window.addEventListener('load', function(){
     ciudad.addEventListener("blur", () => {
     if(ciudad.value === ''){
       errorCiudad.innerHTML = 'El campo de ciudad debe estar completo';
-      errorCont++;
+      errorCont10=true;
+      unavailable();
     }else if(ciudad.value.length < 3){
       errorCiudad.innerHTML = 'El campo de ciudad debe contener al menos 3 caracteres';
-      errorCont++;
+      errorCont10=true;
+      unavailable();
     }else{
       errorCiudad.innerHTML = '';
-      errorCont = 0;
+      errorCont10=false;
+      available();
     }
   });
     
@@ -194,13 +227,16 @@ window.addEventListener('load', function(){
     estado.addEventListener("blur", () => {
     if(estado.value === ''){
       errorEstado.innerHTML = 'El campo de estado debe estar completo';
-      errorCont++;
+      errorCont11=true;
+      unavailable();
     }else if(estado.value.length < 3){
       errorEstado.innerHTML = 'El campo de estado debe contener al menos 3 caracteres';
-      errorCont++;
+      errorCont11=true;
+      unavailable();
     }else{
       errorEstado.innerHTML = '';
-      errorCont = 0;
+      errorCont11=false;
+      available();
     }
   });
     
@@ -208,7 +244,27 @@ window.addEventListener('load', function(){
     // prevenir que se envien los datos en caso de un error
     if(errorCont != 0){
       e.preventDefault();
-    }
-    
+    } 
   })
+
+  function unavailable() {
+    if(!boton.classList.contains("unavailable")){
+      boton.style.backgroundColor = '#D9D9D9';
+      boton.classList.add("unavailable");
+    }
+  }
+
+  function available() {
+    if(boton.classList.contains("unavailable")){
+      if(!(errorCont1 || errorCont2 || 
+        errorCont3 || errorCont4 || 
+        errorCont5 || errorCont6 || 
+        errorCont7 || errorCont8 || 
+        errorCont9 || errorCont10 || 
+        errorCont11)){
+        boton.style.backgroundColor = 'white';
+        boton.classList.remove("unavailable");
+      } 
+    }
+  }
 })

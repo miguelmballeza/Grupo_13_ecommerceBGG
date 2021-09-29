@@ -91,6 +91,12 @@ input {
   text-align: center;
 }
 
+#error-password {
+  margin: auto;
+  color: red;
+  text-align: center;
+}
+
 
 @font-face {
   font-family: "fontello";

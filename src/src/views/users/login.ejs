@@ -13,7 +13,7 @@
               <article>
                   <label for="password">Contraseña :</label>
                   <input type="password" name="password" id="password">
-                  <div class="error-password"></div>
+                  <div id="error-password"></div>
               </article>
               <% if(locals && locals.errors) { %>
               <% errors.forEach( error => { %>
@@ -31,6 +31,6 @@
       </section>
     </div>
     <%- include('../partials/footer') %>
+    <script src="../../../js/validations/loginValidation.js"></script>
 </body>
-<script src="../../../js/validations/inicioUsuarioValidacion.js"></script>
 </html>
