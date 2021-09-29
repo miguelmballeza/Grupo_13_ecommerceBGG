@@ -129,3 +129,24 @@ Correspondiente al Sprint 6.-
 	Irnos menos por el lado de que el tiempo decidirá eso cuando podemos seguir trabajando en el desarrollo del tema y poder concretar de mejor manera una idea de diseño o implementación, por ejemplo para tratar el punto escrito en 'Comenzar a hacer'.
 
 	
+Correspondiente al Sprint 7.-
+
+1. Comenzar a hacer .-
+
+	Pensamos que es importante seguir como hemos estado trabajando, de momento no denotamos una particular actividad que deberíamos comenzar a hacer.
+
+2. Hacer más .-
+
+	Ceremonias daily/stand up.
+
+3. Continuar haciendo .-
+
+	Lo mismo que el pasado sprint, seguir con una constante retroalimentación sobre todas las dudas existenciales en el proyecto.
+
+4. Hacer menos .-
+
+	Lo mismo que el pasado sprint, no utilizar prácticas de programación que nos restan, utilizar una forma más homogenea y correcta de codear, para fomentar la mantenilidad, escalabilidad y control sobre nuestros scripts.
+
+5. Dejar de hacer .-
+
+	Ahora si que también lo del SPrint pasado, centrarnos en la importancia de definir con mayor exactitud lo que tenemos y queremos hacer, por ejemplo, en este sprint nos falto más aclaración por parte de nosotros para avanzar eficientemente.
