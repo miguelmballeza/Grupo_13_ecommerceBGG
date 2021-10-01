@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 let { db } = require('../database/models');
 const { Op } = require('sequelize');
+const path = require('path');
 /* 
     Se le asignó nuevamente "let" y no "const" debido a que para eliminar un producto, 
     necesitas hacer una asignación más a la variable de "products" para obtener todos 
@@ -103,7 +104,7 @@ const productsController = {
                     title: "Detalle del Producto",
                     styleSheet: "/css/stylesDetail.css",
                 };
-                const color = await db.colors.findOne({ where : { color_id : req.body.color, attributes: ["color_id"] } });
+                const color = await db.colors.findOne({ where : { color_id : req.body.color} , attributes: ["color_id"] });
                 const type = await db.vinylTypes.findOne({ where : { type_id : req.body.type }, attributes: ["type_id"]  });
                 const recordLabel = await db.recordLabels.findOne({ where : { recordLabel_id : req.body.recordLabel }, attributes: ["recordLabel_id"]  });
                 if(color && type && recordLabel){
@@ -131,6 +132,7 @@ const productsController = {
                     });
                     const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
                     let creation = product ? true : false;
+                    console.log("LLEGO");
                     res.render('products/productDetail', { head, product, creation }); // how can I obtain the logic of creation variable with : redirect('/carrito-de-cormpras');
                 } else {
                     const head = {

@@ -1,9 +1,9 @@
 window.addEventListener('load', function(){
   let formulario = document.querySelector('form.productValidation');
   let boton = document.querySelector("button#submit-product");
-  let errorCont1 = true;
-  let errorCont2 = true;
-  let errorCont3 = true;
+  let errorCont1 = false;
+  let errorCont2 = false;
+  let errorCont3 = false;
     
     // let artista = document.querySelector('#type-album')
     let album = document.querySelector('#album')

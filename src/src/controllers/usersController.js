@@ -1,12 +1,13 @@
 const path = require('path');
 const usersPath = path.resolve(__dirname, '../data/users.json');
 const fs = require('fs');
-const users = require(usersPath);
+// const users = require(usersPath);
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const fetch = require('node-fetch');
 const { db } = require('../database/models');
-
+const countriesPath = path.resolve(__dirname, '../data/countries.json');
+const countries = require(countriesPath);
 const usersController = {
     profile: async function(req, res) {
         const head = {
@@ -20,8 +21,6 @@ const usersController = {
             title: "Editar usuario",
             styleSheet: "/css/stylesUser.css",
         };
-        const countries = await fetch('https://restcountries.eu/rest/v2/all')
-            .then( response => response.json());
         res.render('users/profile', { head, user: req.session.user, editing: true, countries });
     },
     editProfilePost: async function(req, res) {
@@ -58,15 +57,12 @@ const usersController = {
                 title: "Editar usuario",
                 styleSheet: "/css/stylesUser.css",
             };
-            const setting = {
-                "url": "https://api.countrylayer.com/v2/all",
-                "access_key": "bd174d5ea7586c1a363b9b29d915b4dc",
-                "method": "GET",
-                "timeout": 0
-            }
-            const countries = await fetch(setting)
-                .then( response => response.json())
-                .catch((error) => console.log("El errror es : " + error));
+            // const setting = {
+            //     "url": "https://api.countrylayer.com/v2/all",
+            //     "access_key": "bd174d5ea7586c1a363b9b29d915b4dc",
+            //     "method": "GET",
+            //     "timeout": 0
+            // }
             res.render('users/profile', { head, user: req.session.user, editing: true, countries, errors: errors.array() });
         }
     },
@@ -75,9 +71,7 @@ const usersController = {
             title: "Registro",
             styleSheet: "/css/stylesRegister.css",
         };
-        const countries = await fetch('https://restcountries.eu/rest/v2/all')
-            .then( response => response.json());
-        res.render('users/register', { head, newID: users.length + 1, countries });
+        res.render('users/register', { head, newID: req.session.user + 1, countries });
     },
     login: function(req, res) {
         const head = {
@@ -127,8 +121,6 @@ const usersController = {
                             styleSheet: "/css/stylesRegister.css",
                         };
                         const newID = await db.users.findAll({ attributes: ["user_id"] }).length + 1;
-                        const countries = await fetch('https://restcountries.eu/rest/v2/all')
-                            .then( response => response.json());
                         const writtenValues = req.body;
                         res.render('users/register', { head, newID, countries, errors : [ { msg: 'La imagen debe ser formato JPG, JPEG, PNG o GIF.' } ], writtenValues});
                     }
@@ -138,8 +130,6 @@ const usersController = {
                     styleSheet: "/css/stylesRegister.css",
                 };
                 const newID = await db.users.findAll({ attributes: ["user_id"] }).length + 1;
-                const countries = await fetch('https://restcountries.eu/rest/v2/all')
-                    .then( response => response.json());
                 const writtenValues = req.body;
                 res.render('users/register', { head, newID, countries, errors : [ { msg: 'Este correo ya fue registrado.' } ], writtenValues});
             }   
@@ -148,9 +138,7 @@ const usersController = {
                 title: "Registro",
                 styleSheet: "/css/stylesRegister.css",
             };
-            const newID = await db.users.findAll({ attributes: ["user_id"] }).length + 1;
-            const countries = await fetch('https://restcountries.eu/rest/v2/all')
-                .then( response => response.json());
+            const newID = await db.users.findAll({ attributes: ["user_id"] }).length + 1;0
             const writtenValues = req.body;
             res.render('users/register', { head, newID, countries, errors : errors.array(), writtenValues });
         }

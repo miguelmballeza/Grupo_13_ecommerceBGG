@@ -1,8 +1,10 @@
-window.addEventListener('load', function(){
-
+window.addEventListener('load', async function(){
+  // const path = require('path');
+  // const dbPath = path.resolve(__dirname, path.join('..', '..', '/src/database/models'));
+  // const { db } = require(dbPath);
   let formulario = document.querySelector('form#register');
     //varible para verificar si existen errores
-    let errorCont1, errorCont2, errorCont3, errorCont4, errorCont5, errorCont6, errorCont7, errorCont8, errorCont9, errorCont10, errorCont11 = true;
+    let errorCont1, errorCont2, errorCont3, errorCont4, errorCont5, errorCont6, errorCont7, errorCont8, errorCont9, errorCont10, errorCont11 = false;
 
     // declaracion de los datos del formulario
     let nombre = document.querySelector('#firstName');
@@ -23,11 +25,11 @@ window.addEventListener('load', function(){
     let errorNombre = document.querySelector('.error-firstName');
     nombre.addEventListener("blur", () => {
     if(nombre.value === ''){
-      errorNombre.innerHTML = 'El campo de nombre tiene que estar completo';
+      errorNombre.innerHTML = 'El campo de nombre(s) no puede estar vacío.';
       errorCont1=true;
       unavailable();
     }else if(nombre.value.length < 2){
-      errorNombre.innerHTML = 'El campo de nombre tiene que tener al menos 2 caracteres';
+      errorNombre.innerHTML =  'El campo de nombre(s) tiene que tener al menos 2 caracteres';
       errorCont1=true;
       unavailable();
     }else{
@@ -41,11 +43,11 @@ window.addEventListener('load', function(){
     let errorApellido = document.querySelector('.error-lastName');
     apellido.addEventListener("blur", () => {
     if(apellido.value === ''){
-      errorApellido.innerHTML = 'El campo de apellido tiene que estar completo';
+      errorApellido.innerHTML = 'El campo de apellidos no puede estar vacío.';
       errorCont2=true;
       unavailable();
     }else if(apellido.value.length < 2){
-      errorApellido.innerHTML = 'El campo de apellido tiene que tener al menos 2 caracteres';
+      errorApellido.innerHTML = 'El campo de apellidos tiene que tener al menos 2 caracteres.';
       errorCont2=true;
       unavailable();
     }else{
@@ -61,11 +63,11 @@ window.addEventListener('load', function(){
     let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
     correo.addEventListener("blur", () => {
     if(correo.value === ''){
-      errorCorreo.innerHTML = 'El campo de correo tiene que esta completo';
+      errorCorreo.innerHTML = 'El campo de correo no puede estar vacío.';
       errorCont3=true;
       unavailable();
     }else if(!emailRegex.test(correo.value)){
-      errorCorreo.innerHTML = 'Correo no valido';
+      errorCorreo.innerHTML = 'Correo invalido.';
       errorCont3=true;
       unavailable();
     }else{
@@ -73,6 +75,18 @@ window.addEventListener('load', function(){
       errorCont3=false;
       available();
     }
+    // const existent = await db.users.findOne({ where : { email : correo.value } });
+    // if(existent){
+    //   errorCorreo.innerHTML = 'Correo existente en la base de datos.';
+    //   errorCont3=true;
+    //   unavailable();
+    // } else {
+    //   errorCorreo.innerHTML= 'Correo disponible en la base de datos';
+    //   errorCorreo.style.color = 'green';
+    //   errorCont3=false;
+    //   available();
+    // }
+
   });
     
     //validacion contraseña
@@ -141,11 +155,11 @@ window.addEventListener('load', function(){
         errorImagen.innerHTML = 'Formato de imagen invalido';
         errorCont6=true;
         unavailable();
+      }else{
+        errorImagen.innerHTML = '';
+        errorCont6=false;
+        available();
       }
-    }else{
-      errorImagen.innerHTML = '';
-      errorCont6=false;
-      available();
     }
   });
     

@@ -2,8 +2,8 @@ window.addEventListener('load', function(){
 
   let formulario = document.querySelector('form#login');
   let boton = document.querySelector('#submit-button');
-    let errorCont1 = true;
-    let errorCont2 = true;
+    let errorCont1 = false;
+    let errorCont2 = false;
     
     let correo = document.querySelector('#email');
     let password = document.querySelector('#password');

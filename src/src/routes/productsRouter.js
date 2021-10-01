@@ -17,7 +17,7 @@ const registeredProductValidation = [
     body('type').notEmpty().withMessage('El tipo no puede estar vacío.'),
     body('year').notEmpty().withMessage('El año no puede estar vacío.').bail().isNumeric().withMessage('El año debe ser un número valido.').bail().matches('^[1-2][09][0-9][0-9]$').withMessage("El año debe contener un formato valido. [ABCD > 1900]"),
     body('price').notEmpty().withMessage('El precio no puede estar vacío.').bail().isNumeric().withMessage('El precio debe ser un formato valido.').bail().matches('^[0-9]*.[0-9][0-9]$').withMessage("El precio debe tener dos decimales y por lo menos un entero."),
-    body('description').notEmpty().withMessage('La descripción no puede estar vacía.').bail().isLength({ min: 20, max: 140 }).withMessage('La descripción no puede exceder los 140 caracteres.'),
+    body('description').notEmpty().withMessage('La descripción no puede estar vacía.').bail().isLength({ min: 20, max: 140 }).withMessage('La descripción debe tener por lo menos 20 caracteres pero no puede exceder los 140.'),
     body('color').notEmpty().withMessage('Debes de seleccionar un color.'),
     body('pieces').notEmpty().withMessage('Debes de escribir una cantidad de piezas.').bail().isNumeric().withMessage('Las piezas deben de ser un formato valido.').bail().matches('^[0-9]*$').withMessage("El número de piezas puede ser : X, XX ó XXX."),
     body('recordLabel').notEmpty().withMessage('Debes de seleccionar un sello discografico.'),
