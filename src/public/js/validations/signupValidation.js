@@ -3,6 +3,7 @@ window.addEventListener('load', async function(){
   // const dbPath = path.resolve(__dirname, path.join('..', '..', '/src/database/models'));
   // const { db } = require(dbPath);
   let formulario = document.querySelector('form#register');
+  let boton = document.querySelector("button#submit-button");
     //varible para verificar si existen errores
     let errorCont1, errorCont2, errorCont3, errorCont4, errorCont5, errorCont6, errorCont7, errorCont8, errorCont9, errorCont10, errorCont11 = false;
 
@@ -29,7 +30,7 @@ window.addEventListener('load', async function(){
       errorCont1=true;
       unavailable();
     }else if(nombre.value.length < 2){
-      errorNombre.innerHTML =  'El campo de nombre(s) tiene que tener al menos 2 caracteres';
+      errorNombre.innerHTML =  'El campo de nombre(s) tiene que tener al menos 2 caracteres.';
       errorCont1=true;
       unavailable();
     }else{
@@ -98,27 +99,27 @@ window.addEventListener('load', async function(){
     // /[!%&*\s]  la \s es el espacio en blanco
     password.addEventListener("blur", () => {
     if(password.value === ''){
-      errorPassword.innerHTML = 'El campo de la contraseña debe estar completo';
+      errorPassword.innerHTML = 'El campo de la contraseña no puede estar vacío.';
       errorCont4=true;
       unavailable();
     }else if(password.value.length < 7){
-      errorPassword.innerHTML = 'La contraseña debe tener al menos 8 caracteres';
+      errorPassword.innerHTML = 'La contraseña debe contener al menos 8 caracteres.';
       errorCont4=true;
       unavailable();
     }else if(!password.value.match(lowerCase)){
-      errorPassword.innerHTML = 'La contraseña debe contener al menos una letra minúscula';
+      errorPassword.innerHTML = 'La contraseña debe contener al menos una letra minúscula.';
       errorCont4=true;
       unavailable();
     }else if(!password.value.match(upperCase)){
-      errorPassword.innerHTML = 'La contraseña debe contener al menos una letra mayúscula';
+      errorPassword.innerHTML = 'La contraseña debe contener al menos una letra mayúscula.';
       errorCont4=true;
       unavailable();
     }else if(!password.value.match(numbers)){
-      errorPassword.innerHTML = 'La contraseña debe contener al menos un caracter númerico';
+      errorPassword.innerHTML = 'La contraseña debe contener al menos un caracter númerico.';
       errorCont4=true;
       unavailable();
     }else if(!password.value.match(characters)){
-      errorPassword.innerHTML = 'La contraseña debe contener al menos un caracter especial';
+      errorPassword.innerHTML = 'La contraseña debe contener al menos un caracter especial.';
       errorCont4=true;
       unavailable();
     }else{
@@ -132,11 +133,11 @@ window.addEventListener('load', async function(){
     let errorRwPassword = document.querySelector('.error-rwPassword')
     rwPassword.addEventListener("blur", () => {
     if(rwPassword.value === ''){
-      errorRwPassword.innerHTML = 'Debes volver a escribir la contraseña para confírmarla';
+      errorRwPassword.innerHTML = 'Debes escribir nuevamente la contraseña.';
       errorCont5=true;
       unavailable();
     }else if(!rwPassword.value.match(password.value)){
-      errorRwPassword.innerHTML = 'Las contraseñas no coinciden';
+      errorRwPassword.innerHTML = 'Las contraseñas no coinciden.';
       errorCont5=true;
       unavailable();
     }else{
@@ -152,7 +153,7 @@ window.addEventListener('load', async function(){
     imagen.addEventListener("blur", () => {
     if(imagen.value !== ''){
       if(!extensiones.exec(imagen.value)){
-        errorImagen.innerHTML = 'Formato de imagen invalido';
+        errorImagen.innerHTML = 'Formato de imagen invalido.';
         errorCont6=true;
         unavailable();
       }else{
@@ -168,7 +169,7 @@ window.addEventListener('load', async function(){
     let fNac = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
     fNacimiento.addEventListener("blur", () => {
     if(!fNacimiento.value.match(fNac)){
-      errorfNac.innerHTML = 'Debe colocar su cumpleaños';
+      errorfNac.innerHTML = 'Debes colocar una fecha.';
       errorCont7=true;
       unavailable();
     }else{
@@ -182,11 +183,11 @@ window.addEventListener('load', async function(){
     let errorDireccion = document.querySelector('.error-address')
     direccion.addEventListener("blur", () => {
     if(direccion.value === ''){
-      errorDireccion.innerHTML = 'El campo de dirección debe estar completo';
+      errorDireccion.innerHTML = 'El campo de dirección no puede estar vacío.';
       errorCont8=true;
       unavailable();
     }else if(direccion.value.length < 5){
-      errorDireccion.innerHTML = 'La dirección debe contener al menos 5 caracteres';
+      errorDireccion.innerHTML = 'La dirección debe contener al menos 5 caracteres.';
       errorCont8=true;
       unavailable();
     }else{
@@ -200,15 +201,15 @@ window.addEventListener('load', async function(){
     let errorZip = document.querySelector('.error-zip')
     zip.addEventListener("blur", () => {
     if(zip.value === ''){
-      errorZip.innerHTML = 'El campo de código postal debe estar completo';
+      errorZip.innerHTML = 'El campo del código postal debe estar completo.';
       errorCont9=true;
       unavailable();
     }else if(zip.value.length < 5){
-      errorZip.innerHTML = 'El campo de código postal debe contener al menos 5 caracteres';
+      errorZip.innerHTML = 'El campo del código postal debe contener al menos 5 caracteres.';
       errorCont9=true;
       unavailable();
     }else if(zip.value.length > 8){
-      errorZip.innerHTML = 'El campo de código postal debe contener menos de 8 caracteres';
+      errorZip.innerHTML = 'El campo del código postal debe contener menos de 8 caracteres';
       errorCont9=true;
       unavailable();
     }else{
@@ -222,11 +223,11 @@ window.addEventListener('load', async function(){
     let errorCiudad = document.querySelector('.error-city');
     ciudad.addEventListener("blur", () => {
     if(ciudad.value === ''){
-      errorCiudad.innerHTML = 'El campo de ciudad debe estar completo';
+      errorCiudad.innerHTML = 'El campo de ciudad no puede estar vacío.';
       errorCont10=true;
       unavailable();
     }else if(ciudad.value.length < 3){
-      errorCiudad.innerHTML = 'El campo de ciudad debe contener al menos 3 caracteres';
+      errorCiudad.innerHTML = 'El campo de ciudad debe contener al menos 3 caracteres.';
       errorCont10=true;
       unavailable();
     }else{
@@ -256,7 +257,12 @@ window.addEventListener('load', async function(){
     
     formulario.addEventListener('submit', function(e){
     // prevenir que se envien los datos en caso de un error
-    if(errorCont != 0){
+    if(errorCont1 || errorCont2 || 
+      errorCont3 || errorCont4 || 
+      errorCont5 || errorCont6 ||
+      errorCont7 || errorCont8 || 
+      errorCont9 || errorCont10 || 
+      errorCont11){
       e.preventDefault();
     } 
   })
