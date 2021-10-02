@@ -1,50 +1,26 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": "1234567",
-    "database": "vinylecommerce",
-    "host": "127.0.0.1",
+    "username": "b8c9a8ce4ea06e",
+    "password": "6d925f63",
+    "database": "heroku_cf6ceb0fa6d4177",
+    "host": "us-cdbr-east-04.cleardb.com",
     "port": "3306",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "1234567",
-    "database": "vinylecommerce",
-    "host": "127.0.0.1",
+    "username": "b8c9a8ce4ea06e",
+    "password": "6d925f63",
+    "database": "heroku_cf6ceb0fa6d4177",
+    "host": "us-cdbr-east-04.cleardb.com",
     "port": "3306",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "1234567",
-    "database": "vinylecommerce",
-    "host": "127.0.0.1",
+    "username": "b8c9a8ce4ea06e",
+    "password": "6d925f63",
+    "database": "heroku_cf6ceb0fa6d4177",
+    "host": "us-cdbr-east-04.cleardb.com",
     "port": "3306",
     "dialect": "mysql"
-  },
-  "development-A": {
-    "username": "root",
-    "password": "",
-    "database": "vinylecommerce",
-    "host": "127.0.0.1",
-    "port": "3306",
-    "dialect": "mysql"
-  },
-  "test-A": {
-    "username": "root",
-    "password": "",
-    "database": "vinylecommerce",
-    "host": "127.0.0.1",
-    "port": "3306",
-    "dialect": "mysql"
-  },
-  "production-A": {
-    "username": "root",
-    "password": "",
-    "database": "vinylecommerce",
-    "host": "127.0.0.1",
-    "port": "3306",
-    "dialect": "mysql"
-  },
+  }
 };
