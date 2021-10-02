@@ -156,7 +156,6 @@ const usersController = {
                     };
                     req.body.recuerdame ? res.cookie('recuerdame', user.user_id, { maxAge: 300000 }) : '' ;
                     req.session.user = user;
-                    req.session.user.id = user.user_id;
                     res.render('users/profile', { head, user });
                 } else {
                     const head = {

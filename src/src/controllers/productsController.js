@@ -107,8 +107,10 @@ const productsController = {
                 const color = await db.colors.findOne({ where : { color_id : req.body.color} , attributes: ["color_id"] });
                 const type = await db.vinylTypes.findOne({ where : { type_id : req.body.type }, attributes: ["type_id"]  });
                 const recordLabel = await db.recordLabels.findOne({ where : { recordLabel_id : req.body.recordLabel }, attributes: ["recordLabel_id"]  });
+                const products = await db.vinyls.findAll({attributes: ["vinyl_id"]  });
                 if(color && type && recordLabel){
                     await db.vinyls.create({
+                        vinyl_id: parseInt(products.length) + 1,
                         color_id_1: color.color_id,
                         type_id_1 : type.type_id,
                         recordLabel_id_1 : recordLabel.recordLabel_id,
