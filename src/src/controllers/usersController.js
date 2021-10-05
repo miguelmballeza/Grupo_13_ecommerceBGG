@@ -182,6 +182,49 @@ const usersController = {
             res.render('users/login', { head, errors : errors.array(), email });
         }
     },
+    userData: async function(req, res) {
+        if(Number.isInteger(req.params.id)){
+            const user = await db.users.findByPk(req.params.id);
+            if(user){
+                const head = {
+                    title: "Perfil de Usuario",
+                    styleSheet: "/css/stylesUser.css",
+                };
+                res.render('users/userDetail', { head, user });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    APIusers: async function(req, res) {
+        let users = await db.users.findAll({ attributes : ["user_id", "firstName", "lastName", "email"] });
+        let finalUsers = [];
+        users.forEach( user => {
+            finalUsers.push(user.dataValues)
+        });
+        const resultUsers = finalUsers.map( user => {
+            user.detail = "/usuario/" + user.user_id;
+            return user;
+        });
+        const result = { count : users.length, users: resultUsers }
+        res.send(JSON.stringify(result));
+    },
+    APIuser: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const user = await db.users.findByPk(req.params.id, { attributes : ["user_id",
+                                "firstName", "lastName", "email", "image", "birthday",
+                                "address", "zip", "city", "state_1", "country_1", "createdAt", "updatedAt"]});
+            if(user){
+                res.send(JSON.stringify(user));
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
 };
 
 module.exports = usersController;

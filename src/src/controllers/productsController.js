@@ -258,7 +258,37 @@ const productsController = {
         await db.vinyls.destroy( { where: { vinyl_id : id } });
         const products = await db.vinyls.findAll({ include: ["colors"] });
             res.render('products/index', { head, products, deletion: true });  
-    }
+    },
+    APIproducts: async function(req, res) {
+        const products = await db.vinyls.findAll({ attributes : ["vinyl_id", "name", "description"], include : ["songs"] });
+        console.log(products);
+        let finalProducts = [];
+        products.forEach( product => {
+            finalProducts.push(product.dataValues)
+        });
+        const resultProducts = finalProducts.map( product => {
+            product.detail = "/productos/" + product.vinyl_id;
+            return product;
+        });
+        const result = { count : products.length, products: resultProducts }
+        res.send(JSON.stringify(result));
+    },
+    APIproduct: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const product = await db.vinyls.findByPk(req.params.id, { attributes : ["vinyl_id", "name", "description"], include: ["artists", "songs", "bills", "carts"]});
+            const artists = product.artists;
+            const songs = product.songs;
+            const bills = product.bills;
+            const carts = product.carts;
+            if(product){
+                res.send(JSON.stringify(product));
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
 };
 
 module.exports = productsController;
