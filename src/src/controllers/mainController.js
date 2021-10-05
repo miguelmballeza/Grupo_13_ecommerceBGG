@@ -1,5 +1,5 @@
 let { db } = require('../database/models');
-let { sequelize } = require('../database/models');
+const { sequelize } = require('../database/models');
 const mainController = {
     main: async function(req, res) {
         const head = {

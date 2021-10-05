@@ -1,10 +1,7 @@
 const path = require('path');
-const usersPath = path.resolve(__dirname, '../data/users.json');
-const fs = require('fs');
-// const users = require(usersPath);
+const usersImagePath = path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredUsers'));
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const fetch = require('node-fetch');
 const { db } = require('../database/models');
 const countriesPath = path.resolve(__dirname, '../data/countries.json');
 const countries = require(countriesPath);
@@ -183,7 +180,7 @@ const usersController = {
         }
     },
     userData: async function(req, res) {
-        if(Number.isInteger(req.params.id)){
+        if(Number.isInteger(Number(req.params.id))){
             const user = await db.users.findByPk(req.params.id);
             if(user){
                 const head = {
@@ -191,6 +188,25 @@ const usersController = {
                     styleSheet: "/css/stylesUser.css",
                 };
                 res.render('users/userDetail', { head, user });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    userImage: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            let user = await db.users.findByPk(req.params.id, { attributes : ["user_id", "image"] });
+            if(user){
+                user = user.dataValues;
+                const head = {
+                    title: "Foto de Usuario " + user.user_id,
+                    styleSheet: "",
+                };
+                // user.url = `${usersImagePath.toString()}\\${user.image}`;
+                // console.log(user);
+                res.render('users/userImage', { head, user });
             } else {
                 res.status(404).render('inCaseOf/not-found')    
             }
@@ -213,14 +229,19 @@ const usersController = {
     },
     APIuser: async function(req, res) {
         if(Number.isInteger(Number(req.params.id))){
-            const user = await db.users.findByPk(req.params.id, { attributes : ["user_id",
-                                "firstName", "lastName", "email", "image", "birthday",
-                                "address", "zip", "city", "state_1", "country_1", "createdAt", "updatedAt"]});
-            if(user){
-                res.send(JSON.stringify(user));
-            } else {
+            try{
+                const {dataValues : user} = await db.users.findByPk(req.params.id, { attributes : ["user_id",
+                "firstName", "lastName", "email", "image", "birthday",
+                "address", "zip", "city", "state_1", "country_1", "createdAt", "updatedAt"]});
+                if(user){
+                    user.imageURL = `/usuario/image/${user.user_id}`;
+                    res.send(JSON.stringify(user));
+                } else {
+                    res.status(404).render('inCaseOf/not-found')    
+                }
+            }catch(err) {
                 res.status(404).render('inCaseOf/not-found')    
-            }
+            };
         } else {
             res.status(404).render('inCaseOf/not-found')
         }

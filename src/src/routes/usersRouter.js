@@ -87,6 +87,7 @@ router.get('/inicio-de-sesion', usersMiddlewares.existentUserMiddleware, usersCo
 router.get('/perfil', usersMiddlewares.usersMiddleware, usersController.profile);
 router.get('/perfil/editar', usersMiddlewares.usersMiddleware, usersController.editProfile);
 router.get('/:id', usersController.userData);
+router.get('/image/:id', usersController.userImage);
 
 
 router.post('/perfil', logInValidation, usersController.loginPost);

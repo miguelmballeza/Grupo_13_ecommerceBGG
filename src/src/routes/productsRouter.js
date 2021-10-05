@@ -72,6 +72,7 @@ router.get('/busqueda', searchValidation, productsController.search);
 router.get('/crear', usersMiddleware, productsController.createProduct);
 router.get('/:id', productsController.productDetail);
 router.get('/:id/editar', usersMiddleware, productsController.editProduct);
+router.get('/image/:id', productsController.productImage);
 
 router.post('/:id', uploadFile.single('image'), registeredProductValidation, productsController.createProductPost);
 router.put('/:id', editFile.single('image'), updatedProductValidation, productsController.updateProduct);

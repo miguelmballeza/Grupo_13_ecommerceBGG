@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 let { db } = require('../database/models');
 const { Op } = require('sequelize');
 const path = require('path');
+const { sequelize } = require('../database/models');
 /* 
     Se le asignó nuevamente "let" y no "const" debido a que para eliminar un producto, 
     necesitas hacer una asignación más a la variable de "products" para obtener todos 
@@ -259,9 +260,28 @@ const productsController = {
         const products = await db.vinyls.findAll({ include: ["colors"] });
             res.render('products/index', { head, products, deletion: true });  
     },
+    productImage: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            let product = await db.vinyls.findByPk(req.params.id, { attributes : ["vinyl_id", "image"] });
+            console.log("product Image es : " + product);
+            if(product){
+                product = product.dataValues;
+                const head = {
+                    title: "Foto de Producto " + product.vinyl_id,
+                    styleSheet: "",
+                };
+                // user.url = `${usersImagePath.toString()}\\${user.image}`;
+                // console.log(user);
+                res.render('products/productImage', { head, product });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
     APIproducts: async function(req, res) {
         const products = await db.vinyls.findAll({ attributes : ["vinyl_id", "name", "description"], include : ["songs"] });
-        console.log(products);
         let finalProducts = [];
         products.forEach( product => {
             finalProducts.push(product.dataValues)
@@ -270,17 +290,20 @@ const productsController = {
             product.detail = "/productos/" + product.vinyl_id;
             return product;
         });
-        const result = { count : products.length, products: resultProducts }
+
+        const [ vinylTypes ] = await sequelize.query("SELECT B.type_id, B.RPM, B.diameter, B.avg_min_perSide, B.avg_file_size_MP3, B.avg_file_size_WAV, count(A.vinyl_id) AS Count FROM vinyl AS A INNER JOIN vinyl_type AS B ON A.type_id_1 = B.type_id GROUP BY A.type_id_1 ORDER BY A.type_id_1 ASC");
+        let countByCategory = {};
+        vinylTypes.forEach( type => {
+            !countByCategory[type.RPM + " " + type.diameter] ? countByCategory[type.RPM + " " + type.diameter] = type.Count : '';
+        });
+        const result = { count : products.length, countByCategory, products: resultProducts }
         res.send(JSON.stringify(result));
     },
     APIproduct: async function(req, res) {
         if(Number.isInteger(Number(req.params.id))){
-            const product = await db.vinyls.findByPk(req.params.id, { attributes : ["vinyl_id", "name", "description"], include: ["artists", "songs", "bills", "carts"]});
-            const artists = product.artists;
-            const songs = product.songs;
-            const bills = product.bills;
-            const carts = product.carts;
+            const {dataValues : product} = await db.vinyls.findByPk(req.params.id, { include: ["artists", "songs", "bills", "carts"]});
             if(product){
+                product.imageURL = `/productos/image/${product.vinyl_id}`;
                 res.send(JSON.stringify(product));
             } else {
                 res.status(404).render('inCaseOf/not-found')    
