@@ -143,7 +143,6 @@ const usersController = {
     loginPost: async function(req, res) {
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            console.log(req.body.email);
             const user = await db.users.findOne({ where : { email : req.body.email } });
             if(user){
                 if(bcrypt.compareSync(req.body.password, user.password)){
@@ -204,8 +203,6 @@ const usersController = {
                     title: "Foto de Usuario " + user.user_id,
                     styleSheet: "",
                 };
-                // user.url = `${usersImagePath.toString()}\\${user.image}`;
-                // console.log(user);
                 res.render('users/userImage', { head, user });
             } else {
                 res.status(404).render('inCaseOf/not-found')    
@@ -215,17 +212,21 @@ const usersController = {
         }
     },
     APIusers: async function(req, res) {
-        let users = await db.users.findAll({ attributes : ["user_id", "firstName", "lastName", "email"] });
-        let finalUsers = [];
-        users.forEach( user => {
-            finalUsers.push(user.dataValues)
-        });
-        const resultUsers = finalUsers.map( user => {
-            user.detail = "/usuario/" + user.user_id;
-            return user;
-        });
-        const result = { count : users.length, users: resultUsers }
-        res.send(JSON.stringify(result));
+        try{
+            let users = await db.users.findAll({ attributes : ["user_id", "firstName", "lastName", "email"] });
+            let finalUsers = [];
+            users.forEach( user => {
+                finalUsers.push(user.dataValues)
+            });
+            const resultUsers = finalUsers.map( user => {
+                user.detail = "/usuario/" + user.user_id;
+                return user;
+            });
+            const result = { success: true, count : users.length, users: resultUsers }
+            res.send(JSON.stringify(result));
+        }catch(err){
+            res.send(JSON.stringify({ success: false}));   
+        }
     },
     APIuser: async function(req, res) {
         if(Number.isInteger(Number(req.params.id))){
@@ -235,15 +236,16 @@ const usersController = {
                 "address", "zip", "city", "state_1", "country_1", "createdAt", "updatedAt"]});
                 if(user){
                     user.imageURL = `/usuario/image/${user.user_id}`;
+                    user.success = true;
                     res.send(JSON.stringify(user));
                 } else {
-                    res.status(404).render('inCaseOf/not-found')    
+                    res.send(JSON.stringify({ success: false}));   
                 }
-            }catch(err) {
-                res.status(404).render('inCaseOf/not-found')    
+            }catch(err){
+                res.send(JSON.stringify({ success: false}));   
             };
         } else {
-            res.status(404).render('inCaseOf/not-found')
+            res.send(JSON.stringify({ success: false}));   
         }
     },
 };

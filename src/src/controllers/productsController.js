@@ -18,7 +18,6 @@ const productsController = {
         };
         const content = { title : 'Todos los productos' };
         const products = await db.vinyls.findAll({ include: ["colors"] });
-        // console.log("color : " + products[0].colors.value);
         res.render('products/index', { head, products, content });
     },
     search: async function(req, res) {
@@ -135,7 +134,6 @@ const productsController = {
                     });
                     const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
                     let creation = product ? true : false;
-                    console.log("LLEGO");
                     res.render('products/productDetail', { head, product, creation }); // how can I obtain the logic of creation variable with : redirect('/carrito-de-cormpras');
                 } else {
                     const head = {
@@ -263,15 +261,12 @@ const productsController = {
     productImage: async function(req, res) {
         if(Number.isInteger(Number(req.params.id))){
             let product = await db.vinyls.findByPk(req.params.id, { attributes : ["vinyl_id", "image"] });
-            console.log("product Image es : " + product);
             if(product){
                 product = product.dataValues;
                 const head = {
                     title: "Foto de Producto " + product.vinyl_id,
                     styleSheet: "",
                 };
-                // user.url = `${usersImagePath.toString()}\\${user.image}`;
-                // console.log(user);
                 res.render('products/productImage', { head, product });
             } else {
                 res.status(404).render('inCaseOf/not-found')    
@@ -281,35 +276,44 @@ const productsController = {
         }
     },
     APIproducts: async function(req, res) {
-        const products = await db.vinyls.findAll({ attributes : ["vinyl_id", "name", "description"], include : ["songs"] });
-        let finalProducts = [];
-        products.forEach( product => {
-            finalProducts.push(product.dataValues)
-        });
-        const resultProducts = finalProducts.map( product => {
-            product.detail = "/productos/" + product.vinyl_id;
-            return product;
-        });
+        try{
+            const products = await db.vinyls.findAll({ attributes : ["vinyl_id", "name", "description"], include : ["songs"] });
+            let finalProducts = [];
+            products.forEach( product => {
+                finalProducts.push(product.dataValues)
+            });
+            const resultProducts = finalProducts.map( product => {
+                product.detail = "/productos/" + product.vinyl_id;
+                return product;
+            });
 
-        const [ vinylTypes ] = await sequelize.query("SELECT B.type_id, B.RPM, B.diameter, B.avg_min_perSide, B.avg_file_size_MP3, B.avg_file_size_WAV, count(A.vinyl_id) AS Count FROM vinyl AS A INNER JOIN vinyl_type AS B ON A.type_id_1 = B.type_id GROUP BY A.type_id_1 ORDER BY A.type_id_1 ASC");
-        let countByCategory = {};
-        vinylTypes.forEach( type => {
-            !countByCategory[type.RPM + " " + type.diameter] ? countByCategory[type.RPM + " " + type.diameter] = type.Count : '';
-        });
-        const result = { count : products.length, countByCategory, products: resultProducts }
-        res.send(JSON.stringify(result));
+            const [ vinylTypes ] = await sequelize.query("SELECT B.type_id, B.RPM, B.diameter, B.avg_min_perSide, B.avg_file_size_MP3, B.avg_file_size_WAV, count(A.vinyl_id) AS Count FROM vinyl AS A INNER JOIN vinyl_type AS B ON A.type_id_1 = B.type_id GROUP BY A.type_id_1 ORDER BY A.type_id_1 ASC");
+            let countByCategory = {};
+            vinylTypes.forEach( type => {
+                !countByCategory[type.RPM + " " + type.diameter] ? countByCategory[type.RPM + " " + type.diameter] = type.Count : '';
+            });
+            const result = { success: true, count : products.length, countByCategory, products: resultProducts }
+            res.send(JSON.stringify(result));
+        }catch(err){
+            res.send(JSON.stringify({ success: false}));    
+        }
     },
     APIproduct: async function(req, res) {
         if(Number.isInteger(Number(req.params.id))){
-            const {dataValues : product} = await db.vinyls.findByPk(req.params.id, { include: ["artists", "songs", "bills", "carts"]});
-            if(product){
-                product.imageURL = `/productos/image/${product.vinyl_id}`;
-                res.send(JSON.stringify(product));
-            } else {
-                res.status(404).render('inCaseOf/not-found')    
-            }
+            try{
+                const {dataValues : product} = await db.vinyls.findByPk(req.params.id, { include: ["artists", "songs", "bills", "carts"]});
+                if(product){
+                    product.imageURL = `/productos/image/${product.vinyl_id}`;
+                    product.success = true;
+                    res.send(JSON.stringify(product));
+                } else {
+                    res.send(JSON.stringify({ success: false}));   
+                }
+            }catch(err){
+                res.send(JSON.stringify({ success: false}));   
+            }      
         } else {
-            res.status(404).render('inCaseOf/not-found')
+            res.send(JSON.stringify({ success: false}));   
         }
     },
 };
