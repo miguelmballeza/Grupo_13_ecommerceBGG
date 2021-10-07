@@ -1,27 +1,13 @@
 .App {
     display: flex;
+    height: 100%;
 }
 
 #content {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 1000px;
     width: 100%;
     justify-content: flex-start; /*Aqui es donde se cambia para que el footer este hasta abajo.*/
-    background-color: #fafafac6;
-}
-
-#sideBar {
-    display: inline;
-    margin: 0;
-}
-
-#TopBar {
-    display: inline;
-    margin: 0;
-}
-
-#Footer {
-    display: inline;
-    margin: 0;
+    background-color: #e4e4e4c6;
 }

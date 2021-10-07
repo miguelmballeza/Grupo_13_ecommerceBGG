@@ -1,0 +1,42 @@
+#categories {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    height: 50%;
+    border: 1px black solid;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+article h2#categoryTitle {
+    font-size: 12px;
+    align-self: center;
+    height: 14px;
+    width: 90%;
+    margin: 10px auto;
+}
+
+article div#all-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 418px) {
+    #categories {
+        height: 215px;
+    }
+}
+
+@media (min-width: 689px) {
+    #categories {
+        height: 160px;
+    }
+}
+
+@media (min-width: 1130px) {
+    #categories {
+        height: 100px;
+    }
+}

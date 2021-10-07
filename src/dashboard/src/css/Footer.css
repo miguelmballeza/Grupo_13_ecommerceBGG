@@ -27,6 +27,7 @@ footer h2 {
 }
 
 .foot {
+    /* display: block; */
     background-color: #3a3c44;
     height: 180px;
     margin: 0;

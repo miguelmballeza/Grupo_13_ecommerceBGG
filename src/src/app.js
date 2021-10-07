@@ -11,7 +11,7 @@ const app = express();
 
 const publicPATH = path.resolve(__dirname, '../public');
 const viewsPATH = path.resolve(__dirname, './views');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1080;
 
 app.use(express.static(publicPATH));
 app.set('view engine', 'ejs');
