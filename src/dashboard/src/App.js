@@ -1,24 +1,20 @@
 // import logo from './logo.svg';
-import './App.css';
-import './css/App.css';
-import SideBar from './components/SideBar';
-import Footer from './components/Footer';
-import TopBar from './components/TopBar';
-import ContentRowTop from './components/ContentRowTop';
-import ContentWrapper from './components/ContentWrapper';
-
-
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 function App() {
   return (
-    <div className="App">
-      <SideBar id="SideBar" />
-      <div id="content">
-        <TopBar id="TopBar"/>
-        <ContentRowTop />
-        <ContentWrapper />
-        <Footer id="Footer"/>
-      </div>
-    </div>
+    <>
+    <Switch>
+      <Route path="/" exact={true}>
+        <Home home={true} />
+      </Route>
+      <Route path="/listOf" exact={true}>
+        <Home home={false} />
+      </Route>
+
+      <Route component={Home} />
+    </Switch>
+    </>
   );
 }
 

@@ -3,6 +3,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    height: 200px;
+    height: 100px;
     margin: 10px 0;
 }

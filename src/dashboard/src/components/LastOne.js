@@ -11,9 +11,12 @@ export default function LastOne(props){
     return(
         <article id="LastOne">
             <img src="/assets/profilePicture.jpg" alt="Imagen del último." id="imageLastOne"></img>
-            <p id="infoLastOne">{lastOneOf}<br></br><br></br>
+            <div id="title-info">
+            <h2 id="lastOneOf">{lastOneOf}</h2>
+            <p id="infoLastOne">
                 lorem lorem lore mlor emlor emlo re ml oreml orem lo rem lore mlorem lorem lorem lore mlor emlor emlo re ml oreml orem lo rem lore mlorem
             </p>
+            </div>
         </article>
     );
 }

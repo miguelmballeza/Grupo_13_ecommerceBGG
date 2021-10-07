@@ -1,10 +1,9 @@
-import '../css/ListOf.css';
-//This functional component is for the list of users and products.
+import '../css/listOf.css';
 
-export default function ListOf(){
+export default function listOf() {
     return(
-        <article>
-            
+        <article id="listOf-something">
+
         </article>
     );
 }

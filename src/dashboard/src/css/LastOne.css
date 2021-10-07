@@ -14,10 +14,80 @@ article img#imageLastOne {
     border-radius: 50px;
 }
 
+article h2#lastOneOf {
+    font-size: 12px;
+    font-weight: 600;
+}
+
 article p#infoLastOne {
     font-size: 9px;
     align-self: center;
-    height: 80%;
+    height: 75px;
     width: 90%;
-    margin: 15px 15px 15px 15px;
+    margin: 15px 15px 0 5px;
+}
+
+@media (min-width: 768px){
+    div#title-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    article h2#lastOneOf {
+        font-size: 14px;
+    }
+
+    article p#infoLastOne {
+        font-size: 10px;
+        /* height: 100%; */
+        margin: 0;
+    }
+}
+
+@media (min-width: 992px){
+
+    article h2#lastOneOf {
+        align-self: center;
+    }
+    
+    article p#infoLastOne {
+        margin: auto;
+    }
+}
+
+@media (min-width: 992px){
+
+    article h2#lastOneOf {
+        align-self: center;
+    }
+    
+    article p#infoLastOne {
+        margin: auto;
+    }
+}
+
+@media (min-width: 1130px){
+
+    #LastOne {
+        display: flex;
+        width: 44%;
+        height: 270px;
+    }
+    
+    article img#imageLastOne {
+        width: 175px;
+        height: 175px;
+        align-self: center;
+    }
+    
+    article h2#lastOneOf {
+        font-size: 15px;
+    }
+    
+    article p#infoLastOne {
+        font-size: 10px;
+        margin: 15px 15px 0 5px;
+    }
+
 }
