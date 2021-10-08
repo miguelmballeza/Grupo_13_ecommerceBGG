@@ -1,5 +1,6 @@
 let { db } = require('../database/models');
 const { sequelize } = require('../database/models');
+const path = require('path');
 const mainController = {
     main: async function(req, res) {
         const head = {
@@ -37,7 +38,7 @@ const mainController = {
             await db.carts.create({ user_id_2 : req.session.user.user_id, vinyl_id_4 : product.vinyl_id, pieces: 1 });  
         }
         res.redirect('/carrito-de-compras');
-    },
+    }
 };
 
 module.exports = mainController;

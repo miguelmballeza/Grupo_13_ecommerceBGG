@@ -1,7 +1,7 @@
 import '../css/ContentWrapper.css';
-import LastOne from '../components/LastOne';
-import Categories from '../components/Categories';
-import ListOf from './ListOfButton';
+import LastOne from './LastOne';
+import Categories from './Categories';
+import ListOfButton from './ListOfButton';
 
 export default function ContentWrapper() {
     return(
@@ -12,8 +12,8 @@ export default function ContentWrapper() {
             </div>
             <Categories />
             <div id="listsOf">
-                <ListOf listOf="users"   />
-                <ListOf listOf="products"/>
+                <ListOfButton listOf="Users"   />
+                <ListOfButton listOf="Products"/>
             </div>
         </section>
     );

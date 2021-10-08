@@ -1,0 +1,43 @@
+#category {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    border: 1px black solid;
+    margin: 8px 10px;
+    border-radius: 5px;
+    background-color: #4e515a;
+    color: white;
+}
+
+article h2#everyCategoryTitle {
+    font-size: 10px;
+    margin: 4px 0;
+}
+
+article p#totalOfCategory {
+    font-size: 10px;
+    margin: 0;
+}
+
+@media (min-width: 1130px){
+    article h2#everyCategoryTitle {
+        font-size: 12px;
+        margin: 4px 0;
+    }
+    
+    article p#totalOfCategory {
+        font-size: 12px;
+        margin: 0;
+    }   
+
+    #category {
+        display: inline-block;
+        width: 100px;
+        height: 45px;
+        border: 1px black solid;
+        margin: 8px 10px;
+        border-radius: 5px;
+        background-color: #4e515a;
+        color: white;
+    }
+}

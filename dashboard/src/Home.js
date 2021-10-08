@@ -6,10 +6,9 @@ import Footer from './components/Footer';
 import TopBar from './components/TopBar';
 import ContentRowTop from './components/ContentRowTop';
 import ContentWrapper from './components/ContentWrapper';
-import ListOf from './components/ListOf';
+import ListOf from './components/listOf';
 
 function Home(props) {
-  console.log(props)
   return (
     <div id="all">
       <div className="App">
@@ -21,7 +20,7 @@ function Home(props) {
           <ContentWrapper />
           }
           { !props.home &&
-          <ListOf />
+          <ListOf list={props.list} />
           }
           <Footer id="Footer"/>
         </div>

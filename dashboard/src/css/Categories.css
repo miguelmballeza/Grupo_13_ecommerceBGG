@@ -44,7 +44,7 @@ article div#all-categories {
 
 }
 
-@media (min-width: 1130px) {
+@media (min-width: 1325px) {
     #categories {
         height: 100px;
     }

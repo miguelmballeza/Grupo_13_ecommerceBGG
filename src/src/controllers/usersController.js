@@ -235,7 +235,7 @@ const usersController = {
                 "firstName", "lastName", "email", "image", "birthday",
                 "address", "zip", "city", "state_1", "country_1", "createdAt", "updatedAt"]});
                 if(user){
-                    user.imageURL = `/usuario/image/${user.user_id}`;
+                    user.imageURL = `/images/registeredUsers/${user.image}`;
                     user.success = true;
                     res.send(JSON.stringify(user));
                 } else {

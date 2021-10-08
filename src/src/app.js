@@ -22,6 +22,7 @@ app.use(methodOverride('_method'));
 app.use(session({ secret: "bmg_ecommerce" }));
 app.use(cookieParser());
 app.use(userCookie);
+// app.use(corsOptions);
 //app.use(middlewares.logMiddleware);
 
 app.use('/', routers.mainRouter);

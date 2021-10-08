@@ -8,10 +8,12 @@ function App() {
       <Route path="/" exact={true}>
         <Home home={true} />
       </Route>
-      <Route path="/listOf" exact={true}>
-        <Home home={false} />
+      <Route path="/listOfUsers" exact={true}>
+        <Home home={false} path="listOfUsers" list="users"/>
       </Route>
-
+      <Route path="/listOfProducts" exact={true}>
+        <Home home={false} path="listOfProducts" list="products" />
+      </Route>
       <Route component={Home} />
     </Switch>
     </>

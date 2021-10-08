@@ -303,7 +303,7 @@ const productsController = {
             try{
                 const {dataValues : product} = await db.vinyls.findByPk(req.params.id, { include: ["artists", "songs", "bills", "carts"]});
                 if(product){
-                    product.imageURL = `/productos/image/${product.vinyl_id}`;
+                    product.imageURL = `/images/registeredProducts/${product.image}`;
                     product.success = true;
                     res.send(JSON.stringify(product));
                 } else {

@@ -1,5 +1,5 @@
 import '../css/Categories.css';
-import Category from '../components/Category';
+import Category from './Category';
 //this functional component is only for the product categories.
 
 export default function Categories(){
