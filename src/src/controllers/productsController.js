@@ -316,6 +316,61 @@ const productsController = {
             res.send(JSON.stringify({ success: false}));   
         }
     },
+    artists: async function(req, res) {
+        const head = {
+            title: "Artistas",
+            styleSheet: "/css/stylesProducts.css",
+        };
+        const content = { title : 'Todos los artistas' };
+        const artists = await db.artists.findAll({ include: ["colors"]});
+        res.render('products/artists', { head, artists, content });
+    },
+    categories: async function(req, res) {
+        const head = {
+            title: "Categorias",
+            styleSheet: "/css/stylesProducts.css",
+        };
+        const content = { title : 'Todos las categorias' };
+        const categories = await db.vinylTypes.findAll();
+        res.render('products/categories', { head, categories, content });
+    },
+    artist: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const artist = await db.artists.findByPk(req.params.id ,{ attributes: ["fullName"] });
+            if(artist){
+                const head = {
+                    title: "Artista : " + req.params.id,
+                    styleSheet: "/css/stylesProducts.css",
+                };
+                const content = { title : artist.fullName };
+                const [ artistVinyls ] = await sequelize.query("SELECT * FROM vinyl AS a INNER JOIN vinyl_artists AS b ON a.vinyl_id = b.vinyl_id_2 AND b.artist_id_2 = " + req.params.id + " INNER JOIN color AS c ON c.color_id = a.color_id_1");
+                res.render('products/specificArtist', { head, artistVinyls, content });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    category: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const category = await db.vinylTypes.findByPk(req.params.id ,{ attributes: ["RPM", "diameter"] });
+            if(category){
+                const head = {
+                    title: "Categoria : " + req.params.id,
+                    styleSheet: "/css/stylesProducts.css",
+                };
+                const content = { title : "RPM : " + category.RPM + "  Diametro : " + category.diameter };
+                const [ categoryVinyls ] = await sequelize.query("SELECT * FROM vinyl AS a INNER JOIN vinyl_type AS b ON a.type_id_1 = b.type_id AND b.type_id = " + req.params.id + " INNER JOIN color AS c ON c.color_id = a.color_id_1");
+                console.log(categoryVinyls);
+                res.render('products/specificCategory', { head, categoryVinyls, content });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    }
 };
 
 module.exports = productsController;

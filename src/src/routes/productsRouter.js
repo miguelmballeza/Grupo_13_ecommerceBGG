@@ -70,9 +70,14 @@ const editFile = multer({ storage : storageToEdit });
 router.get('/', productsController.index);
 router.get('/busqueda', searchValidation, productsController.search);
 router.get('/crear', usersMiddleware, productsController.createProduct);
+
+router.get('/artistas', productsController.artists);
+router.get('/artistas/:id', productsController.artist);
+router.get('/categorias', productsController.categories);
+router.get('/categorias/:id', productsController.category);
+// router.get('/image/:id', productsController.productImage);
 router.get('/:id', productsController.productDetail);
 router.get('/:id/editar', usersMiddleware, productsController.editProduct);
-router.get('/image/:id', productsController.productImage);
 
 router.post('/:id', uploadFile.single('image'), registeredProductValidation, productsController.createProductPost);
 router.put('/:id', editFile.single('image'), updatedProductValidation, productsController.updateProduct);

@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <section class="first-section">
+        <div id="principal-title"><%= locals && locals.content ? content.title : 'Categoria' %> <i class="fas fa-compact-disc"></i></div>
+    </section>
+    <section class="album-section">
+        <% if(locals && locals.categoryVinyls){ %>
+        <% if(categoryVinyls.length != 0) { %>
+        <% for(let i = 0; i < categoryVinyls.length; i++) { %>
+        <article class="album-home" id="<%= categoryVinyls[i].value %>">
+            <img id="standardImage" src="/images/registeredProducts/<%= categoryVinyls[i].image %>" alt="Imágen de Producto de Artista">
+            <h2><%= categoryVinyls[i].title %></h2>
+            <p><%= categoryVinyls[i].description %></p>
+            <a href="/productos/<%= categoryVinyls[i].vinyl_id %>"><%= categoryVinyls[i].distinctiveMessage %></a>
+        </article>
+        <% } %>
+        <% } else { %>
+            <h2 id="empty">Ningun producto ha sido encontrado.</h2>
+        <% } %>
+        <% } %>
+    </section>
+    <%- include('../partials/footer') %>
+</body>
+</html>
