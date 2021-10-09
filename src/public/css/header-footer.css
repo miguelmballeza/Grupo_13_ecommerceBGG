@@ -73,7 +73,7 @@ button.search {
 
 .menu {
     display: none; /*Menu desaparecido pero ya listo de 360px a 991px*/
-    border-radius: 1.5px;
+    border-radius: 6px;
     width: 200px;
     padding: 0;
     position: absolute;
@@ -94,10 +94,14 @@ button.search {
     margin: 10px;
 }
 
+.menuClicked {
+    display: inline; /*Menu desaparecido pero ya listo de 360px a 991px*/
+}
+
 .searcher {
-    display: flex;
     display: none; /*Busqueda desplegable lista para 360px a 991px*/
-    width: 50%;
+    border-radius: 6px;
+    width: 200px;
     max-width: 250px;
     padding: 0;
     position: absolute;
@@ -107,16 +111,23 @@ button.search {
 }
 
 #searcher-field {
+    display: inline;
     border: none;
-    width: 100%;
+    width: 80%;
+    height: 30px;
 }
 
 #search-field-item {
+    display: inline;
     font-size:20px;
     color:rgb(0, 0, 0);
     padding: 5px;
     border: none;
     background-color: white;
+}
+
+.iconSearchClicked {
+    display: inline;
 }
 
 /* Footer 360 a 575*/
@@ -196,9 +207,9 @@ li a {
 
 @media (min-width: 576px) {
 
-    /* .search {
-        right: 90px
-    } */
+    .searcher {
+        right: 85px;
+    }
 
     button.search {
         right: 90px;
@@ -339,6 +350,14 @@ li a {
         font-size: 14px;
     }
 
+    .menu {
+        display: none;
+        left: 200px;
+    }
+
+    .menuClicked {
+        display: inline; /*Menu desaparecido pero ya listo de 360px a 991px*/
+    }
 }
 
 @media (min-width: 1200px) {

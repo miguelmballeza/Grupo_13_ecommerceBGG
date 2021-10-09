@@ -51,6 +51,10 @@ h1 {
     border-radius: 10px;
 }
 
+.notice-terms-login {
+    color: rgb(104, 0, 208)
+}
+
 article {
     display: flex;
     flex-wrap: wrap;
