@@ -1,10 +1,10 @@
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <h1 id="acc">Cuenta creada</h1>
+    <h1 id="acc"><%= locals.data && data.title ? data.title : 'Faltan datos.' %></h1>
     <section class="confirmation-section"> 
-        <h2 id="greeting">Confirmación de cuenta</h2>
-        <h2 id="message">Tu cuenta ha sido creada de manera exitosa ;)</h2>
+        <h2 id="greeting"><%= locals.data && data.message ? data.message : 'Faltan datos.' %></h2>
+        <h2 id="message"><%= locals.data && data.extra ? data.extra : 'Faltan datos.' %></h2>
     </section>
     <%- include('../partials/footer') %>
 </body>

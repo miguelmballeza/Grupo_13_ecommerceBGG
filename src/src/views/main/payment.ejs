@@ -1,0 +1,98 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <section class="profile-section">
+        <div id="first-container">
+            <!-- <h2 id="acc">Cuenta</h2>
+            <h2 id="acc"><a id="logout" href="#">Cerrar Sesión</a></h2> -->
+        </div>
+        <div id="greeting-and-image">
+            <h2 id="greeting">Comprobante de Pago</h2>
+            <img id="img-after768" src="/images/registeredUsers/<%= user.image %>">
+        </div>
+        <h1>Detalles de la Cuenta :</h1>
+        <!-- <h4 id="edited"><%= locals && locals.edited ? 'Cambios guardados exitosamente.' : '' %></h4> -->
+        <div><h3 class="field">Número de cliente :</h3>
+            
+                <h3 class="info"><%= user.user_id %></h3></div>
+
+        <div><h3 class="field">Nombre(s) : </h3>
+            
+                <h3 class="info"><%= user.firstName%></h3></div>
+            
+        <div><h3 class="field">Apellidos : </h3>
+          
+                <h3 class="info"><%= user.lastName%></h3></div>
+
+        <div><h3 class="field">Correo electrónico :</h3>
+            
+                <h3 class="info"><%= user.email %></h3></div>
+
+        <div><h3 class="field">Contraseña :</h3>
+           
+                <h3 class="info">**** </h3></div>
+
+        <div><h3 class="field">Fecha de nacimiento :</h3>
+           
+                <h3 class="info"><%= user.birthday %></h3></div>
+
+        <div><h3 class="field">Dirección :</h3>
+           
+                <h3 class="info"><%= user.address %></h3></div>
+
+        <div><h3 class="field">CP :</h3>
+            
+                <h3 class="info"><%= user.zip %></h3></div>
+
+        <div><h3 class="field">Ciudad :</h3>
+           
+                <h3 class="info"><%= user.city %></h3></div>
+
+        <div><h3 class="field">Estado :</h3>
+           
+                <h3 class="info"><%= user.state_1 %></h3></div>
+
+        <div><h3 class="field">País :</h3>
+                <h3 class="info"><%= user.country_1 %></h3></div>
+        <!-- <img id="img-before768" src="/images/registeredUsers/<%= user.image %>"> -->
+
+        <h1>Vinilos a punto de comprar :</h1>
+        <% if(locals && locals.vinyls) { %>
+            <div id="container-vinyls">
+            <% vinyls.forEach( (vinyl, index) => { %>      
+                <div id="vinyl-data">
+                    <h3 class="field">Vinilo#<%= index + 1 %></h3><br><br>
+                    <article>
+                        <div><h3 class="field">Número de vinil :</h3>
+                            <h3 class="info"><%= vinyl.vinyl_id %></h3></div>
+
+                        <div><h3 class="field">Tipo :</h3>
+                            <h3 class="info"><%= vinyl.RPM %>   <%= vinyl.diameter %></h3></div>
+
+                        <div><h3 class="field">Nombre del album :</h3>
+                            <h3 class="info"><%= vinyl.name %></h3></div>
+
+                        <div><h3 class="field">Artista(s) :</h3>
+                                <h3 class="info"><%= vinyl.artist %></h3></div>
+
+                        <div><h3 class="field">Año :</h3>
+                            <h3 class="info"><%= vinyl.year %></h3></div>
+
+                        <div><h3 class="field">Precio por pieza :</h3>
+                                <h3 class="info">$<%= vinyl.price %></h3></div>
+        
+                        <div><h3 class="field">Piezas a comprar :</h3>
+                                <h3 class="info"><%= vinyl.piecesBought %></h3></div>
+                    </article><br>
+                </div>
+            <% }) %>
+        </div>
+        <% } %>
+        <h1>Total a pagar : $<%= total  %></h1>
+        <form action="/carrito-de-compras/pagar" method="POST">
+            <button class="payment-button" type="submit">Comprar</button>
+        </form>
+    </section>
+    <%- include('../partials/footer') %>
+</body>
+</html>

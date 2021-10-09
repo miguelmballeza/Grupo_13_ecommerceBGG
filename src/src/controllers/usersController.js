@@ -111,7 +111,8 @@ const usersController = {
                                 country_1 : req.body.country
                             });
                         req.session.user = user;
-                        res.render('users/createdUser', { head });
+                        const data = { title: 'Cuenta creada', message: 'Confirmación de cuenta', extra: 'Tu cuenta ha sido creada de manera exitosa ;)' };
+                        res.render('users/createdUser', { head, data });
                     } else {
                         const head = {
                             title: "Registro",

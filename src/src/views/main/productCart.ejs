@@ -15,17 +15,22 @@
           <div class="info">
             <h2 class="datos"><%= addedProduct.name  %></h2>
             <p class="datos"><%= addedProduct.fullName %></p>
-            <p class="datos"><strong>$<%= addedProduct.price %></strong></p>
+            <p id="album-no"><%= addedProduct.vinyl_id %></p>
+            <p class="datos"><strong id="price" class="price<%= addedProduct.vinyl_id %>">$<%= addedProduct.price %></strong></p>
           </div>
           <div class="cantidad">
             <label for="cantidad-discos">Cantidad</label>
-            <select name="cantidad-discos" id="cantidad-discos">
+            <select name="cantidad-discos" id="cantidad-discos" class="disc-<%= addedProduct.vinyl_id %>">
               <% for(let i = 1; i <= addedProduct.vinylPieces; i++) { %>
-              <option value="<%= i %>" <%= addedProduct.pieces == addedProduct.vinylPieces ? 'selected' : '' %>><%= i %></option>
+                <option value="<%= i %>" <%= addedProduct.pieces == i ? 'selected' : '' %>><%= i %></option>
               <% } %>
             </select>
             <br/>
-            <i class="far fa-trash-alt eliminar"></i>
+            <div>
+              <form action="/carrito-de-compras/<%= addedProduct.vinyl_id %>?_method=DELETE" method="POST">
+                <button id="delete-cart-product" type="submit"><i class="far fa-trash-alt eliminar"></i></button>
+              </form>
+            </div>
           </div>
         </div>
         <% }) %>
@@ -50,8 +55,21 @@
           <br />
           <div class="precio">
             <% if(locals && locals.totalPrice) { %>
-              <p><strong>$<%= totalPrice %></strong></p>
-              <button>Pagar</button>
+              <p><strong id="total-price">$<%= totalPrice %></strong></p>
+              <form id="pagar" action="/carrito-de-compras/pagar" method="GET">
+
+
+
+
+                <% if(locals && locals.addedProducts) { %>
+                  <% addedProducts.forEach( (addedProduct, index) => { %>
+                    <input name="disc-amount-<%= index %>" class="discs" type="text">
+                    <input name="disc-<%= index %>" class="albums-numbers" type="text">
+                  <% }) %>
+                  <input name ="total-to-pay" class="total" type="text">
+                <% } %>
+                <button type="submit">Pagar</button>
+              </form>
             <% } else { %>
               <p><strong>$0.00</strong></p>
               <form action="/productos" method="GET">
@@ -64,6 +82,7 @@
       </div>
 
     </div>
+    <script src="../../../js/cartValidation.js"></script>
     <%- include('../partials/footer') %>
   </body>
 </html>

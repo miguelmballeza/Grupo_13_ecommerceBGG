@@ -17,13 +17,14 @@ window.addEventListener("load", () => {
         }
     });
 
-
-    firstSection.addEventListener("click", () => {
-        menu.classList.remove("menuClicked");
-        searcher.classList.remove("iconSearchClicked");
-    });
-    albumSection.addEventListener("click", () => {
-        menu.classList.remove("menuClicked");
-        searcher.classList.remove("iconSearchClicked");
-    });
+    if(window.location.pathname === '/'){
+        firstSection.addEventListener("click", () => {
+            menu.classList.remove("menuClicked");
+            searcher.classList.remove("iconSearchClicked");
+        });
+        albumSection.addEventListener("click", () => {
+            menu.classList.remove("menuClicked");
+            searcher.classList.remove("iconSearchClicked");
+        });
+    }
 });
