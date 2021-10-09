@@ -3,15 +3,27 @@ const path = require('path');
 const routers = require('./routes/');
 const methodOverride = require('method-override');
 const session = require('express-session');
-//const middlewares = require('./middlewares');
 const cookieParser = require('cookie-parser');
 const userCookie = require('./middlewares/users/userCookieMiddleware');
+const cors = require('cors')
 
 const app = express();
 
 const publicPATH = path.resolve(__dirname, '../public');
 const viewsPATH = path.resolve(__dirname, './views');
 const PORT = process.env.PORT || 1080;
+
+// CORS
+let whitelist = ['https://localhost:1080','http://localhost:3000']
+let corsOptions = {
+  origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+        } else {
+        callback(new Error('Not allowed by CORS'));
+        }
+    }
+}
 
 app.use(express.static(publicPATH));
 app.set('view engine', 'ejs');
@@ -22,8 +34,9 @@ app.use(methodOverride('_method'));
 app.use(session({ secret: "bmg_ecommerce" }));
 app.use(cookieParser());
 app.use(userCookie);
-// app.use(corsOptions);
-//app.use(middlewares.logMiddleware);
+app.use(
+    cors({ origin: 'http://localhost:3000' })
+     );
 
 app.use('/', routers.mainRouter);
 app.use('/productos', routers.productsRouter);
