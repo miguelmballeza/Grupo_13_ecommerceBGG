@@ -12,6 +12,7 @@ function Home(props) {
 
   return (
     <div id="all">
+      <title>Dashboard</title>
       <div className="App">
         <SideBar id="SideBar" />
         <div id="content">

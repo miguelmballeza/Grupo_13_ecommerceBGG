@@ -46,7 +46,7 @@ article div#all-categories {
 
 @media (min-width: 1325px) {
     #categories {
-        height: 100px;
+        height: 110px;
     }
 
     article h2#categoryTitle {

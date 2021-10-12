@@ -28,12 +28,11 @@ export default function ContentWrapper() {
                         url: 'http://localhost:1080/'+img.imageURL
                     })
                 }),
-                products: data.products
+                products: data
             })
         })
     },[])
 
-   
     
     // ultimo Usuario
     useEffect(() => {

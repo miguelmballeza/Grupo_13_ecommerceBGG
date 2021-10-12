@@ -33,7 +33,7 @@ article p#totalOfCategory {
     #category {
         display: inline-block;
         width: 100px;
-        height: 45px;
+        height: 55px;
         border: 1px black solid;
         margin: 8px 10px;
         border-radius: 5px;
