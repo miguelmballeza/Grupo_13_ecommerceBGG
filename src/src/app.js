@@ -24,7 +24,7 @@ app.use(methodOverride('_method'));
 app.use(session({ secret: "bmg_ecommerce" }));
 app.use(cookieParser());
 app.use(userCookie);
-app.use( cors ({ origin: 'localhost:3000' }) );
+app.use( cors ({ origin: 'http://localhost:3000' }) );
 
 app.use('/', routers.mainRouter);
 app.use('/productos', routers.productsRouter);

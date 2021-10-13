@@ -5,7 +5,7 @@ export default function Category(props){
     return(
         <article id="category">
             <h2 id="everyCategoryTitle">{props.name}</h2>
-            <p id="totalOfCategory">{props.count}</p>
+            <p id="totalOfCategory"><b>{props.count}</b></p>
         </article>
     );
 }

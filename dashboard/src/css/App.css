@@ -21,15 +21,15 @@ div#all {
     background-color: #e4e4e4c6;
 }
 
-@media (min-width: 418px){
+@media (min-width: 419px){
     div#all {
         height: 850px;
     }
 }
 
-@media (min-width: 689px){
+@media (min-width: 690px){
     div#all {
-        height: 950px;
+        /* height: 950px; */
     }
 }
 
