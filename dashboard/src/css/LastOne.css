@@ -17,6 +17,7 @@ article img#imageLastOne {
 article h2#lastOneOf {
     font-size: 12px;
     font-weight: 600;
+    margin: 5px 0;
 }
 
 article p#infoLastOne {
@@ -25,6 +26,20 @@ article p#infoLastOne {
     height: 75px;
     width: 90%;
     margin: 15px 15px 0 5px;
+}
+
+div#title-info {
+    margin: auto;
+}
+
+article p#infoLastOne div#particular-information {
+    margin: 0;
+}
+
+article p#infoLastOne div#particular-information p{
+    display: inline;
+    margin: 0;
+    font-weight: bold;
 }
 
 @media (min-width: 768px){
@@ -36,12 +51,16 @@ article p#infoLastOne {
     
     article h2#lastOneOf {
         font-size: 14px;
+        margin: 3px 0;
     }
 
     article p#infoLastOne {
         font-size: 10px;
         /* height: 100%; */
-        margin: 0;
+    }
+
+    article p#infoLastOne div#particular-information {
+        margin: 3px 0;
     }
 }
 
@@ -83,11 +102,20 @@ article p#infoLastOne {
     
     article h2#lastOneOf {
         font-size: 15px;
+        margin: 8px 0;
     }
     
     article p#infoLastOne {
         font-size: 16px;
         margin: 15px 15px 0 5px;
+    }
+
+    article p#infoLastOne div#particular-information {
+        margin: 20px 0;
+    }
+
+    div#title-info {
+        margin: 0;
     }
 
 }

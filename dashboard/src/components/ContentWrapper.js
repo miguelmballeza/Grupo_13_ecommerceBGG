@@ -25,8 +25,9 @@ export default function ContentWrapper() {
                 setImageProduct({ 
                         url: 'http://localhost:1080/'+img.imageURL,
                         artist:  img.artists[0].fullName,
-                        sex: (img.artists[0].sex === 'F') ? 'Femenino' : 'Masculino',
+                        year: img.year,
                         price: img.price,
+                        pieces: img.pieces
                     })
                 }),
             })
@@ -58,12 +59,12 @@ export default function ContentWrapper() {
     },[])
     // console.log("enlace usuario: "+lastUser.detail)
     // console.log(imageProduct.sex)
-    console.log(imageProduct.price)
+    // console.log(imageProduct.price)
     return(
         <section id="ContentWrapper">
             <div id="lastOnes">
-                <LastOne lastOneOf="user" dato= {`${lastUser.firstName} ${lastUser.lastName}`} image={imageUser.url} detail={lastUser.detail} infoFirst={`Nombre: ${lastUser.firstName}`} infoLast={`Apellido: ${lastUser.lastName}`} infoCountry={`País: ${imageUser.country}`} infoBirthday={`Cumpleaños: ${imageUser.birthday}`} infoEmail={`Correo: ${imageUser.email}`}/>
-                <LastOne lastOneOf="product" dato={lastProduct.ultimoProducto}  image={imageProduct.url} detail={lastProduct.detail} info={`Descripción: ${lastProduct.description}`} infoArtist={`Artista: ${imageProduct.artist}`} infoSex={`Sexo: ${imageProduct.sex}`} infoPrice={`Precio: $${imageProduct.price}`}/>
+                <LastOne lastOneOf="user" dato= {`${lastUser.firstName} ${lastUser.lastName}`} image={imageUser.url} detail={lastUser.detail} firstField = "Nombre : " secondField = "Apellido : " thirdField = "País : " fourthField = "Nacimiento : " fifthField = "Email : " infoFirst={`${lastUser.firstName}`} infoLast={`${lastUser.lastName}`} infoCountry={`${imageUser.country}`} infoBirthday={`${imageUser.birthday}`} infoEmail={`${imageUser.email}`}/>
+                <LastOne lastOneOf="product" dato={lastProduct.ultimoProducto}  image={imageProduct.url} detail={lastProduct.detail} firstField = "Descripción : " secondField = "Artista : " thirdField = "Año : " fourthField = "Precio : " info={`${lastProduct.description}`} infoArtist={`${imageProduct.artist}`} infoSex={`${imageProduct.year}`} infoPrice={`${imageProduct.price}`} />
             </div>
             <Categories />
             <div id="listsOf">
