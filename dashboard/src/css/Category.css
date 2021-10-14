@@ -11,15 +11,21 @@
 
 article h2#everyCategoryTitle {
     font-size: 10px;
-    margin: 4px 0;
+    font-weight: 100;
+    margin: 0;
 }
 
 article p#totalOfCategory {
     font-size: 10px;
+    font-weight: 100px;
     margin: 0;
 }
 
-@media (min-width: 1130px){
+article p#totalOfCategory b {
+    font-weight: 600;
+}
+
+@media (min-width: 1326px){
     article h2#everyCategoryTitle {
         font-size: 12px;
         margin: 4px 0;

@@ -44,10 +44,15 @@ article div#all-categories {
 
 }
 
-@media (min-width: 1325px) {
+@media (min-width: 1130px) {
+
     #categories {
         height: 110px;
     }
+
+}
+
+@media (min-width: 1325px) {
 
     article h2#categoryTitle {
         font-size: 15px;
