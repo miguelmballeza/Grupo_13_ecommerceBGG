@@ -7,7 +7,7 @@ export default function Categories(){
     const [category, setCategory] = useState([])
 
     useEffect(() => {
-        fetch('https://ecommercebmg.herokuapp.com/api/products')
+        fetch('https://ecommercebmg.herokuapp.com/api/products',  {mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             setCategory(data.countByCategory)
