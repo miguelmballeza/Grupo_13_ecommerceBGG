@@ -150,3 +150,25 @@ Correspondiente al Sprint 7.-
 5. Dejar de hacer .-
 
 	Ahora si que también lo del SPrint pasado, centrarnos en la importancia de definir con mayor exactitud lo que tenemos y queremos hacer, por ejemplo, en este sprint nos falto más aclaración por parte de nosotros para avanzar eficientemente.
+
+Correspondiente al Sprint 8.-
+
+1. Comenzar a hacer .- 
+
+	De momento considerando que tenemos diferentes responsabilidades y nos hemos encontrado con una buena química durante el proceso, consideramos que de momento la mejor forma de trabajar juntos es seguir como vamos.
+
+2. Hacer más .-
+
+	Ceremonias, al igual que el anterior sprint, daily/stand up-
+
+3. Continuar haciendo .-
+
+	Seguir con la constante retroalimentación con el equipo.
+
+4. Hacer menos .-
+
+	Evitar malas prácticas de programación.
+
+5. Dejar de hacer.-
+
+	Saltarnos el proceso específico de la planeación, como evaluación de las diferentes alternativas para la creación de las páginas faltantes, etc.
