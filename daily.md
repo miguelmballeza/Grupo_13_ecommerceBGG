@@ -32,3 +32,17 @@ Para el Sprint 6.- Como el sprint anterior identificamos ventajas positivas, neg
 	Negativas :
 
 		* Ninguna identificada grupalmente por el momento.
+
+Y finalmente para el Sprint 8, nuestras impresiones son :
+
+	Positivas : 
+
+		* Al igual que el Sprint anterior, nos permite tener esa constante retroalimentación sobre el desarrollo y asi evitar obstaculos más agilmente y en cantidad.
+
+	Neutras : 
+
+		* Falta de disponibilidad por otras responsabilidades.
+
+	Negativas :
+
+		* No resaltamos ninguna que valga la pena enunciar en el presente punto.
