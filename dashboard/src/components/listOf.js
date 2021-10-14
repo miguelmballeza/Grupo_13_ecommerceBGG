@@ -11,7 +11,7 @@ export default function ListOf(props) {
         data = 'productos';
     }
     useEffect(() => {
-        fetch('http://localhost:1080/api/products',{mode: 'cors'})
+        fetch('https://ecommercebmg.herokuapp.com/api/products',{mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             setProductList(data.products)
@@ -20,7 +20,7 @@ export default function ListOf(props) {
     },[])
 
     useEffect(() => {
-        fetch('http://localhost:1080/api/users',{mode: 'cors'})
+        fetch('https://ecommercebmg.herokuapp.com/api/users',{mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             setUserList(data.users)
@@ -39,10 +39,10 @@ export default function ListOf(props) {
                 {
                     (data === 'productos') ? (
                     productList.map((name, i) => (
-                        <li id="ordered-item" key={i}><a href={`http://localhost:1080${name.detail}`} target="_blank" rel="noopener noreferrer" >{name.name}</a></li>
+                        <li id="ordered-item" key={i}><a href={`https://ecommercebmg.herokuapp.com${name.detail}`} target="_blank" rel="noopener noreferrer" >{name.name}</a></li>
                     ))) : (
                         userList.map((name, i) => (
-                            <li id="ordered-item" key={i}><a href={`http://localhost:1080${name.detail}`} target="_blank" rel="noopener noreferrer">{`${name.firstName} ${name.lastName}`}</a></li> 
+                            <li id="ordered-item" key={i}><a href={`https://ecommercebmg.herokuapp.com${name.detail}`} target="_blank" rel="noopener noreferrer">{`${name.firstName} ${name.lastName}`}</a></li> 
                         ))
                     )
                 }

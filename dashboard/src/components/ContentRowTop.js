@@ -8,7 +8,7 @@ export default function ContentRowTop() {
 
     // Productos
     useEffect(() => {
-        fetch('http://localhost:1080/api/products', {mode: 'cors'})
+        fetch('https://ecommercebmg.herokuapp.com/api/products', {mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             // console.log(data.countByCategory);
@@ -23,7 +23,7 @@ export default function ContentRowTop() {
 
     // Usuarios
     useEffect(() => {
-        fetch('http://localhost:1080/api/users', {mode: 'cors'})
+        fetch('https://ecommercebmg.herokuapp.com/api/users', {mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             setUsuarios({

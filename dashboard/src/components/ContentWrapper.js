@@ -12,18 +12,18 @@ export default function ContentWrapper() {
 
     // Ultimo producto
     useEffect(() => {
-        fetch('http://localhost:1080/api/products', {mode: 'cors'})
+        fetch('https://ecommercebmg.herokuapp.com/api/products', {mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             setLastProduct({
                 ultimoProducto: data.products[data.count - 1].name,
                 description: data.products[data.count - 1].description,
-                detail: "http://localhost:1080"+data.products[data.count - 1].detail,
-                imagen:  fetch('http://localhost:1080/api/products/'+(data.count))
+                detail: "https://ecommercebmg.herokuapp.com"+data.products[data.count - 1].detail,
+                imagen:  fetch('https://ecommercebmg.herokuapp.com/api/products/'+(data.count))
                 .then(response => response.json())
                 .then(img => {
                 setImageProduct({ 
-                        url: 'http://localhost:1080/'+img.imageURL,
+                        url: 'https://ecommercebmg.herokuapp.com/'+img.imageURL,
                         artist:  img.artists[0].fullName,
                         year: img.year,
                         price: img.price,
@@ -36,18 +36,18 @@ export default function ContentWrapper() {
     
     // ultimo Usuario
     useEffect(() => {
-        fetch('http://localhost:1080/api/users', {mode: 'cors'})
+        fetch('https://ecommercebmg.herokuapp.com/api/users', {mode: 'cors'})
         .then(response => response.json())
         .then(data => {
             setLastUser({
                 firstName: data.users[data.count - 1].firstName,
                 lastName: data.users[data.count - 1].lastName,
-                detail: "http://localhost:1080"+data.users[data.count - 1].detail,
-                imagen: fetch('http://localhost:1080/api/users/'+data.count)
+                detail: "https://ecommercebmg.herokuapp.com"+data.users[data.count - 1].detail,
+                imagen: fetch('https://ecommercebmg.herokuapp.com/api/users/'+data.count)
                 .then(response => response.json())
                 .then(img => {
                     setImageUser({
-                        url: 'http://localhost:1080/'+img.imageURL,
+                        url: 'https://ecommercebmg.herokuapp.com/'+img.imageURL,
                         country: img.country_1,
                         birthday: img.birthday,
                         email: img.email
