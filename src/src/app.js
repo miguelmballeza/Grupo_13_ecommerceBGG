@@ -24,7 +24,7 @@ app.use(methodOverride('_method'));
 app.use(session({ secret: "bmg_ecommerce" }));
 app.use(cookieParser());
 app.use(userCookie);
-app.use( cors ({ origin: 'https://dashboard-to-ecommercebmg.herokuapp.com/' }) );
+app.use( cors ({ origin: 'https://dashboard-to-ecommercebmg.herokuapp.com' }) );
 
 app.use('/', routers.mainRouter);
 app.use('/productos', routers.productsRouter);
