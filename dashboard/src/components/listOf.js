@@ -30,7 +30,7 @@ export default function ListOf(props) {
 
   
     // console.log(userList.map(names => `${names.firstName} ${names.lastName}`))
-    // console.log(productList.map(name => name.name))
+    // console.log(productList.map((name,i) => (name.name)+' '+ i ))
 
     return(
         <article id="listOf-something">
@@ -38,11 +38,11 @@ export default function ListOf(props) {
             <ol id="ordered-list">
                 {
                     (data === 'productos') ? (
-                    productList.map(name => (
-                        <li id="ordered-item">{name.name}</li>
+                    productList.map((name, i) => (
+                        <li id="ordered-item" key={i}><a href={`http://localhost:1080${name.detail}`} target="_blank" rel="noopener noreferrer" >{name.name}</a></li>
                     ))) : (
-                        userList.map(name => (
-                            <li id="ordered-item">{`${name.firstName} ${name.lastName}`}</li> 
+                        userList.map((name, i) => (
+                            <li id="ordered-item" key={i}><a href={`http://localhost:1080${name.detail}`} target="_blank" rel="noopener noreferrer">{`${name.firstName} ${name.lastName}`}</a></li> 
                         ))
                     )
                 }

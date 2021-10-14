@@ -12,9 +12,21 @@ export default function LastOne(props){
         <article id="LastOne">
             <img src={(props.image)?props.image:"/assets/profilePicture.jpg"} alt="Imagen del último." id="imageLastOne"></img>
             <div id="title-info">
-            <h2 id="lastOneOf">{lastOneOf + ' ' + props.dato}</h2>
+            <h2 id="lastOneOf">{lastOneOf + ' ' } <a href={props.detail} target="_blank" rel="noopener noreferrer">{ props.dato}</a></h2>
             <p id="infoLastOne">
-                {props.info}
+                {props.infoFirst} {props.info}
+                <br>
+                </br>
+                {props.infoLast} {props.infoArtist}
+                <br>
+                </br>
+                {props.infoCountry} {props.infoSex}
+                <br>
+                </br>
+                {props.infoBirthday} {props.infoPrice}
+                <br>
+                </br>
+                {props.infoEmail}
             </p>
             </div>
         </article>

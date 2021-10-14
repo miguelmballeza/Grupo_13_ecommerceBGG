@@ -13,7 +13,6 @@ export default function Categories(){
             setCategory(data.countByCategory)
         })
     },[])
-    console.log(category)
     return(
         <article id="categories">
             <h2 id="categoryTitle">Total de Categorias de Productos:</h2>
