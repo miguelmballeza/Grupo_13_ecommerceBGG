@@ -4,7 +4,7 @@
     <!-- <a class="central-logo" href="/"><img class="central-BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a>-->  
     <h1>Registro de Producto</h1>
     <section class="container">
-        <form action="/productos/<%= length + 1 %>" class="product-register" method="POST" enctype="multipart/form-data">
+        <form action="/productos/<%= length + 1 %>" class="product-register productValidation" method="POST" enctype="multipart/form-data">
             <div class="division">
                 <div class="info">
                     <label for="artists">Selecciona Artista:</label>
@@ -15,11 +15,13 @@
                             <%  }) %>
                         <% } %>
                     </select>
+                    <div class="error-artist"></div>
                     <!-- <input type="text" name="artist" id="name" value="<%= locals && locals.writtenValues ? writtenValues.artist : '' %>" placeholder="Escribelos separados por comas, si no estan..." required> -->
                 </div>
                 <div class="info">
                     <label for="album">Nombre del Album: </label>
-                    <input type="text" name="album" id="album" value="<%= locals && locals.writtenValues ? writtenValues.album : '' %>" required>
+                    <input type="text" name="album" id="album" value="<%= locals && locals.writtenValues ? writtenValues.album : '' %>" >
+                    <div class="error-album"></div>
                 </div>
             </div>
             <div class="division">
@@ -35,28 +37,32 @@
                 </div>
                 <div class="info">
                     <label for="year">Año de lanzamiento: </label>
-                    <input type="number" name="year" id="year" value="<%= locals && locals.writtenValues ? writtenValues.year : '' %>" required>
+                    <input type="number" name="year" id="year" value="<%= locals && locals.writtenValues ? writtenValues.year : '' %>" >
+                    <div class="error-year"></div>
                 </div>
             </div>
             <div class="division">
                 <div class="info">
                     <label for="price">Precio: $</label>
-                    <input type="number" step="0.01" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : '' %>" required>
+                    <input type="number" step="0.01" name="price" id="price" value="<%= locals && locals.writtenValues ? writtenValues.price : '' %>" >
+                    <div class="error-price"></div>
                 </div>
                 <div class="info">
                     <label for="description">Descripción: </label>
                     <!-- <input type="text" name="description" id="description"> -->
-                    <textarea name="description" id="description" cols="40" rows="5" required><%= locals && locals.writtenValues ? writtenValues.description : '' %></textarea>
+                    <textarea name="description" id="description" cols="40" rows="5" ><%= locals && locals.writtenValues ? writtenValues.description : '' %></textarea>
+                    <div class="error-description"></div>
                 </div>
             </div>
             <div class="division" id="three">
                 <div class="info three">
                     <label for="image">Imagen: </label>
                     <input type="file" name="image" id="image">
+                    <div class="error-image"></div>
                 </div>
                 <div class="info three">
                     <label for="color" id="color-selector">Color predominante del album :</label>
-                    <select name="color" id="color-album" required>
+                    <select name="color" id="color-album" >
                         <% if(locals && locals.availableColors) { %>
                             <% availableColors.forEach( colour => { %>
                         <option value="<%= colour.color_id %>" <%= locals && locals.writtenValues && ( writtenValues.color == colour.color_id ) ? 'selected' : '' %> ><%= colour.name %></option>
@@ -66,7 +72,7 @@
                 </div>
                 <div class="info three">
                     <label for="recordLabel" id="record-selector">Sello discográfico del album :</label>
-                    <select name="recordLabel" id="record-album" required>
+                    <select name="recordLabel" id="record-album" >
                         <% if(locals && locals.recordLabels) { %>
                             <% recordLabels.forEach( recordLabel => { %>
                         <option value="<%= recordLabel.recordLabel_id %>" <%= locals && locals.writtenValues && ( writtenValues.recordLabel == recordLabel.recordLabel_id ) ? 'selected' : '' %> ><%= recordLabel.name %></option>
@@ -95,7 +101,7 @@
             </div>
             <div class="info" id="info-pieces">
                 <label for="pieces">Piezas: </label>
-                <input type="number" step="0.01" name="pieces" id="pieces" value="<%= locals && locals.writtenValues ? writtenValues.pieces : '' %>" required>
+                <input type="number" step="0.01" name="pieces" id="pieces" value="<%= locals && locals.writtenValues ? writtenValues.pieces : '' %>" >
             </div>
             <div id="in-case-of-errors">
                 <% if(locals && locals.errors) { %>
@@ -109,4 +115,6 @@
         </form>
     </section>
     <%- include('../partials/footer') %>
+    <script src="../../../js/validations/productValidation.js"></script>
 </body>
+</html>

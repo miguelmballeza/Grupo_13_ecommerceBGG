@@ -42,5 +42,5 @@ https://es.wix.com/website-template/view/html/1633?siteId=f52fc1cd-22a1-499f-981
 Enlace de nuestro tablero de trabajo en Trello :
 https://trello.com/b/VtTaxAo9/e-commercebgg
 
-El Link anterior es actualmente el Tablero activo para la organización de nuestro trabajo del equipo 13, E-commerce BGG, vigente hasta el Sprint 5.
+El Link anterior es actualmente el Tablero activo para la organización de nuestro trabajo del equipo 13, E-commerce BGG, vigente hasta el Sprint 7.
 

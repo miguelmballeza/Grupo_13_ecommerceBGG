@@ -242,6 +242,30 @@ div #pieces {
     width: 60px;
 }
 
+.error-artist {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-album {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-description {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+.error-image {
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
 /* #search { no existe
     margin: 0 auto;
     background-color: white;

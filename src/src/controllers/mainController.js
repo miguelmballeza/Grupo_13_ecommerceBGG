@@ -29,10 +29,6 @@ const mainController = {
         res.render('main/productCart', { head, addedProducts : req.session.addedProducts, totalPrice: req.session.totalPrice });
     },
     cartPost: async function(req, res) {
-        const head = {
-            title: "Producto agregado",
-            styleSheet: "/css/stylesCart.css",
-        };
         const product = await db.vinyls.findByPk(req.params.id);
         const sameProduct = await db.carts.findOne( { where: { user_id_2 : req.session.user.user_id, vinyl_id_4: product.vinyl_id } })
         if(sameProduct){
