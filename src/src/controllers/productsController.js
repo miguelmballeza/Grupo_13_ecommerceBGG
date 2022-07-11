@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 let { db } = require('../database/models');
 const { Op } = require('sequelize');
 const path = require('path');
+const { sequelize } = require('../database/models');
 /* 
     Se le asignó nuevamente "let" y no "const" debido a que para eliminar un producto, 
     necesitas hacer una asignación más a la variable de "products" para obtener todos 
@@ -17,7 +18,6 @@ const productsController = {
         };
         const content = { title : 'Todos los productos' };
         const products = await db.vinyls.findAll({ include: ["colors"] });
-        // console.log("color : " + products[0].colors.value);
         res.render('products/index', { head, products, content });
     },
     search: async function(req, res) {
@@ -134,7 +134,6 @@ const productsController = {
                     });
                     const product = await db.vinyls.findByPk(req.params.id ,{ include: ["artists", "songs"] });
                     let creation = product ? true : false;
-                    console.log("LLEGO");
                     res.render('products/productDetail', { head, product, creation }); // how can I obtain the logic of creation variable with : redirect('/carrito-de-cormpras');
                 } else {
                     const head = {
@@ -258,6 +257,119 @@ const productsController = {
         await db.vinyls.destroy( { where: { vinyl_id : id } });
         const products = await db.vinyls.findAll({ include: ["colors"] });
             res.render('products/index', { head, products, deletion: true });  
+    },
+    productImage: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            let product = await db.vinyls.findByPk(req.params.id, { attributes : ["vinyl_id", "image"] });
+            if(product){
+                product = product.dataValues;
+                const head = {
+                    title: "Foto de Producto " + product.vinyl_id,
+                    styleSheet: "",
+                };
+                res.render('products/productImage', { head, product });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    APIproducts: async function(req, res) {
+        try{
+            const products = await db.vinyls.findAll({ attributes : ["vinyl_id", "name", "description"], include : ["songs"] });
+            let finalProducts = [];
+            products.forEach( product => {
+                finalProducts.push(product.dataValues)
+            });
+            const resultProducts = finalProducts.map( product => {
+                product.detail = "/productos/" + product.vinyl_id;
+                return product;
+            });
+
+            const [ vinylTypes ] = await sequelize.query("SELECT B.type_id, B.RPM, B.diameter, B.avg_min_perSide, B.avg_file_size_MP3, B.avg_file_size_WAV, count(A.vinyl_id) AS Count FROM vinyl AS A INNER JOIN vinyl_type AS B ON A.type_id_1 = B.type_id GROUP BY A.type_id_1 ORDER BY A.type_id_1 ASC");
+            let countByCategory = {};
+            vinylTypes.forEach( type => {
+                !countByCategory[type.RPM + " " + type.diameter] ? countByCategory[type.RPM + " " + type.diameter] = type.Count : '';
+            });
+            const result = { success: true, count : products.length, countByCategory, products: resultProducts }
+            res.send(JSON.stringify(result));
+        }catch(err){
+            res.send(JSON.stringify({ success: false}));    
+        }
+    },
+    APIproduct: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            try{
+                const {dataValues : product} = await db.vinyls.findByPk(req.params.id, { include: ["artists", "songs", "bills", "carts"]});
+                if(product){
+                    product.imageURL = `/images/registeredProducts/${product.image}`;
+                    product.success = true;
+                    res.send(JSON.stringify(product));
+                } else {
+                    res.send(JSON.stringify({ success: false}));   
+                }
+            }catch(err){
+                res.send(JSON.stringify({ success: false}));   
+            }      
+        } else {
+            res.send(JSON.stringify({ success: false}));   
+        }
+    },
+    artists: async function(req, res) {
+        const head = {
+            title: "Artistas",
+            styleSheet: "/css/stylesProducts.css",
+        };
+        const content = { title : 'Todos los artistas' };
+        const artists = await db.artists.findAll({ include: ["colors"]});
+        res.render('products/artists', { head, artists, content });
+    },
+    categories: async function(req, res) {
+        const head = {
+            title: "Categorias",
+            styleSheet: "/css/stylesProducts.css",
+        };
+        const content = { title : 'Todos las categorias' };
+        const categories = await db.vinylTypes.findAll();
+        res.render('products/categories', { head, categories, content });
+    },
+    artist: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const artist = await db.artists.findByPk(req.params.id ,{ attributes: ["fullName"] });
+            if(artist){
+                const head = {
+                    title: "Artista : " + req.params.id,
+                    styleSheet: "/css/stylesProducts.css",
+                };
+                const content = { title : artist.fullName };
+                const [ artistVinyls ] = await sequelize.query("SELECT * FROM vinyl AS a INNER JOIN vinyl_artists AS b ON a.vinyl_id = b.vinyl_id_2 AND b.artist_id_2 = " + req.params.id + " INNER JOIN color AS c ON c.color_id = a.color_id_1");
+                res.render('products/specificArtist', { head, artistVinyls, content });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    category: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const category = await db.vinylTypes.findByPk(req.params.id ,{ attributes: ["RPM", "diameter"] });
+            if(category){
+                const head = {
+                    title: "Categoria : " + req.params.id,
+                    styleSheet: "/css/stylesProducts.css",
+                };
+                const content = { title : "RPM : " + category.RPM + "  Diametro : " + category.diameter };
+                const [ categoryVinyls ] = await sequelize.query("SELECT * FROM vinyl AS a INNER JOIN vinyl_type AS b ON a.type_id_1 = b.type_id AND b.type_id = " + req.params.id + " INNER JOIN color AS c ON c.color_id = a.color_id_1");
+                console.log(categoryVinyls);
+                res.render('products/specificCategory', { head, categoryVinyls, content });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
     }
 };
 

@@ -24,3 +24,29 @@ module.exports = {
     "dialect": "mysql"
   }
 };
+
+//   "development-a": {
+//     "username": "root",
+//     "password": "",
+//     "database": "vinylecommerce",
+//     "host": "127.0.0.1",
+//     "port": "3306",
+//     "dialect": "mysql"
+//   },
+//   "test-a": {
+//     "username": "root",
+//     "password": "",
+//     "database": "vinylecommerce",
+//     "host": "127.0.0.1",
+//     "port": "3306",
+//     "dialect": "mysql"
+//   },
+//   "production-a": {
+//     "username": "root",
+//     "password": "",
+//     "database": "vinylecommerce",
+//     "host": "127.0.0.1",
+//     "port": "3306",
+//     "dialect": "mysql"
+//   }
+// };

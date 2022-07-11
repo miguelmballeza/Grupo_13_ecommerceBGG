@@ -85,6 +85,32 @@ input {
     color: white;
 }
 
+.payment-button {
+    background-color: white;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    display: block;
+    border-radius: 25px;
+    height: 40px;
+    width: 120px;
+    border: solid 1px black;
+    margin: auto;
+}
+
+.payment-button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#container-vinyls {
+    display: flex;
+    flex-direction: column;
+}
+
+#vinyl-data {
+    width: 300px;
+}
+
 #last-container {
     display: flex;
     justify-content: space-evenly;
@@ -184,6 +210,12 @@ h4#edited {
 
     div {
         margin: 0 12px 8px 0;
+    }
+
+    #container-vinyls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
 }

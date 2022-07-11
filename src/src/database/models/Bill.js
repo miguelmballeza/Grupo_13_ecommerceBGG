@@ -7,16 +7,13 @@ const bill = sequelize.define("bills", {
         type: dataTypes.INTEGER, allowNull: false
     },
     coupon_id_1 : {
-        type: dataTypes.INTEGER, allowNull: false
+        type: dataTypes.INTEGER
     },
     state_2 : {
         type: dataTypes.STRING(50), allowNull: false
     },
     country_3 : {
         type: dataTypes.STRING(50), allowNull: false
-    },
-    date: {
-        type: dataTypes.DATE, allowNull: false
     },
     total: {
         type: dataTypes.FLOAT, allowNull: false

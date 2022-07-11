@@ -1,21 +1,25 @@
 <header class="main-header">
-    <a class="hamburguer-button" href="#"><i class="fas fa-bars"></i></a>
+    <div class="hamburguer-button"><i class="fas fa-bars"></i></div>
     <a class="logo" href="/"><img class="BMG" src="/images/logoBMG.png" alt="Logo del Sitio E-commerceBGG"></a> <!--<i class="fas fa-compact-disc"></i>-->
     <form action="/productos/busqueda" method="GET">
         <input type="text" name="search" class="seeker">
-        <button type="submit" class="search"><i class="fas fa-search"></i></button></form>
+        <button type="submit" class="search"><i class="fas fa-search"></i></button>
+    </form>
     <a href="/usuario/inicio-de-sesion" class="user"><i class="far fa-user"></i></a>
     <a class="cart" href="/carrito-de-compras"><i class="fas fa-shopping-cart"></i></a>
 </header>
 <section class="menu">
     <ul id="menu-list">
-        <li id="menu-item">Iniciar Sesión</li>
-        <li id="menu-item">Registrarse</li>
-        <!-- <li id="menu-item">Item Tres</li>
-        <li id="menu-item">Item Cuatro</li>-->
+        <li id="menu-item"><a href="/usuario/inicio-de-sesion">Perfil</a></li>
+        <li id="menu-item"><a href="/usuario/registro">Registrarse</a></li>
+        <li id="menu-item"><a href="/productos">Explorar productos</a></li>
+        <!-- <li id="menu-item"><a href="/bmgrecords">¿Quiénes somos?</a></li> -->
     </ul>
 </section>
 <section class="searcher">
-    <input type="text" id="searcher-field">
-    <button id="search-field-item"><i class="fas fa-search"></i></button>
+    <form action="/productos/busqueda" method="GET">
+        <input name="search" type="text" id="searcher-field">
+        <button type="submit" id="search-field-item"><i class="fas fa-search"></i></button>
+    </form>
 </section>
+<script src="../../../js/headerInteraction.js"></script>

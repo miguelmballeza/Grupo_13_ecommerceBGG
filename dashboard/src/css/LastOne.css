@@ -1,0 +1,121 @@
+#LastOne {
+    display: flex;
+    width: 94%;
+    height: 120px;
+    border: 1px black solid;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+article img#imageLastOne {
+    width:100px;
+    margin: 10px 0 10px 10px;
+    border-radius: 50px;
+}
+
+article h2#lastOneOf {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+article p#infoLastOne {
+    font-size: 9px;
+    align-self: center;
+    height: 75px;
+    width: 90%;
+    margin: 15px 15px 0 5px;
+}
+
+div#title-info {
+    margin: auto;
+}
+
+article p#infoLastOne div#particular-information {
+    margin: 0;
+}
+
+article p#infoLastOne div#particular-information p{
+    display: inline;
+    margin: 0;
+    font-weight: bold;
+}
+
+@media (min-width: 768px){
+    div#title-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    article h2#lastOneOf {
+        font-size: 14px;
+        margin: 3px 0;
+    }
+
+    article p#infoLastOne {
+        font-size: 10px;
+        /* height: 100%; */
+    }
+
+    article p#infoLastOne div#particular-information {
+        margin: 3px 0;
+    }
+}
+
+@media (min-width: 992px){
+
+    article h2#lastOneOf {
+        align-self: center;
+    }
+    
+    article p#infoLastOne {
+        margin: auto;
+    }
+}
+
+@media (min-width: 992px){
+
+    article h2#lastOneOf {
+        align-self: center;
+    }
+    
+    article p#infoLastOne {
+        margin: auto;
+    }
+}
+
+@media (min-width: 1130px){
+
+    #LastOne {
+        display: flex;
+        width: 44%;
+        height: 270px;
+    }
+    
+    article img#imageLastOne {
+        width: 175px;
+        height: 175px;
+        align-self: center;
+    }
+    
+    article h2#lastOneOf {
+        font-size: 15px;
+        margin: 8px 0;
+    }
+    
+    article p#infoLastOne {
+        font-size: 16px;
+        margin: 15px 15px 0 5px;
+    }
+
+    article p#infoLastOne div#particular-information {
+        margin: 20px 0;
+    }
+
+    div#title-info {
+        margin: 0;
+    }
+
+}

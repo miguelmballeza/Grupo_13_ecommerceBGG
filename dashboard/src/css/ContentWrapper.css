@@ -1,0 +1,17 @@
+#ContentWrapper {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    #listsOf {
+        display: flex;
+    }
+}
+
+@media (min-width: 1130px) {
+    #lastOnes {
+        display: flex;
+        flex-direction: row;
+    }
+}

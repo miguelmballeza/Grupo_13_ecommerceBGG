@@ -1,10 +1,10 @@
 const path = require('path');
+const usersImagePath = path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredUsers'));
 const usersPath = path.resolve(__dirname, '../data/users.json');
 const fs = require('fs');
 // const users = require(usersPath);
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const fetch = require('node-fetch');
 const { db } = require('../database/models');
 const countriesPath = path.resolve(__dirname, '../data/countries.json');
 const countries = require(countriesPath);
@@ -114,7 +114,8 @@ const usersController = {
                                 country_1 : req.body.country
                             });
                         req.session.user = user;
-                        res.render('users/createdUser', { head });
+                        const data = { title: 'Cuenta creada', message: 'Confirmación de cuenta', extra: 'Tu cuenta ha sido creada de manera exitosa ;)' };
+                        res.render('users/createdUser', { head, data });
                     } else {
                         const head = {
                             title: "Registro",
@@ -146,7 +147,6 @@ const usersController = {
     loginPost: async function(req, res) {
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            console.log(req.body.email);
             const user = await db.users.findOne({ where : { email : req.body.email } });
             if(user){
                 if(bcrypt.compareSync(req.body.password, user.password)){
@@ -180,6 +180,76 @@ const usersController = {
             };
             const email = req.body.email;
             res.render('users/login', { head, errors : errors.array(), email });
+        }
+    },
+    userData: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            const user = await db.users.findByPk(req.params.id);
+            if(user){
+                const head = {
+                    title: "Perfil de Usuario",
+                    styleSheet: "/css/stylesUser.css",
+                };
+                res.render('users/userDetail', { head, user });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    userImage: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            let user = await db.users.findByPk(req.params.id, { attributes : ["user_id", "image"] });
+            if(user){
+                user = user.dataValues;
+                const head = {
+                    title: "Foto de Usuario " + user.user_id,
+                    styleSheet: "",
+                };
+                res.render('users/userImage', { head, user });
+            } else {
+                res.status(404).render('inCaseOf/not-found')    
+            }
+        } else {
+            res.status(404).render('inCaseOf/not-found')
+        }
+    },
+    APIusers: async function(req, res) {
+        try{
+            let users = await db.users.findAll({ attributes : ["user_id", "firstName", "lastName", "email"] });
+            let finalUsers = [];
+            users.forEach( user => {
+                finalUsers.push(user.dataValues)
+            });
+            const resultUsers = finalUsers.map( user => {
+                user.detail = "/usuario/" + user.user_id;
+                return user;
+            });
+            const result = { success: true, count : users.length, users: resultUsers }
+            res.send(JSON.stringify(result));
+        }catch(err){
+            res.send(JSON.stringify({ success: false}));   
+        }
+    },
+    APIuser: async function(req, res) {
+        if(Number.isInteger(Number(req.params.id))){
+            try{
+                const {dataValues : user} = await db.users.findByPk(req.params.id, { attributes : ["user_id",
+                "firstName", "lastName", "email", "image", "birthday",
+                "address", "zip", "city", "state_1", "country_1", "createdAt", "updatedAt"]});
+                if(user){
+                    user.imageURL = `/images/registeredUsers/${user.image}`;
+                    user.success = true;
+                    res.send(JSON.stringify(user));
+                } else {
+                    res.send(JSON.stringify({ success: false}));   
+                }
+            }catch(err){
+                res.send(JSON.stringify({ success: false}));   
+            };
+        } else {
+            res.send(JSON.stringify({ success: false}));   
         }
     },
 };

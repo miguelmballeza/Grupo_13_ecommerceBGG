@@ -1,0 +1,34 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <section class="first-section">
+        <div id="principal-title"><%= locals && locals.content ? content.title : 'Artistas ' %> <i class="fas fa-compact-disc"></i></div>
+    </section>
+    <% if(locals && locals.deletion) { %>
+        <section class="deletion-section">
+            <div id="principal-title-deletion">Categoria Eliminada con Éxito</div>
+        </section>
+    <% } %>
+    <section class="album-section">
+        <% if(locals && locals.categories){ %>
+        <% if(categories.length != 0) { %>
+        <% for(let i = 0; i < categories.length; i++) { %>
+        <article class="album-home" id="black">
+            <img id="standardImage" src="/images/registeredArtists/variousArtists.png" alt="Imágen de Artista">
+            <h2>RPM : <%= categories[i].RPM %> Diametro : <%= categories[i].diameter %></h2>
+            <p>
+                Promedio de minutos por cara : <%= categories[i].avg_min_perSide %><br><br>
+                Promedio del tamaño de archivo<br> MP3 por cara : <%= categories[i].avg_file_size_MP3 %><br><br>
+                Promedio del tamaño de archivo<br> WAV por cara : <%= categories[i].avg_file_size_WAV %>
+            </p>
+            <a href="/productos/categorias/<%= categories[i].type_id %>">-> Ver vinilos de este tipo</a>
+        </article>
+        <% } %>
+        <% } else { %>
+            <h2 id="empty">Ninguna clasificación ha sido encontrada.</h2>
+        <% } %>
+        <% } %>
+    </section>
+    <%- include('../partials/footer') %>
+</body>
+</html>

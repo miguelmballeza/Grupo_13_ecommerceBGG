@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <section class="first-section">
+        <div id="principal-title"><%= locals && locals.content ? content.title : 'Artistas ' %> <i class="fas fa-compact-disc"></i></div>
+    </section>
+    <% if(locals && locals.deletion) { %>
+        <section class="deletion-section">
+            <div id="principal-title-deletion">Artista Eliminado con Éxito</div>
+        </section>
+    <% } %>
+    <section class="album-section">
+        <% if(locals && locals.artists){ %>
+        <% if(artists.length != 0) { %>
+        <% for(let i = 0; i < artists.length; i++) { %>
+        <article class="album-home" id="<%= artists[i].colors.value %>">
+            <img id="standardImage" src="/images/registeredArtists/<%= artists[i].image %>" alt="Imágen de Artista">
+            <h2><%= artists[i].title %></h2>
+            <p><%= artists[i].description %></p>
+            <a href="/productos/artistas/<%= artists[i].artist_id %>"><%= artists[i].distinctiveMessage %></a>
+        </article>
+        <% } %>
+        <% } else { %>
+            <h2 id="empty">Ningun artista ha sido encontrado.</h2>
+        <% } %>
+        <% } %>
+    </section>
+    <%- include('../partials/footer') %>
+</body>
+</html>
