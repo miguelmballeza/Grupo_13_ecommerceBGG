@@ -24,6 +24,7 @@ app.use(cookieParser());
 app.use(userCookie);
 app.use( cors ({ origin: 'https://dashboard-to-ecommercebmg.herokuapp.com' }) );
 
+
 app.use('/', routers.mainRouter);
 app.use('/productos', routers.productsRouter);
 app.use('/usuario', routers.usersRouter);
