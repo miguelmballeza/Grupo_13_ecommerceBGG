@@ -151,6 +151,7 @@ Correspondiente al Sprint 7.-
 
 	Ahora si que también lo del SPrint pasado, centrarnos en la importancia de definir con mayor exactitud lo que tenemos y queremos hacer, por ejemplo, en este sprint nos falto más aclaración por parte de nosotros para avanzar eficientemente.
 
+
 Correspondiente al Sprint 8.-
 
 1. Comenzar a hacer .- 

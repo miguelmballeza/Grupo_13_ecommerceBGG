@@ -1,5 +1,8 @@
 const path = require('path');
 const usersImagePath = path.resolve(path.join(__dirname, '..', '..' ,'/public/images/registeredUsers'));
+const usersPath = path.resolve(__dirname, '../data/users.json');
+const fs = require('fs');
+// const users = require(usersPath);
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { db } = require('../database/models');
